@@ -1,0 +1,10 @@
+Up to 14/11
+[more to follow, copying from notebook]
+Created Github repository. ('C++ ignores')
+
+24/11
+Setting up RSA etc to identify working PC.
+Cloned my repository, adding log so far.
+
+
+
