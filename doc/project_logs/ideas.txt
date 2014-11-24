@@ -6,6 +6,7 @@ Update the 'description, file structure' logs when adding the content instead of
 
 Soon:
 Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or something automatic)
+If I keep up 'log per section' ("OpenWRT on router" separate to "BA port to router", etc), each one will only be a couple days long. Rethink structure.
 
 24/11
 Starting this 'notes to self' log - anything "for the next time I work", or "it'd be nice to do this"

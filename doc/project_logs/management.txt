@@ -4,8 +4,11 @@ Main log - which areas I'm working on today, plus changes to Git structure
 Up to 14/11
 [more to follow, copying from notebook]
 Created Github repository. ('C++ ignores')
+blackadder-on-pc: Started, up to 'installed Click on PC'.
+openwrt-on-router: Started, did not get far.
 
 24/11
 Setting up RSA etc to identify working PC.
 Cloned my repository, adding log so far.
 Designing log files in more detail e.g. "a description of every file", "notes to self"
+Copied out notebook logs in 'Up to 14/11'.

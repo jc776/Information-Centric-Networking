@@ -1,9 +1,11 @@
 File descriptions and directory structure
 -----
-
-README.md                           Title, nothing else yet.
-doc/                                All documentation: Progress, dissertation, cleaned up deployment guides, etc
-	project_logs/               Recording anything done/tried solutions per section/feature/milestone
-		directories.txt     File descriptions and directory structure
-		ideas.txt           Notes to self - plans/ideas for next time and future
-		management.txt      Main log      - which areas I'm working on today, plus changes to Git structure
+												a
+README.md                                       Title, nothing else yet.
+doc/                                            All documentation: Progress, dissertation, cleaned up deployment guides, etc
+	project_logs/                               Recording anything done/tried solutions per section/feature/milestone
+		blackadder-on-pc.txt                    Installing Blackadder and dependencies on local desktop.
+		openwrt-on-router.txt                   Installing basic OpenWRT on a router, not including Blackadder port.
+		directories.txt                         File descriptions and directory structure
+		ideas.txt                               Notes to self - plans/ideas for next time and future
+		management.txt                          Main log      - which areas I'm working on today, plus changes to Git structure
