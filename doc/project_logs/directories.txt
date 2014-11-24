@@ -1,6 +1,9 @@
+File descriptions and directory structure
+-----
+
 README.md                           Title, nothing else yet.
-doc/                                All documentation: Progress, dissertation, cleaned up deployment guides, etc.
-	project_logs/               Recording anything done/tried solutions per section/feature/milestone.
-		directories.txt     Directory structure and file descriptions
-		ideas.txt           Notes to self: ideas for 'next time I work' and 'far future'
-		management.txt      Currently 'anything done to git'
+doc/                                All documentation: Progress, dissertation, cleaned up deployment guides, etc
+	project_logs/               Recording anything done/tried solutions per section/feature/milestone
+		directories.txt     File descriptions and directory structure
+		ideas.txt           Notes to self - plans/ideas for next time and future
+		management.txt      Main log      - which areas I'm working on today, plus changes to Git structure

@@ -1,3 +1,6 @@
+Notes to self - plans/ideas for next time and future
+-----
+
 All the time:
 Update the 'description, file structure' logs when adding the content instead of a later time.
 
@@ -6,9 +9,9 @@ Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or so
 
 24/11
 Starting this 'notes to self' log - anything "for the next time I work", or "it'd be nice to do this"
+Add/keep file structure description to top of files
 
-Next time:
-Add/keep file structure description to top of files.
+Next time I work:
 
 Research/Far future:
 All logs into some 'organizer' program eg 'lines of text per date, coloured/hidden per log'.

@@ -1,3 +1,6 @@
+Main log - which areas I'm working on today, plus changes to Git structure
+-----
+
 Up to 14/11
 [more to follow, copying from notebook]
 Created Github repository. ('C++ ignores')
