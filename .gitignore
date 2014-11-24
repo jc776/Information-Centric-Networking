@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# GEdit - backup files
+*~
