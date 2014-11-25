@@ -12,3 +12,8 @@ Setting up RSA etc to identify working PC.
 Cloned my repository, adding log so far.
 Designing log files in more detail e.g. "a description of every file", "notes to self"
 Copied out notebook logs in 'Up to 14/11'.
+
+25/11
+(blackadder-on-pc)
+Got Blackadder & Click installed together.
+Writing specific instructions/commands to install Blackadder 'with ns3, at user level'.

@@ -5,81 +5,87 @@ Summary
 -----
 Dependency 'Click' compiles and responds to a test command.
 
+Instructions
+-----
+Cleanly installing Blackadder and its dependencies (Click Modular Router, others from apt-get)
+* In user-owned folders: Self-contained, easy to delete, doesn't spread files/dependencies across OS.
+* As a result, currently doesn't need sudo to install or run.
+* Installing with ns3 support.
+
+* I'm attempting to explain 'new' command switches/differences to HowTo.
+
+Based off Blackadder's "HowTo.pdf" and other sources.
+
+Create working folders
+* $HOME/.../repos
+* $HOME/.../builds
+
+Installing dependencies for Click
+	sudo apt-­‐get install
+	  libtool
+	  autoconf
+	  automake
+	  libigraph0
+	  libigraph0-­‐dev
+	  libconfig++8	
+	  libconfig++8-­‐dev	
+	  libtclap-­‐dev	
+	  libboost-­‐graph-­‐dev
+* I got a note "regex selecting libconfig8".
+
+Clone repositories
+	(repos)
+	git clone https://github.com/kohler/click
+	git clone https://github.com/fp7-pursuit/blackadder.git
+	
+Creating a symbolic link
+	(repos/click/elements)
+	mkdir blackadder
+	ln -s $HOME/.../repos/blackadder/src $HOME/.../click/elements/blackadder
+	* Local paths can be strange for links, I specified the whole path.
+	* Need to create the directory before setting the link, otherwise console errors.
+
+Compile and install Click Modular Router.
+	(repos/click)
+	./configure --enable-nsclick --enable-blackadder --disable-linuxmodule --prefix=$HOME/.../builds/click
+	* nsclick: Installing with ns3 support.
+	* linuxmodule: Installing 'at user level'.
+	* prefix: Installing in user-owned folders.
+	
+	* In console: "--enable-blackadder not recognised"
+	* Despite the warning, "--enable-*" is a separate option in the script, so I think this is still necessary.
+	* "/elements/blackadder" still shows up during 'make'.
+
+	(repos/click)
+	make -j4
+	* j4 is "run 4 jobs in parallel" - it's a little slow otherwise.
+	
+	make install
+	* Shouldn't need sudo due to configure options. (Differs to HowTo)
+
+Compile and install Blackadder
+	(repos/blackadder/src)
+	* Note "/src".
+	
+	autoconf
+	* No visible effect, but I think it rewrites ./configure.
+	
+	./configure --disable-linuxmodule --with-click=$HOME/.../builds/click --prefix=$HOME/.../builds/click
+	* linuxmodule: Installing at user level.
+	* with-click: Locating dependencies.
+	* prefix: This is the same directory as click: 'Installing' will put a single library file into Click's structure.
+	
+	make -j4
+	make install
+	
 Log
 -----
 Up to 14/11
-	* Following Blackadder's 'HowTo.pdf'.
-	
-	First attempt, "Quickstart"
-		git clone https://github.com/kohler/click
-		./configure --enable-nsclick --enable-blackadder (suggested)
-			* Will be using ns3 bindings and blackadder.
-			* "--enable-blackadder" is not recognised.
-		./configure --enable-nsclick
-			* '/boot/.../...-38-generic exists, but is unreadable'
-			* Needs access to kernel/boot.
-		sudo ./configure --enable-nsclick
-			* Works OK.
-		make (suggested)
-			* Calls ./configure (weird Makefile structure), fails with 'unreadable' again.
-		sudo make
-			* Works OK, but I'd prefer a solution without sudo to follow guide better.
-		sudo make install
-			* This put a lot of files (not just executable) into /usr/local/bin.
-			
-		Install Blackadder's dependencies:
-			sudo apt-get install ... (7 things)
-				* libconfig++8 libconfig++8-dev gave message 'regex select libconfig8-dev'.
-			* OK so far.
-		
-		Install Blackadder core:
-			clone Blackadder repository
-			blackadder/src:
-			autoconf
-			./configure
-			make
-				* Very slow. "make -j4" is parallel/faster and equivalent.
-			sudo make install
-				* Tons of 'sed' errors followed by 'no such file'.
-			* Shutting down PC gave a "wrong MAC address" error, may be unrelated.
-	* Sort of worked, but I don't like the number of commands that are sudo when the instructions aren't.
-	
-	Second attempt: "Installing Click" instructions
-		* Disabling "kernel module" as it might reduce the number of sudo commands needed.
-		sudo make uninstall
-		* Later, I forgot to do this before deleting local repository... I'm not sure how to get all the bits of libraries out of the OS.
-		
-		./configure --disable-linuxmodule
-			* Failed with 'permission denied'.
-			* The sudo ./configure probably created files as root which I can't remove.
-		
-		* Deleted local repository.
-		
-		clone click repository
-		./configure --disable-linuxmodule
-		* These instructions omit 'make'.
-		sudo make install
-		
-		clone blackadder repository
-		
-		mkdir click/elements/blackadder
-		ln -s blackadder/src click/elements/blackadder
-		(click) ./configure --enable-nsclick --enable-blackadder --disable-linuxmodule
-			* --disable-blackadder isn't recognised.
-		(click) ./configure --enable-nsclick --disable-linuxmodule
-			* "blackadder" dir is errored.
-			* Made some mistakes setting up symbolic links.
-			
-		(blackadder) autoconf
-			* "autoconf: error: no input file"
-		Instructions: ./configure -­‐with‐click=/path/to/binaries –prefix=/path/to/binaries
-			* make creates the binaries in a directory userlevel/	
-			* 'path to binaries': This is where 'install' will copy the binaries.
-		(blackadder) ./configure --with-click=$HOME/...../builds/blackadder/ -prefix=$HOME/...../builds/blackadder/
-			* "./configure: No such file or directory."
-			* Probably because autoconf didn't work.
-		
-	Third attempt: "Installing Click" instructions
+	Following Blackadder's 'HowTo.pdf'.
+	Several attempts to install, I got Click to install by itself and respond to test commands.
+
+25/11
+	Got Blackadder & Click installed together. See instructions at top.
 	
 		
 		
