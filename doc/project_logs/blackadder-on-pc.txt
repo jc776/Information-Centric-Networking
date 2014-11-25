@@ -1,20 +1,28 @@
-Installing Blackadder and dependencies on local desktop.
+Installing Blackadder, its dependencies, NS3 and running an example on local desktop.
 -----
 
 Summary
 -----
-Dependency 'Click' compiles and responds to a test command.
+Installed:
+	Blackadder
+	Click (w/ Blackadder support, NS3 support)
+	Blackadder's C++ library
+	Blackadder's other language libraries
+	NS3
 
 Instructions
 -----
 Cleanly installing Blackadder and its dependencies (Click Modular Router, others from apt-get)
 * In user-owned folders: Self-contained, easy to delete, doesn't spread files/dependencies across OS.
-* As a result, currently doesn't need sudo to install or run.
+* It doesn't need sudo to install.
+* It still needs sudo to run as it tries to access e.g. Ethernet ports. Joining "dialout" group might allow running without admin?
 * Installing with ns3 support.
 
-* I'm attempting to explain 'new' command switches/differences to HowTo.
-
 Based off Blackadder's "HowTo.pdf" and other sources.
+Basically, this is a runthrough of "Quickstart" and other sections with modifications that worked for me.
+I'm attempting to explain 'new' command switches/differences to HowTo.
+
+You'll need to change file paths to the chosen folders, but all other options should be OK.
 
 Create working folders
 * $HOME/.../repos
@@ -41,7 +49,7 @@ Clone repositories
 Creating a symbolic link
 	(repos/click/elements)
 	mkdir blackadder
-	ln -s $HOME/.../repos/blackadder/src $HOME/.../click/elements/blackadder
+	ln -s $HOME/.../repos/blackadder/src $HOME/.../repos/click/elements/blackadder
 	* Local paths can be strange for links, I specified the whole path.
 	* Need to create the directory before setting the link, otherwise console errors.
 
@@ -59,6 +67,7 @@ Compile and install Click Modular Router.
 	(repos/click)
 	make -j4
 	* j4 is "run 4 jobs in parallel" - it's a little slow otherwise.
+	* The "mkminidriver" program mentioned in HowTo would speed this up, but needs to know exactly which 'click elements' are used in a simulation.
 	
 	make install
 	* Shouldn't need sudo due to configure options. (Differs to HowTo)
@@ -77,6 +86,35 @@ Compile and install Blackadder
 	
 	make -j4
 	make install
+	
+Click and its Blackadder module is now installed.
+
+Running Blackadder
+	* From the HowTo section.
+	* This is just testing to see if Click & Blackadder give console output, not necessary to deploy.
+	Create .../builds/click/conf
+	Copy .../repos/blackadder/src/sample.conf to there
+	Rename it to blackadder_sample.conf
+	
+	(builds/click)
+	sudo ./bin/click conf/blackadder_sample.conf
+	* For me, this fails without sudo when it tries to access the Ethernet port.
+	
+	* Runs until you quit (Ctrl+C)
+	* Console output in blackadder-on-pc-test1.log
+
+
+Installing NS3
+	* Presumably, this makes the "Blackadder model" components available in NS3.
+	* I'll check this later for "blackadder-on-ns3".
+	
+
+
+Running an NS3+Click example
+
+
+Install Blackadder User Library
+
 	
 Log
 -----

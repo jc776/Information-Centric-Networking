@@ -13,6 +13,7 @@ Starting this 'notes to self' log - anything "for the next time I work", or "it'
 Add/keep file structure description to top of files
 
 Next time I work:
+(Week 4) "installing ns3" included the 'blackadder example' components, see if these are available in ns3 itself.
 
 Research/Far future:
 All logs into some 'organizer' program eg 'lines of text per date, coloured/hidden per log'.
