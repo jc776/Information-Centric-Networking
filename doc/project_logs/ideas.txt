@@ -2,18 +2,34 @@ Notes to self - plans/ideas for next time and future
 -----
 
 All the time:
-Update the 'description, file structure' logs when adding the content instead of a later time.
+	Update the 'description, file structure' logs when adding the content instead of a later time.
 
-Soon:
-Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or something automatic)
-If I keep up 'log per section' ("OpenWRT on router" separate to "BA port to router", etc), each one will only be a couple days long. Rethink structure.
 
-24/11
-Starting this 'notes to self' log - anything "for the next time I work", or "it'd be nice to do this"
-Add/keep file structure description to top of files
 
 Next time I work:
-(Week 4) "installing ns3" included the 'blackadder example' components, see if these are available in ns3 itself.
+
+Soon:
+	Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or something automatic)
+	If I keep up 'log per section' ("OpenWRT on router" separate to "BA port to router", etc), each one will only be a couple days long. Rethink structure.
+	Not yet tested:                                     Will do at stage:
+		Installing NS3, so Click NS3 support            Creating NS3 components ('are Click components there')
+		In NS3: Blackadder 'example' components         Creating NS3 components ('are Blackadder components there')
+		Java binding                                    Blackadder on Android and/or Blackadder Java Applications
+		Python binding                                  If useful for NS3
+		C binding                                       If useful for applications
+	Instructions for "Building programs with ___"       When I make or run C++, Java, C? examples.
+
 
 Research/Far future:
-All logs into some 'organizer' program eg 'lines of text per date, coloured/hidden per log'.
+	All logs into some 'organizer' program eg 'lines of text per date, coloured/hidden per log'.
+
+
+
+Completed ideas:
+	24/11
+		Starting this 'notes to self' log - anything "for the next time I work", or "it'd be nice to do this"
+	
+	25/11
+		Added file structure description to top of files
+	
+	26/11

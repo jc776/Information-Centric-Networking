@@ -17,3 +17,8 @@ Copied out notebook logs in 'Up to 14/11'.
 (blackadder-on-pc)
 Got Blackadder & Click installed together.
 Writing specific instructions/commands to install Blackadder 'with ns3, at user level'.
+Got Click's output using Blackadder's 'sample.conf'.
+
+26/11
+(blackadder-on-pc)
+Installing Blackadder 'C++ library' and 'other bindings'.

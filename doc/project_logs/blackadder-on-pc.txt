@@ -6,9 +6,10 @@ Summary
 Installed:
 	Blackadder
 	Click (w/ Blackadder support, NS3 support)
-	Blackadder's C++ library
-	Blackadder's other language libraries
-	NS3
+	Not yet: Blackadder's C++ library
+	Not yet: Blackadder's other language libraries
+	Not yet: Java lib. source -> Native, JAR file
+	Not yet: NS3
 
 Instructions
 -----
@@ -23,22 +24,40 @@ Basically, this is a runthrough of "Quickstart" and other sections with modifica
 I'm attempting to explain 'new' command switches/differences to HowTo.
 
 You'll need to change file paths to the chosen folders, but all other options should be OK.
+An alternative is to remove all "--prefix" & file-path options, installing to OS lib/etc folders.
+This is still 'user level' rather than 'kernel level'.
 
 Create working folders
 * $HOME/.../repos
 * $HOME/.../builds
 
-Installing dependencies for Click
+Installing dependencies
+	Most:
+	make
+	C++ e.g. GCC etc
+	git
+	
+	Language bindings:
+	Java (Presumably JDK)
+	Python 2.x (3 being on system is OK but 2)
+	
 	sudo apt-­‐get install
+	Most:
 	  libtool
 	  autoconf
 	  automake
+	Language bindings:
+	  python-dev
+	  "openjdk-6-jdk" or "sun-java6-jdk"
+	  
+	  swig
 	  libigraph0
 	  libigraph0-­‐dev
 	  libconfig++8	
 	  libconfig++8-­‐dev	
 	  libtclap-­‐dev	
 	  libboost-­‐graph-­‐dev
+	  ant
 * I got a note "regex selecting libconfig8".
 
 Clone repositories
@@ -107,13 +126,55 @@ Running Blackadder
 Installing NS3
 	* Presumably, this makes the "Blackadder model" components available in NS3.
 	* I'll check this later for "blackadder-on-ns3".
+
+Install Blackadder C++ Library & SWIG Bindings
+	(repos/blackadder/lib)
+	* Note "/lib".
+	
+	autoreconf -fi
+	* "regenerate configure and Makefile"
+	* Options from guide:
+	* force: "remake all files, not just old ones" - Since this might be a different platform to the one they generated files on.
+	* install: "copy missing auxilliary files"
+	
+	* I got many warnings about "subdir-objects is disabled", "this option will be true in future automake versions"
+	* Not sure which behaviour is intended.
+	
+	./configure --enable-python --enable-c --prefix=$HOME/.../builds/lib
+	* C:      "C Samples"
+	* Python: I think NS3 accepts Python scripts, may be useful.
+	* Java:   Using "alternative to SWIG bindings" instead.
+	* Ruby is also available.
+	
+	* Check HowTo for specifics on "Multiple versions of Python 2.x"
+	
+	* Prefix: Changed from HowTo.
+		* Installing the library into a user folder.
+		* Makes it easy to find, delete, move or have multiple versions.
+		* Making new programs/linking will be a little harder: need to specify directory.
+		* Checking if this applies to the alt-language libraries.
+		
+		* Excerpt from "make install" related to this: 
+			If you ever happen to want to link against installed libraries
+			in a given directory, LIBDIR, you must either use libtool, and
+			specify the full pathname of the library, or use the `-LLIBDIR'
+			flag during linking and do at least one of the following:
+			   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+			     during execution
+			   - add LIBDIR to the `LD_RUN_PATH' environment variable
+			     during linking
+			   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+			   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+		* So, find instructions for C++ linking.
+
+		
 	
 
 
 Running an NS3+Click example
 
 
-Install Blackadder User Library
+
 
 	
 Log
@@ -124,7 +185,10 @@ Up to 14/11
 
 25/11
 	Got Blackadder & Click installed together. See instructions at top.
+	Got Click's output using Blackadder's 'sample.conf'
 	
+26/11
+	Installing Blackadder 'C++ library' and 'other bindings'.
 		
 		
 		
