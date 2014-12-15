@@ -22,3 +22,7 @@ Got Click's output using Blackadder's 'sample.conf'.
 26/11
 (blackadder-on-pc)
 Installing Blackadder 'C++ library' and 'other bindings'.
+
+15/12
+(openwrt-on-router)
+Successfully flashed OpenWRT onto a router and connected to it.

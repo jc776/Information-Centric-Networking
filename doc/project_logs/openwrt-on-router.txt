@@ -1,4 +1,110 @@
 Installing basic OpenWRT on a router, not including Blackadder port.
 -----
 
+Up to 11/12
+Failed to connect to a wiped/no firmware TL-WDR3600
 
+11/12
+Using instructions for WNDR3800: http://wiki.openwrt.org/toh/netgear/wndr3800
+
+Reorg into "Generic", "Router-specific"
+
+
+1. Download Firmware
+  From router's page, "Hardware highlights" and "Look for wndr2800 factory (SquashFS is recommended)"
+  Link underneath these is 'Backfire 10.03.01'
+* This is the OpenWRT version as of when the page was written.
+  http://downloads.openwrt.org/backfire/10.03.1/ar71xx/openwrt-ar71xx-wndr3800-squashfs-factory.img
+  
+* Instead, getting the latest (as of now) 'Barrier Breaker 14.07'
+  Using precompiled for now, will put together BuildRoot for Blackadder.
+  -> http://wiki.openwrt.org/doc/howto/obtain.firmware
+  -> http://wiki.openwrt.org/doc/howto/obtain.firmware.download
+  -> http://wiki.openwrt.org/about/latest
+* Latest as of now, stable:
+  http://downloads.openwrt.org/barrier_breaker/14.07/
+  
+* Find the specific router's firmware.
+  ("Hardware highlights")
+  http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/
+  (Looks closest to the Backfire link)
+  http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-wndr3800-squashfs-factory.img
+  
+  "Factory" vs "SysUpgrade": SysUpgrade is 'from an existing OpenWRT' version.
+  
+  This is still "wndr3800" so should be correct for the router.
+  
+2. Flashing Router
+  Links on router's page:
+  http://wiki.openwrt.org/doc/howto/generic.flashing
+  http://wiki.openwrt.org/toh/netgear/wndr3700
+  
+  Ideally, use "stock firmware's upgrade method"
+  Router's I've used had:
+  - No firmware at all
+  - "Project BISMark" (Looks like a different OpenWRT project) without given password.
+  
+  So I'm using the "TFTP method" which is more difficult but possibly more generic for "make all of these routers into Blackadder routers"
+  http://wiki.openwrt.org/doc/howto/generic.flashing.tftp
+  
+  Router-specific:
+    "OEM installation using the TFTP method (recommended)" @ http://wiki.openwrt.org/toh/netgear/wndr3700  
+    "Bootloader contains TFTP server" @ http://wiki.openwrt.org/doc/howto/generic.flashing.tftp
+    
+    sudo apt-get install tftp
+    
+    *** NOT LISTED ON OPENWRT WIKI FOR THIS ROUTER:
+      http://forum1.netgear.com/showthread.php?t=72104
+      Create an Ethernet connection with:
+        IP address: 192.168.1.2 
+        Subnet mask: 255.255.255.0 
+        Default gateway: <leave blank> 
+        Preferred DNS server: <leave blank> 
+        Alternate DNS server: <leave blank>
+        
+      Plug router into computer via Ethernet in any of the 'Computer' connections, not 'Modem'/'Ethernet'
+    ***
+    
+    Rename firmware to "firmware.img" ("router might not accept long file names")
+    
+    Plug in router's power.
+    Holding down 'Reset Factory Settings', turn on router. Keep held until 'Power light is blinking green'.
+    
+    Join using the new network connection.
+    
+    [Folder containing firmware.img]
+    tftp 192.168.1.1
+    mode binary
+    put firmware.img
+    quit
+  
+    Wait until power light is 'stable green'.
+    
+3. First Login
+  Now able to ping 192.168.1.1 and connect to it via web browser.
+  
+  wiki.openwrt.org/doc/howto/firstlogin
+  
+  "LuCI WebUI" exists on this version. Alternate instructions on wiki for telnet access.
+  
+  Default login: Username 'root', no password
+  Go to password configuration:
+  
+  - Set up a root password, removes a warning box (this also disables telnet)
+  - Set up more secure SSH, if necessary
+  
+4. Regular access
+  
+  In a terminal while connected:
+  
+  ssh root@192.168.1.1
+  Password is the same as set on first login.
+  
+  More secure ways like individual user accounts, public key encryption, etc. are possible.
+  Probably necessary for anything Internet-facing.
+  
+  Ctrl+D 'close terminal'
+  Regular Linux commands work: en.wikipedia.org/wiki/BusyBox
+  Starts in 'home directory' (empty, so 'ls' appears to do nothing until creating files)
+  
+  
