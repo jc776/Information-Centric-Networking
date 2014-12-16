@@ -65,6 +65,10 @@ Reorg into "Generic", "Router-specific"
       Plug router into computer via Ethernet in any of the 'Computer' connections, not 'Modem'/'Ethernet'
     ***
     
+    Not entirely necessary, but useful when creating network connections:
+      http://askubuntu.com/questions/10741/how-to-set-up-dual-wired-and-wireless-connections
+      Ability to use the Internet through a regular router (in this case, wireless) while using non-connected routers. (This one, wired)
+    
     Rename firmware to "firmware.img" ("router might not accept long file names")
     
     Plug in router's power.
@@ -94,7 +98,6 @@ Reorg into "Generic", "Router-specific"
   - Set up more secure SSH, if necessary
   
 4. Regular access
-  
   In a terminal while connected:
   
   ssh root@192.168.1.1
@@ -106,5 +109,3 @@ Reorg into "Generic", "Router-specific"
   Ctrl+D 'close terminal'
   Regular Linux commands work: en.wikipedia.org/wiki/BusyBox
   Starts in 'home directory' (empty, so 'ls' appears to do nothing until creating files)
-  
-  

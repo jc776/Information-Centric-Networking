@@ -1,0 +1,16 @@
+Porting Blackadder and its dependencies to an OpenWRT router.
+-----
+
+http://wiki.fp7-pursuit.eu/uploads/f/f6/INFSO-ICT-257217_PURSUIT_D3.4_Integration_and_Demonstration_Plan.pdf
+
+"the kernel version of the Blackadder implementation"
+- What I've done so far for PC is the user-level version.
+
+"i) Compile and strip Click for the selected target
+ii) Compile and strip the kernel version of Blackadder for the selected target
+iii) Enable required support so that the deployment script configures OpenWRT
+nodes."
+
+http://wiki.fp7-pursuit.eu/uploads/2/21/INFSO-ICT-257217_PURSUIT_D3.5_Final_integrated_prototype.pdf
+^ mentions that an OpenWRT port (having achieved those steps) does exist, but doesn't say where to find it.
+  
