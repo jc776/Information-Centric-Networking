@@ -6,8 +6,11 @@ doc/                                            All documentation: Progress, dis
 	project_logs/                               Recording anything done/tried solutions per section/feature/milestone
 		blackadder-on-pc.txt                    Installing Blackadder, its dependencies, NS3 and running an example on local desktop.
 		blackadder-on-pc-test1.log              Results of running Blackadder's "sample.conf" on PC once installed.
-		blackadder-on-router.txt				Porting Blackadder and its dependencies to an OpenWRT router.
+		blackadder-on-router.txt                Porting Blackadder and its dependencies to an OpenWRT router.
 		openwrt-on-router.txt                   Installing basic OpenWRT on a router, not including Blackadder port.
 		directories.txt                         File descriptions and directory structure
 		ideas.txt                               Notes to self - plans/ideas for next time and future
 		management.txt                          Main log      - which areas I'm working on today, plus changes to Git structure
+		packages-on-openwrt.txt                 Cross-compiling 'Hello World' as a package for the router.
+		
+hello_openwrt_package/                          Code used by packages-on-openwrt

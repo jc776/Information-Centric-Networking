@@ -26,3 +26,14 @@ Installing Blackadder 'C++ library' and 'other bindings'.
 15/12
 (openwrt-on-router)
 Successfully flashed OpenWRT onto a router and connected to it.
+
+16/12
+(blackadder-on-router)
+Looking into cross-compiling.
+Attempting to send files from PC to router: sshfs, scp
+sshfs requires a package on the router - may need to connect it to internet THROUGH home router.
+^ This will be useful for installing 'click' anyway, unless I cross-compile click as well.
+
+17/12
+(packages-on-openwrt)
+Following a guide to cross-compile 'Hello World' on the router. Baseline for the more complicated Blackadder makefile.

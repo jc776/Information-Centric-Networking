@@ -122,7 +122,6 @@ Running Blackadder
 	* Runs until you quit (Ctrl+C)
 	* Console output in blackadder-on-pc-test1.log
 
-
 Installing NS3
 	* Presumably, this makes the "Blackadder model" components available in NS3.
 	* I'll check this later for "blackadder-on-ns3".
@@ -166,10 +165,6 @@ Install Blackadder C++ Library & SWIG Bindings
 			   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
 			   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
 		* So, find instructions for C++ linking.
-
-		
-	
-
 
 Running an NS3+Click example
 

@@ -11,6 +11,44 @@ ii) Compile and strip the kernel version of Blackadder for the selected target
 iii) Enable required support so that the deployment script configures OpenWRT
 nodes."
 
+"and strip" - "remove statically linked but unusable bloat"
+
 http://wiki.fp7-pursuit.eu/uploads/2/21/INFSO-ICT-257217_PURSUIT_D3.5_Final_integrated_prototype.pdf
 ^ mentions that an OpenWRT port (having achieved those steps) does exist, but doesn't say where to find it.
+  
+1. Sending files to router
+  [1] http://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh
+  [2] https://help.ubuntu.com/community/SSHFS
+  
+  Installation:
+    sudo apt-get install sshfs
+  
+    "Add yourself to 'fuse' group" [2] - I used terminal method
+  
+  Test sending a file:
+    Create working folders:
+    (PC)
+      $HOME/.../transfer_mount
+    
+    (Router)
+      ~: root's home directory. Others might work if user accounts are set up.
+      ~/transfer_test
+      ~/transfer_test/existing
+    
+    (PC, transfer/)
+      sshfs -o idmap=user root@192.168.1.1:/transfer_test $HOME/.../transfer_mount
+      * "Mount transfer_test on router to transfer_mount on PC.
+      * -o idmap: "files owned by the remote host (root@192) will appear on PC as owned by PC"
+      
+  
+  
+TEST
+jack@galillean:~/Desktop/Project/transfer$ scp -r ~/Desktop/Project/transfer/testsend root@192.168.1.1:/transfer_test
+root@192.168.1.1's password: 
+file                                          100%    0     0.0KB/s   00:00
+
+root@OpenWrt:~/transfer_test# ls
+existing
+
+^ Expected directory "testsend" to be on router...
   

@@ -1,0 +1,38 @@
+Cross-compiling 'Hello World' as a package for the router.
+-----
+
+Mostly using this guide:
+[1] https://giovanni.wordpress.com/2011/01/23/how-to-cross-compile-a-c-program-for-openwrt/
+
+Documenting any differences.
+Code is in hello_openwrt_package/
+(Version in repository is after all instructions)
+
+"A simple program in C" - OK
+
+SDK for this router: (WNDR3800)
+http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+
+  - Looks like "stable" link on: http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
+  - "ar71xx" from "ar7161" on "Hardware Highlights", http://wiki.openwrt.org/toh/netgear/wndr3800
+  
+  (Downloads/)
+    Extract tar.bz2
+    Copy (or symlink) hello_openwrt_package/ directory - structure:
+    
+      Downloads/
+        OpenWRT-SDK-...tar.bz2
+        OpenWRT-SDK-.../
+          dl/
+          docs/
+          ...
+          Makefile                  <-- Came with SDK
+          package/
+            Makefile                <-- Came with SDK
+            hello_openwrt_package/
+              Makefile              <-- Created in second step - # OpenWrt Makefile for helloworld program
+              src/
+                Makefile            <-- Created in first step  - # build helloworld executable when user executes "make"
+                helloworld.c
+    
+    
