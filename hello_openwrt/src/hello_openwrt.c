@@ -1,5 +1,5 @@
 /****************
-* helloworld.c
+* hello_openwrt.c
 * The most simplistic C program ever written.
 *****************/
 #include <stdio.h>

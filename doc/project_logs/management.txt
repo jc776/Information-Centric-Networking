@@ -36,4 +36,12 @@ sshfs requires a package on the router - may need to connect it to internet THRO
 
 17/12
 (packages-on-openwrt)
-Following a guide to cross-compile 'Hello World' on the router. Baseline for the more complicated Blackadder makefile.
+Following a guide and listing a few misc. errors:
+Successfully cross-compiled "Hello World" as "an OpenWRT ipk package"
+Sent it to the router (scp worked this time), installed it on router, ran program
+Able to remove package
+This is a good baseline to have before trying to use Blackadder's more complicated build options.
+
+18/12
+(blackadder-on-router)
+

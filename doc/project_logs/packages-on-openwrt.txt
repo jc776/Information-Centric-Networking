@@ -1,38 +1,122 @@
 Cross-compiling 'Hello World' as a package for the router.
 -----
 
+(Should separate links into general/router specific)
 Mostly using this guide:
 [1] https://giovanni.wordpress.com/2011/01/23/how-to-cross-compile-a-c-program-for-openwrt/
+Minor reference, although article notes it may be wrong
+[2] http://wiki.openwrt.org/doc/devel/packages
+
+Misc (description where they're used)
+[3] http://wiki.openwrt.org/doc/howto/buildroot.exigence
+[4] http://blog.csdn.net/magicdog2009/article/details/41102811
+[5] https://forum.openwrt.org/viewtopic.php?id=50923
+
+Differences between [1] and [2]:
+[1] attempts to "download from PKG_SOURCE_URL and then compile"
+[2] just compiles files on local PC.
 
 Documenting any differences.
-Code is in hello_openwrt_package/
+I'm using the name "hello_openwrt" instead of "helloworld"
+Code is in hello_openwrt/
 (Version in repository is after all instructions)
 
-"A simple program in C" - OK
+A simple program in C
+---------------------
+No problems doing this.
 
+Setting up cross-compiler SDK
+-----------------------------
 SDK for this router: (WNDR3800)
 http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 
-  - Looks like "stable" link on: http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
-  - "ar71xx" from "ar7161" on "Hardware Highlights", http://wiki.openwrt.org/toh/netgear/wndr3800
+Looks like "stable" link on: http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
+"ar71xx" from "ar7161" on "Hardware Highlights", http://wiki.openwrt.org/toh/netgear/wndr3800
+
+(Downloads/)
+  Extract tar.bz2
+  Copy hello_openwrt/ directory - structure:
   
-  (Downloads/)
-    Extract tar.bz2
-    Copy (or symlink) hello_openwrt_package/ directory - structure:
+    Downloads/
+      OpenWRT-SDK-...tar.bz2
+      OpenWRT-SDK-.../
+        dl/
+        docs/
+        ...
+        Makefile                  <-- Came with SDK (Do setup work, then build everything in package/)
+        package/
+          Makefile                <-- Came with SDK (executed by top-level one)
+          hello_openwrt/
+            Makefile              <-- Created in second step - # OpenWrt Makefile for hello_openwrt program
+            src/
+              Makefile            <-- Created in first step  - # build hello_openwrt executable when user executes "make"
+              hello_openwrt.c
+  
+  *** DIFFERENT TO GUIDE:
+    Alternatively, create symlink instead of copying.
+    ln -s $HOME/.../Information-Centric-Networking/hello_openwrt $HOME/.../Downloads/OpenWrt-SDK-.../package/hello_openwrt
+
+Create "second step" Makefile.
+------------------------------
+*** DIFFERENT TO GUIDE
+  DESCRIPTION section modified as noted at END of guide [1] and first code example of [2]
+  
+Run SDK root's Makefile
+-----------------------
+ *** NOT LISTED IN GUIDE
+  When I did this:
+    Build dependency: Please install ncurses. (Missing libncurses.so or ncurses.h)
+    Build dependency: Please install GNU awk.
+    Build dependency: Please install the subversion client.
     
-      Downloads/
-        OpenWRT-SDK-...tar.bz2
-        OpenWRT-SDK-.../
-          dl/
-          docs/
-          ...
-          Makefile                  <-- Came with SDK
-          package/
-            Makefile                <-- Came with SDK
-            hello_openwrt_package/
-              Makefile              <-- Created in second step - # OpenWrt Makefile for helloworld program
-              src/
-                Makefile            <-- Created in first step  - # build helloworld executable when user executes "make"
-                helloworld.c
+    "2: exec: ccache: not found" into "make: *** [world] Error 2"
     
+  May differ for other SDKs (different router or different OpenWRT versions)
+  sudo apt-get install
+    ncurses-dev or libncurses5-dev
+    gawk ("GNU awk" - Ubuntu default as of now is "mawk")
+    subversion
+    ccache
+  
+  [3] - 'official' list of dependencies
+  [4] - 'ccache is just a program to install' - ccache isn't listed in [3].
+
+(Downloads/OpenWRT-SDK-.../)
+  make V=99
     
+  SOME POSSIBLE ERRORS:
+  - I had the directory named "hello_openwrt" but still had references to guide's "helloworld", hence file not found.
+  - Many other possible sources of similar-looking errors - guide's warning "tabs vs spaces", "remove spaces at the end of lines/variable defns
+  
+  - "Signing key has not been configured" [5] - "Not an error in this case", or "Create a key" (I didn't have to)
+  
+File Downloads/OpenWRT-SDK-.../bin/ar71xx/packages/base/hello_openwrt_1_ar71xx.ipk
+                                     ^ router-specific.
+Differs per router model/OpenWRT version - [1] had it in SDK/bin/packages/.
+
+Packages is a summary of built packages.
+Packages.gz is the same file, compressed.
+
+Send this package to the router
+-------------------------------
+As noted at the END of the guide, use "opkg" instead of "ipkg".
+Otherwise guide's instructions work the same:
+
+(folder containing ipk)
+  scp hello_openwrt_1_ar71xx.ipk root@192.168.1.1:
+  
+(Router's home directory)
+  root@OpenWrt:~# ls
+  hello_openwrt_1_ar71xx.ipk  transfer_test
+  root@OpenWrt:~# opkg install hello_openwrt_1_ar71xx.ipk 
+  Installing hello_openwrt (1) to root...
+  Configuring hello_openwrt.
+  root@OpenWrt:~# hello_openwrt
+  Hello, OpenWRT package manager!
+
+To remove a package:
+  root@OpenWrt:~# opkg remove hello_openwrt
+  Removing package hello_openwrt from root...
+  root@OpenWrt:~# hello_openwrt
+  -ash: hello_openwrt: not found
+
