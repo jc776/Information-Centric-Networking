@@ -1,6 +1,88 @@
 Porting Blackadder and its dependencies to an OpenWRT router.
 -----
 
+Aim so far:
+Make a "Package Makefile"
+that acts on symlinked Click and Blackadder repositories
+that makes a single "cross-compiled installable ipkg"
+when running "SDK Makefile".
+
+OK.
+
+
+EXCERPTS FROM PLACES
+
+http://www.read.cs.ucla.edu/click/faq#how-do-i-cross-compile-userlevel-click
+"How do I cross compile userlevel click?"
+
+Looks OK. 
+
+"Click for Barrier Breaker" cross-compiling does exist!
+Script is very old - "DESCRIPTION" thing.
+
+
+
+"If you are _building_ compiler tools for cross-compiling, you should
+use the option `--target=TYPE' to select the type of system they will
+produce code for.
+
+   If you want to _use_ a cross compiler, that generates code for a
+platform different from the build platform, you should specify the
+"host" platform (i.e., that on which the generated programs will
+eventually be run) with `--host=TYPE'."
+
+
+Blackadder installs into the Click folder
+("Package Makefile" should do the same thing)
+
+
+Dependencies from ba-on-pc all look like they're for compiling only or statically added
+(So I shouldn't have to make more packages)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 http://wiki.fp7-pursuit.eu/uploads/f/f6/INFSO-ICT-257217_PURSUIT_D3.4_Integration_and_Demonstration_Plan.pdf
 
 "the kernel version of the Blackadder implementation"
