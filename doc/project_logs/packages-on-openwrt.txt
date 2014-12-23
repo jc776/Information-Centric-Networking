@@ -18,7 +18,7 @@ Differences between [1] and [2]:
 
 Documenting any differences.
 I'm using the name "hello_openwrt" instead of "helloworld"
-Code is in hello_openwrt/
+Code is in openwrt_packages/hello_openwrt/
 (Version in repository is after all instructions)
 
 A simple program in C
@@ -54,7 +54,7 @@ Looks like "stable" link on: http://wiki.openwrt.org/doc/howto/obtain.firmware.s
   
   *** DIFFERENT TO GUIDE:
     Alternatively, create symlink instead of copying.
-    ln -s $HOME/.../Information-Centric-Networking/hello_openwrt $HOME/.../Downloads/OpenWrt-SDK-.../package/hello_openwrt
+    ln -s $HOME/.../Information-Centric-Networking/openwrt_packages/hello_openwrt $HOME/.../Downloads/OpenWrt-SDK-.../package/hello_openwrt
 
 Create "second step" Makefile.
 ------------------------------
