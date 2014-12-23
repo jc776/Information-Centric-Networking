@@ -1,8 +1,13 @@
 Porting Blackadder and its dependencies to an OpenWRT router.
 -----
-To install Blackadder on a router, see README in Information-Centric-Networking/click_blackadder.
-YOU DO NOT NEED TO INSTALL I-C-N/click: That is just an intermediate stage in creating click_blackadder.
 
+Final Deployment Instructions
+-----------------------------
+To deploy Blackadder on a router, see README in Information-Centric-Networking/openwrt_packages/click_blackadder.
+You do not need to install I-C-N/openwrt_packages/click - it was just an intermediate stage in creating the other.
+
+Progress
+--------
 Starting point:
 a. "packages-on-openwrt" + tutorial Makefile there
 
@@ -11,20 +16,15 @@ b. click-only Makefile, last updated 2010 (4+ years)
 
 c. "blackadder-on-pc" instructions
 
-Information-Centric-Networking/click:
+Information-Centric-Networking/openwrt_packages/click:
 	Combining the first two, to cross-compile Click (a) from local clone of repository (b)
 	- SOURCE_URL in (a) no longer works
 	- Starting point for "symbolic link these directories" for Blackadder
 	
-	
-	
-	
-	
-	
-2. Adding Blackadder using (c)
+Adding Blackadder using (c)
 
-Notes
-------------
+Extra Notes
+-----------
 Aim so far:
 Make a "Package Makefile"
 that acts on symlinked Click and Blackadder repositories
