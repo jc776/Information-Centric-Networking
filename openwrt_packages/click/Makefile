@@ -1,12 +1,12 @@
-##################################################
-# OpenWRT Makefile for Click Router w/ Blackadder
+###################################################
+# OpenWRT Makefile for Click Router from Local Repo
 #
-##################################################
+###################################################
 
 include $(TOPDIR)/rules.mk
 
 # Name and release number of this package
-PKG_NAME:=click_blackadder
+PKG_NAME:=click
 PKG_RELEASE:=1
 
 # This specifies the directory where we're going to build the program.
@@ -17,16 +17,16 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 # Minimal from click-only Makefile
-define Package/click_blackadder
+define Package/click
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=Click Modular Router w/ Blackadder
+	TITLE:=Click Modular Router
 	# DESCRIPTION no longer in this section.
 endef
 
 # From click-only Makefile
-define Package/click_blackadder/description
-	Click Modular Router userspace package w/ Blackadder
+define Package/click/description
+	Click Modular Router userspace package
 endef
 
 # From click-only Makefile - static linking/other GCC options
@@ -86,4 +86,4 @@ define Package/click/install
 endef
 
 # From click-only Makefile
-$(eval $(call BuildPackage,click_blackadder))
+$(eval $(call BuildPackage,click))
