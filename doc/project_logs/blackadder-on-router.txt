@@ -1,6 +1,30 @@
 Porting Blackadder and its dependencies to an OpenWRT router.
 -----
+To install Blackadder on a router, see README in Information-Centric-Networking/click_blackadder.
+YOU DO NOT NEED TO INSTALL I-C-N/click: That is just an intermediate stage in creating click_blackadder.
 
+Starting point:
+a. "packages-on-openwrt" + tutorial Makefile there
+
+b. click-only Makefile, last updated 2010 (4+ years)
+	[1] https://github.com/openwrt-es/barrier-breaker-openwrt-packages/blob/master/net/click/Makefile
+
+c. "blackadder-on-pc" instructions
+
+Information-Centric-Networking/click:
+	Combining the first two, to cross-compile Click (a) from local clone of repository (b)
+	- SOURCE_URL in (a) no longer works
+	- Starting point for "symbolic link these directories" for Blackadder
+	
+	
+	
+	
+	
+	
+2. Adding Blackadder using (c)
+
+Notes
+------------
 Aim so far:
 Make a "Package Makefile"
 that acts on symlinked Click and Blackadder repositories
@@ -17,9 +41,9 @@ http://www.read.cs.ucla.edu/click/faq#how-do-i-cross-compile-userlevel-click
 
 Looks OK. 
 
+https://github.com/openwrt-es/barrier-breaker-openwrt-packages/blob/master/net/click
 "Click for Barrier Breaker" cross-compiling does exist!
 Script is very old - "DESCRIPTION" thing.
-
 
 
 "If you are _building_ compiler tools for cross-compiling, you should
@@ -39,12 +63,45 @@ Blackadder installs into the Click folder
 Dependencies from ba-on-pc all look like they're for compiling only or statically added
 (So I shouldn't have to make more packages)
 
+Directories:
+	blackadder_openwrt/
+		repos/
+			click              Symlink to click repo
+			blackadder         Symlink to blackadder repo
+		Makefile               Equiv. of "Second Step"
+		
+I should either have a "general" makefile that does the whole "on PC" one (~ "first step")
+or just put all those instructions into "second step"
+
+Symlinks in Git work OK.
+(Anyone else will have to remake them, but it shows where they're 'supposed' to go)
 
 
+"./configure --enable-nsclick --enable-blackadder --disable-linuxmodule --prefix=$HOME/.../builds/click"
+
+=>
+./configure --disable-linuxmodule prefix??
 
 
+"userlevel click" using Wifi? Example says it can
+"Packaging a service" section looks useful.
 
 
+"define Build/Configure
+	(cd $(PKG_BUILD_DIR); \
+		rm -rf config.{cache,status} ; \
+		./configure \
+			--prefix=/usr \
+			--target=$(GNU_TARGET_NAME) \
+			--host=$(GNU_HOST_NAME) \
+			--build=$(GNU_BUILD_NAME) \
+			--enable-tools=mixed \
+			--enable-userlevel \
+			--enable-wifi \
+			--enable-fixincludes \
+			--disable-linuxmodule \
+	)
+endef"
 
 
 
