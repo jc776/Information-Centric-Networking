@@ -19,6 +19,9 @@ Cleanly installing Blackadder and its dependencies (Click Modular Router, others
 * It still needs sudo to run as it tries to access e.g. Ethernet ports. Joining "dialout" group might allow running without admin?
 * Installing with ns3 support.
 
+* 24/12: Language bindings/libraries being installed into OS (/usr/local) to use with other scripts referencing "-lblackadder".
+*        Main program still a local program. (on PC)
+
 Based off Blackadder's "HowTo.pdf" and other sources.
 Basically, this is a runthrough of "Quickstart" and other sections with modifications that worked for me.
 I'm attempting to explain 'new' command switches/differences to HowTo.
@@ -185,6 +188,9 @@ Up to 14/11
 26/11
 	Installing Blackadder 'C++ library' and 'other bindings'.
 		
+24/12
+	(Editing previous work) Installing library to OS instead of "builds/lib" (compat. with "-lblackadder")
+	Installing Topology Manager, Deployment Tool
 		
 		
 		

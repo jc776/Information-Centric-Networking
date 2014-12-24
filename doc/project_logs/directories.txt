@@ -13,4 +13,7 @@ doc/                                            All documentation: Progress, dis
 		management.txt                          Main log      - which areas I'm working on today, plus changes to Git structure
 		packages-on-openwrt.txt                 Cross-compiling 'Hello World' as a package for the router.
 		
-hello_openwrt_package/                          Code used by packages-on-openwrt
+openwrt_packages/                               Packages to run in the OpenWRT SDK.
+	hello_openwrt/                              "Hello World" program
+	click/                                      (Unofficial) Cross-compiled Click from a local repository
+	click_blackadder/                           Click + Blackadder extension as a self-contained package for OpenWRT

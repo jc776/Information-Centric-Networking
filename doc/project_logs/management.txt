@@ -45,3 +45,12 @@ This is a good baseline to have before trying to use Blackadder's more complicat
 18/12
 (blackadder-on-router)
 
+23/12
+(blackadder-on-router)
+Attempting cross-compiled "Click from local repository"
+Compile errors for now
+
+24/12
+(blackadder-on-pc)
+(blackadder-on-ns3)
+Setting up NS3+Blackadder.
