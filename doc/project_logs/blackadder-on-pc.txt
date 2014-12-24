@@ -125,10 +125,6 @@ Running Blackadder
 	* Runs until you quit (Ctrl+C)
 	* Console output in blackadder-on-pc-test1.log
 
-Installing NS3
-	* Presumably, this makes the "Blackadder model" components available in NS3.
-	* I'll check this later for "blackadder-on-ns3".
-
 Install Blackadder C++ Library & SWIG Bindings
 	(repos/blackadder/lib)
 	* Note "/lib".
@@ -142,7 +138,7 @@ Install Blackadder C++ Library & SWIG Bindings
 	* I got many warnings about "subdir-objects is disabled", "this option will be true in future automake versions"
 	* Not sure which behaviour is intended.
 	
-	./configure --enable-python --enable-c --prefix=$HOME/.../builds/lib
+	./configure --enable-python --enable-c
 	* C:      "C Samples"
 	* Python: I think NS3 accepts Python scripts, may be useful.
 	* Java:   Using "alternative to SWIG bindings" instead.
@@ -150,30 +146,23 @@ Install Blackadder C++ Library & SWIG Bindings
 	
 	* Check HowTo for specifics on "Multiple versions of Python 2.x"
 	
-	* Prefix: Changed from HowTo.
-		* Installing the library into a user folder.
-		* Makes it easy to find, delete, move or have multiple versions.
-		* Making new programs/linking will be a little harder: need to specify directory.
-		* Checking if this applies to the alt-language libraries.
-		
-		* Excerpt from "make install" related to this: 
-			If you ever happen to want to link against installed libraries
-			in a given directory, LIBDIR, you must either use libtool, and
-			specify the full pathname of the library, or use the `-LLIBDIR'
-			flag during linking and do at least one of the following:
-			   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
-			     during execution
-			   - add LIBDIR to the `LD_RUN_PATH' environment variable
-			     during linking
-			   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
-			   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
-		* So, find instructions for C++ linking.
+	* Specifically not using --prefix option:
+	* Other make scripts refer to "-lblackadder" which uses default directory.
+	* They could be modified to look in different locations
+	
+	make
+	sudo make install
+	* 'sudo' due to prefix.
 
-Running an NS3+Click example
+Installing Blackadder Java Library
+	* Not yet attempted.
 
+Installing NS3
+	* See blackadder-on-ns3.
+	
+Installing Topology Manager and deployment tools
 
-
-
+Running Topology Manager and deployment tools
 	
 Log
 -----
