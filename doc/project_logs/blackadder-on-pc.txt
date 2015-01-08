@@ -6,9 +6,8 @@ Summary
 Installed:
 	Blackadder
 	Click (w/ Blackadder support, NS3 support)
-	Not yet: Blackadder's C++ library
-	Not yet: Blackadder's other language libraries
-	Not yet: Java lib. source -> Native, JAR file
+	Blackadder's C++ and Python libraries. 
+	Not yet: Java lib. source -> "Native" bindings, JAR file
 	Not yet: NS3
 
 Instructions

@@ -52,5 +52,6 @@ Compile errors for now
 
 24/12
 (blackadder-on-pc)
+Installing language bindings to OS instead of to a local folder: Other make scripts use "-lblackadder" needing this default.
 (blackadder-on-ns3)
 Setting up NS3+Blackadder.
