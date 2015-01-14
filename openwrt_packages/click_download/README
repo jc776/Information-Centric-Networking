@@ -49,3 +49,17 @@ Clone click (to a different folder) - https://github.com/kohler/click
 Link (or copy) click clone in src/ folder.
 Link this folder (openwrt_packages/click) in SDK's packages/ folder
 Run 'make' in SDK folder
+
+Possible test:
+https://github.com/kohler/click/blob/master/conf/test.click
+
+(PC)
+scp test.click root@192.168.1.1:
+
+(Router)
+root@OpenWrt:~# click test.click
+ok:   40 | 45000028 00000000 401177c3 01000001 02000002 13691369
+ok:   40 | 45000028 00000000 401177c3 01000001 02000002 13691369
+ok:   40 | 45000028 00000000 401177c3 01000001 02000002 13691369
+ok:   40 | 45000028 00000000 401177c3 01000001 02000002 13691369
+ok:   40 | 45000028 00000000 401177c3 01000001 02000002 13691369
