@@ -15,8 +15,21 @@ See blackadder-on-router (Documents creating this)
 Install instructions
 --------------------
 Get OpenWRT SDK
-Clone click (to a different folder) - https://github.com/kohler/click
-Link (or copy) click clone in src/ folder.
+
+In a new folder:
+($HOME/.../repos)
+	Download click:      git clone https://github.com/kohler/click
+	Download blackadder: git clone https://github.com/fp7-pursuit/blackadder.git
+
+(repos/click/elements)
+	Add blackadder as an 'element' in click:
+	mkdir blackadder
+	ln -s $HOME/.../repos/blackadder/src $HOME/.../repos/click/elements/blackadder
+
+(openwrt_packages/click_blackadder/src)
+	Add the two repositories as 'source folders to cross-compile'
+	ln -s $HOME/.../repos/click $HOME/.../openwrt_packages/click_blackadder/src
+	ln -s $HOME/.../repos/blackadder $HOME/.../openwrt_packages/click_blackadder/src
 
 [unfinished]
 Clone blackadder (to a different folder) - 
