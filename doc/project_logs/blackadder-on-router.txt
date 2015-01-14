@@ -192,7 +192,11 @@ existing
 	
 	Found a new "Download then compile click" Makefile from Aug 2014 as a starting point
 	1. Make sure it still works
-		"click_20140803-1_ar71xx.ipk" generated OK.
+		"click_20140803-1_ar71xx.ipk" generated OK!
+		
+		It downloads/extracts click source (a specific revision from Aug 2014) into SDK "build_dir/[target]/click-20140803"
+		
+		So I need to create symlinks to that location?
 	
 	
 	2. Try with latest click instead of a specific revision?
