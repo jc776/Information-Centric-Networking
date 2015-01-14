@@ -1,9 +1,8 @@
 THIS IS NOT AN OFFICIAL OPENWRT OR CLICK PACKAGE
 
-IF DEPLOYING BLACKADDER ON A ROUTER, ONLY CROSS-COMPILE/INSTALL "click_blackadder", NOT THIS
+IF DEPLOYING BLACKADDER ON A ROUTER, CROSS-COMPILE/INSTALL THIS PACKAGE (NOT "click")
 
-This is an OpenWRT package to cross-compile Click from a local clone.
-It's a test run before adding Blackadder as well.
+This is an OpenWRT package to cross-compile both Click and Blackadder.
 
 The official one downloads a fresh copy, which wouldn't work with the changes needed to add Blackadder.
 (Additionally, the 'source URL' in this no longer exists)
@@ -18,5 +17,10 @@ Install instructions
 Get OpenWRT SDK
 Clone click (to a different folder) - https://github.com/kohler/click
 Link (or copy) click clone in src/ folder.
-Link this folder (openwrt_packages/click) in SDK's packages/ folder
+
+[unfinished]
+Clone blackadder (to a different folder) - 
+[....]
+
+Link this folder (openwrt_packages/click_blackadder) in SDK's packages/ folder
 Run 'make' in SDK folder
