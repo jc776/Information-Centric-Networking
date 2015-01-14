@@ -16,15 +16,32 @@ b. click-only Makefile, last updated 2010 (4+ years)
 
 c. "blackadder-on-pc" instructions
 
+
 Information-Centric-Networking/openwrt_packages/click:
-	Combining the first two, to cross-compile Click (a) from local clone of repository (b)
-	- SOURCE_URL in (a) no longer works
-	- Starting point for "symbolic link these directories" for Blackadder
+	Combining the first two, to cross-compile Click ("patches" from b) from a local copy of source (a)
+	- SOURCE_URL in (b) no longer works
+	- Local copy needed since Blackadder requires "create a symbolic link in click source..."
+		
+Blackadder build has this step:
+	./configure --disable-linuxmodule --with-click=$HOME/.../builds/click --prefix=$HOME/.../builds/click
+
+I need to know if it actually uses anything from the "built" click
+	This wouldn't follow cross-compiler's "configure all, then build all, then install all"
+or if it just sets directories to copy to
+	Only modifications to "install" needed.
 	
+NEEDED:
+(from blackadder's generated Makefile)
+	# Require Click prefix settings.
+	# Generally, you will provide a '--with-click=CLICKPREFIX' option, and set:
+	clickbuild_prefix := /home/jack/Desktop/Project/builds/click
+	include /home/jack/Desktop/Project/builds/click/share/click/config.mk
+	
+Difficult.
 	
 
-	
-Adding Blackadder using (c)
+
+
 
 Extra Notes
 ----------
@@ -168,4 +185,16 @@ existing
 	"make clean" on click REPOSITORY didn't help
 	
 	"Build 'clickclick' with 'make MINDRIVER=click'."
-  
+	
+	
+14/01/15
+	I wasn't able to fix "error 2".
+	
+	Found a new "Download then compile click" Makefile from Aug 2014 as a starting point
+	1. Make sure it still works
+		"click_20140803-1_ar71xx.ipk" generated OK.
+	
+	
+	2. Try with latest click instead of a specific revision?
+	3. Change to local latest click (or do symlinks on the downloaded copy, still requiring cloned Blackadder?)
+	4. Add Blackadder, trying out "configure/make click then configure/make blackadder" change.

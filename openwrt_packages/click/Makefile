@@ -14,6 +14,10 @@ PKG_RELEASE:=1
 # directory in your OpenWrt SDK directory
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
+# Equivalent of "autoconf"
+# didn't fix 'error 2'.
+#PKG_FIXUP:=autoreconf
+
 include $(INCLUDE_DIR)/package.mk
 
 # Minimal from click-only Makefile

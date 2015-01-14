@@ -20,3 +20,6 @@ Clone click (to a different folder) - https://github.com/kohler/click
 Link (or copy) click clone in src/ folder.
 Link this folder (openwrt_packages/click) in SDK's packages/ folder
 Run 'make' in SDK folder
+
+
+TRYING src/click/include/click/config.h "HAVE_CXX_STATIC_ASSERT"

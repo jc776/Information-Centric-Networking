@@ -1,12 +1,12 @@
 ###################################################
-# OpenWRT Makefile for Click Router from Local Repo
+# OpenWRT Makefile for Click w/ Blackadder
 #
 ###################################################
 
 include $(TOPDIR)/rules.mk
 
 # Name and release number of this package
-PKG_NAME:=click
+PKG_NAME:=click_blackadder
 PKG_RELEASE:=1
 
 # This specifies the directory where we're going to build the program.
@@ -17,16 +17,16 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 # Minimal from click-only Makefile
-define Package/click
+define Package/click_blackadder
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=Click Modular Router
+	TITLE:=Click Modular Router w/ Blackadder
 	# DESCRIPTION no longer in this section.
 endef
 
 # From click-only Makefile
-define Package/click/description
-	Click Modular Router userspace package
+define Package/click_blackadder/description
+	Click w/ Blackadder userspace package
 endef
 
 # From click-only Makefile - static linking/other GCC options
@@ -68,6 +68,18 @@ define Build/Compile
 		-A --all -E Discard -E Print; \
 	)
 	$(MAKE) -C $(PKG_BUILD_DIR)/click MINDRIVER=$(PKG_NAME)
+	# or just horribly insert blackadder's configure-then-build here.
+	
+	(cd $(PKG_BUILD_DIR)/blackadder; \
+		./configure \
+			--disable-linuxmodule \
+			--with-click=($PKG_BUILD_DIR)/click \
+			--prefix=($PKG_BUILD_DIR)/click \
+	)
+	
+	$(MAKE) -C $(PKG_BUILD_DIR)/blackadder
+	# may need to cd blackadder; (regular) make install?
+	
 endef
 
 # From click-only Makefile
@@ -76,7 +88,7 @@ endef
 # $(CP) "Copy command"
 
 # BUILD_DIR changed to BUILD_DIR/click
-define Package/click/install
+define Package/click_blackadder/install
 	$(INSTALL_DIR) $(1)/usr
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/share/click
