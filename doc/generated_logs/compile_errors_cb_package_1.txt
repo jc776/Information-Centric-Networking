@@ -1,0 +1,1852 @@
+make[3]: Entering directory `/home/jack/Desktop/Project/repos/Information-Centric-Networking/openwrt_packages/click_blackadder'
+. /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/include/shell.sh; bzcat /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/dl/click-20140803.tar.bz2 | /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/tar -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/.. -xf - 
+touch /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/.prepared_56136a28b8c434b329ff93b43f4b13a9
+(cd /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/./; if [ -x ./configure ]; then /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/find /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ -name config.guess | xargs -r chmod u+w; /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/find /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ -name config.guess | xargs -r -n1 cp /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/scripts/config.guess; /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/find /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ -name config.sub | xargs -r chmod u+w; /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/find /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ -name config.sub | xargs -r -n1 cp /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/scripts/config.sub; AR=mips-openwrt-linux-uclibc-ar AS="ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float" LD=mips-openwrt-linux-uclibc-ld NM=mips-openwrt-linux-uclibc-nm CC="ccache_cc" GCC="ccache_cc" CXX="ccache_cxx" RANLIB=mips-openwrt-linux-uclibc-ranlib STRIP=mips-openwrt-linux-uclibc-strip OBJCOPY=mips-openwrt-linux-uclibc-objcopy OBJDUMP=mips-openwrt-linux-uclibc-objdump SIZE=mips-openwrt-linux-uclibc-size CFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float -mips16 -minterlink-mips16 -MD" CXXFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float -mips16 -minterlink-mips16 -MD" CPPFLAGS="-I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include " LDFLAGS="-L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib "   ./configure --target=mips-openwrt-linux --host=mips-openwrt-linux --build=x86_64-linux-gnu --program-prefix="" --program-suffix="" --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc --datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --disable-nls   --enable-tools=host --enable-userlevel --enable-wifi --disable-linuxmodule --disable-dynamic-linking  ; fi; )
+configure: WARNING: unrecognized options: --disable-nls
+configure: loading site script /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/include/site/mips-openwrt-linux-uclibc
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... mips-openwrt-linux-gnu
+checking target system type... mips-openwrt-linux-gnu
+checking for mips-openwrt-linux-gcc... ccache_cc
+checking for mips-openwrt-linux-g++... ccache_cxx
+checking for mips-openwrt-linux-gcc... (cached) ccache_cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether ccache_cc accepts -g... yes
+checking for ccache_cc option to accept ISO C89... none needed
+checking how to run the C preprocessor... ccache_cc -E
+checking for grep that handles long lines and -e... /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/grep
+checking for egrep... /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether the C compiler accepts -W -Wall... yes
+checking whether the C compiler accepts -Werror... yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking how to run the C preprocessor... ccache_cc -E
+checking for inline... inline
+checking whether we are using the GNU C++ compiler... yes
+checking whether ccache_cxx accepts -g... yes
+checking whether <new> works... yes
+checking whether the C++ compiler understands constexpr... no
+checking whether the C++ compiler understands rvalue references... no
+checking whether the C++ compiler understands static_assert... no
+checking whether the C++ compiler understands template alias... no
+checking whether the C++ compiler understands #pragma interface... yes
+checking how to run the C++ preprocessor... ccache_cxx -E
+checking for mips-openwrt-linux-ar... mips-openwrt-linux-uclibc-ar
+checking for mips-openwrt-linux-ld... mips-openwrt-linux-uclibc-ld
+checking for mips-openwrt-linux-nm... mips-openwrt-linux-uclibc-nm
+checking for mips-openwrt-linux-objcopy... mips-openwrt-linux-uclibc-objcopy
+checking for mips-openwrt-linux-ranlib... mips-openwrt-linux-uclibc-ranlib
+checking for mips-openwrt-linux-strip... mips-openwrt-linux-uclibc-strip
+checking whether we are compiling for Linux... yes
+checking for strerror... (cached) yes
+checking for random... yes
+checking for snprintf... yes
+checking for strnlen... yes
+checking for strtof... yes
+checking for strtold... yes
+checking for strtoul... yes
+checking for tcgetpgrp... yes
+checking for vsnprintf... (cached) yes
+checking size of int... (cached) 4
+checking size of long... (cached) 4
+checking size of size_t... (cached) 4
+checking size of ptrdiff_t... 4
+checking size of void *... (cached) 4
+checking whether char is unsigned... no
+checking for inttypes.h... (cached) yes
+checking whether machine is indifferent to alignment... no
+checking size of long long... (cached) 8
+checking for long long... yes
+checking for int64_t... yes
+checking for uint64_t... yes
+checking whether long and int64_t are the same type... no
+checking whether long long and int64_t are the same type... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking endianness... 4321
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking whether signed right shift is arithmetic... yes
+checking for addressable va_list type... yes
+checking for __builtin_clz... yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for __builtin_ffs... yes
+checking for __builtin_ffsl... yes
+checking for __builtin_ffsll... yes
+checking for __sync_synchronize... yes
+checking whether __sync_synchronize supports arguments... no
+checking for __has_trivial_copy... yes
+checking for __thread storage class support... yes
+checking for strings.h... (cached) yes
+checking for ffs... yes
+checking for ffsl... yes
+checking for ffsll... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking size of struct timeval... 8
+checking for struct timespec... yes
+checking size of struct timespec... 8
+checking whether clock_gettime is declared... yes
+checking for library containing clock_gettime... none required
+checking for clock_gettime... yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking for sys/event.h... no
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking for grp.h... yes
+checking execinfo.h usability... no
+checking execinfo.h presence... no
+checking for execinfo.h... no
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking whether <poll.h> is emulated... no
+checking for pselect... yes
+checking for sigaction... yes
+checking for kqueue... no
+checking for library containing gethostbyname... none required
+checking for library containing connect... none required
+checking whether accept() uses socklen_t... yes
+checking for large file support in C library... yes
+checking size of off_t... (cached) 8
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... no
+checking for madvise... yes
+checking whether madvise is declared... yes
+checking ifaddrs.h usability... yes
+checking ifaddrs.h presence... yes
+checking for ifaddrs.h... yes
+checking linux/if_tun.h usability... yes
+checking linux/if_tun.h presence... yes
+checking for linux/if_tun.h... yes
+checking net/if_dl.h usability... no
+checking net/if_dl.h presence... no
+checking for net/if_dl.h... no
+checking net/if_tap.h usability... no
+checking net/if_tap.h presence... no
+checking for net/if_tap.h... no
+checking net/if_tun.h usability... no
+checking net/if_tun.h presence... no
+checking for net/if_tun.h... no
+checking net/if_types.h usability... no
+checking net/if_types.h presence... no
+checking for net/if_types.h... no
+checking net/bpf.h usability... no
+checking net/bpf.h presence... no
+checking for net/bpf.h... no
+checking netpacket/packet.h usability... yes
+checking netpacket/packet.h presence... yes
+checking for netpacket/packet.h... yes
+checking for pcap.h... found
+checking whether pcap.h works... yes
+checking for bpf_timeval in pcap.h... no
+checking whether pcap_setnonblock is declared... yes
+checking for -lpcap... found
+checking for pcap_inject... yes
+checking for pcap_sendpacket... yes
+checking for pcap_setdirection... yes
+checking for pcap_setnonblock... yes
+checking for net/netmap.h... not found
+checking whether struct if_data has ifi_datalen... no
+checking whether struct sockaddr_in has sin_len... no
+checking expat.h usability... no
+checking expat.h presence... no
+checking for expat.h... no
+checking for XML_ParserCreateNS in -lexpat... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install accepts -C... yes
+checking for GNU make... make
+checking for working autoconf... found
+checking for perl5... no
+checking for perl... perl
+checking for gawk... gawk
+checking for grep that handles long lines and -e... (cached) /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/grep
+checking for egrep... (cached) /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/host/bin/grep -E
+checking for md5sum... md5sum
+checking for working makeinfo... missing
+checking for working texi2dvi... missing
+checking for install-info... /usr/bin/install-info
+checking for working install-info... found
+checking for working pod2man... found
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating click-buildtool
+config.status: creating click-compile
+config.status: creating config.mk
+config.status: creating installch
+config.status: creating tools/Makefile
+config.status: creating tools/lib/Makefile
+config.status: creating doc/Makefile
+config.status: creating etc/libclick/Makefile
+config.status: creating etc/pkg-config.mk
+config.status: creating bsdmodule/Makefile
+config.status: creating linuxmodule/Makefile
+config.status: creating ns/Makefile
+config.status: creating userlevel/Makefile
+config.status: creating minios/Makefile
+config.status: creating minios/config.mk
+config.status: creating tools/click-align/Makefile
+config.status: creating tools/click-check/Makefile
+config.status: creating tools/click-combine/Makefile
+config.status: creating tools/click-devirtualize/Makefile
+config.status: creating tools/click-fastclassifier/Makefile
+config.status: creating tools/click-flatten/Makefile
+config.status: creating tools/click-mkmindriver/Makefile
+config.status: creating tools/click-pretty/Makefile
+config.status: creating tools/click-undead/Makefile
+config.status: creating tools/click-xform/Makefile
+config.status: creating tools/click2xml/Makefile
+config.status: creating tools/click-install/Makefile
+config.status: creating include/click/config.h
+config.status: creating include/click/pathvars.h
+config.status: creating include/click/config-bsdmodule.h
+config.status: creating include/click/config-linuxmodule.h
+config.status: creating include/click/config-ns.h
+config.status: creating include/click/config-userlevel.h
+config.status: creating include/click/config-minios.h
+config.status: executing default-1 commands
+configure: WARNING: unrecognized options: --disable-nls
+rm -f /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/.configured_
+touch /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/.configured_
+# First, make? + make install Click
+CFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float -mips16 -minterlink-mips16 -MD -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include " CXXFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float -mips16 -minterlink-mips16 -MD -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include " LDFLAGS="-L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib " make -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/. AR=mips-openwrt-linux-uclibc-ar AS="ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float" LD=mips-openwrt-linux-uclibc-ld NM=mips-openwrt-linux-uclibc-nm CC="ccache_cc" GCC="ccache_cc" CXX="ccache_cxx" RANLIB=mips-openwrt-linux-uclibc-ranlib STRIP=mips-openwrt-linux-uclibc-strip OBJCOPY=mips-openwrt-linux-uclibc-objcopy OBJDUMP=mips-openwrt-linux-uclibc-objdump SIZE=mips-openwrt-linux-uclibc-size CROSS="mips-openwrt-linux-uclibc-" ARCH="mips" DESTDIR="/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install"   install;
+make[4]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803'
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/userlevel'
+  FINDELEMENTS elements.conf
+  CREATE elements.mk
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/userlevel'
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/userlevel'
+  CXX ../lib/string.cc
+  CXX ../lib/straccum.cc
+  CXX ../lib/nameinfo.cc
+  CXX ../lib/bitvector.cc
+  CXX ../lib/bighashmap_arena.cc
+  CXX ../lib/hashallocator.cc
+  CXX ../lib/ipaddress.cc
+  CXX ../lib/ipflowid.cc
+  CXX ../lib/etheraddress.cc
+  CXX ../lib/packet.cc
+  CXX ../lib/error.cc
+  CXX ../lib/timestamp.cc
+  CXX ../lib/glue.cc
+  CXX ../lib/task.cc
+  CXX ../lib/timer.cc
+  CXX ../lib/atomic.cc
+  CXX ../lib/fromfile.cc
+  CXX ../lib/gaprate.cc
+  CXX ../lib/element.cc
+  CXX ../lib/confparse.cc
+  CXX ../lib/args.cc
+  CXX ../lib/variableenv.cc
+  CXX ../lib/lexer.cc
+  CXX ../lib/elemfilter.cc
+  CXX ../lib/routervisitor.cc
+  CXX ../lib/routerthread.cc
+  CXX ../lib/router.cc
+  CXX ../lib/master.cc
+  CXX ../lib/timerset.cc
+  CXX ../lib/selectset.cc
+  CXX ../lib/handlercall.cc
+  CXX ../lib/notifier.cc
+  CXX ../lib/integers.cc
+  CXX ../lib/md5.cc
+  CC ../lib/crc32.c
+  CC ../lib/in_cksum.c
+  CXX ../lib/iptable.cc
+  CXX ../lib/archive.cc
+  CXX ../lib/userutils.cc
+  CXX ../lib/driver.cc
+  CXX ../elements/standard/addressinfo.cc
+  CXX ../elements/standard/alignmentinfo.cc
+  CXX ../elements/standard/errorelement.cc
+  CXX ../elements/standard/portinfo.cc
+  CXX ../elements/standard/scheduleinfo.cc
+  CC ../lib/clp.c
+  CXX ../lib/exportstub.cc
+  AR libclick.a
+  RANLIB libclick.a
+  CXX ../elements/analysis/adjusttimestamp.cc
+  CXX ../elements/analysis/aggcounter.cc
+  CXX ../elements/analysis/aggpktcounter.cc
+  CXX ../elements/analysis/aggregatefilter.cc
+  CXX ../elements/analysis/aggregatefirst.cc
+  CXX ../elements/analysis/aggregateip.cc
+  CXX ../elements/analysis/aggregateipaddrpair.cc
+  CXX ../elements/analysis/aggregateipflows.cc
+  CXX ../elements/analysis/aggregatelast.cc
+  CXX ../elements/analysis/aggregatelen.cc
+  CXX ../elements/analysis/aggregatenotifier.cc
+  CXX ../elements/analysis/aggregatepaint.cc
+  CXX ../elements/analysis/anonipaddr.cc
+  CXX ../elements/analysis/eraseippayload.cc
+  CXX ../elements/analysis/fromcapdump.cc
+  CXX ../elements/analysis/fromdagdump.cc
+  CXX ../elements/analysis/fromipsumdump.cc
+  CXX ../elements/analysis/fromnetflowsumdump.cc
+  CXX ../elements/analysis/fromnlanrdump.cc
+  CXX ../elements/analysis/fromtcpdump.cc
+  CXX ../elements/analysis/ipsumdump_anno.cc
+  CXX ../elements/analysis/ipsumdump_icmp.cc
+  CXX ../elements/analysis/ipsumdump_ip.cc
+  CXX ../elements/analysis/ipsumdump_link.cc
+  CXX ../elements/analysis/ipsumdump_payload.cc
+  CXX ../elements/analysis/ipsumdump_tcp.cc
+  CXX ../elements/analysis/ipsumdump_udp.cc
+  CXX ../elements/analysis/ipsumdumpinfo.cc
+  CXX ../elements/analysis/settimestampdelta.cc
+  CXX ../elements/analysis/storetimestamp.cc
+  CXX ../elements/analysis/storeudptimeseqrecord.cc
+  CXX ../elements/analysis/timefilter.cc
+  CXX ../elements/analysis/timerange.cc
+  CXX ../elements/analysis/timesortedsched.cc
+  CXX ../elements/analysis/timestampaccum.cc
+  CXX ../elements/analysis/toipflowdumps.cc
+  CXX ../elements/analysis/toipsumdump.cc
+  CXX ../elements/app/ftpportmapper.cc
+  CXX ../elements/aqm/adaptivered.cc
+  CXX ../elements/aqm/red.cc
+  CXX ../elements/ethernet/arpfaker.cc
+  CXX ../elements/ethernet/arpprint.cc
+  CXX ../elements/ethernet/arpquerier.cc
+  CXX ../elements/ethernet/arpresponder.cc
+  CXX ../elements/ethernet/arptable.cc
+  CXX ../elements/ethernet/checkarpheader.cc
+  CXX ../elements/ethernet/ensureether.cc
+  CXX ../elements/ethernet/etherencap.cc
+  CXX ../elements/ethernet/ethermirror.cc
+  CXX ../elements/ethernet/etherpausesource.cc
+  CXX ../elements/ethernet/ethervlanencap.cc
+  CXX ../elements/ethernet/getetheraddress.cc
+  CXX ../elements/ethernet/hostetherfilter.cc
+  CXX ../elements/ethernet/setetheraddress.cc
+  CXX ../elements/ethernet/setvlananno.cc
+  CXX ../elements/ethernet/storeetheraddress.cc
+  CXX ../elements/ethernet/stripethervlanheader.cc
+  CXX ../elements/ethernet/vlandecap.cc
+  CXX ../elements/ethernet/vlanencap.cc
+  CXX ../elements/icmp/checkicmpheader.cc
+  CXX ../elements/icmp/icmperror.cc
+  CXX ../elements/icmp/icmpipencap.cc
+  CXX ../elements/icmp/icmppingencap.cc
+  CXX ../elements/icmp/icmppingresponder.cc
+  CXX ../elements/icmp/icmppingrewriter.cc
+  CXX ../elements/icmp/icmprewriter.cc
+  CXX ../elements/icmp/icmpsendpings.cc
+  CXX ../elements/ip/checkipheader.cc
+  CXX ../elements/ip/checkipheader2.cc
+  CXX ../elements/ip/decipttl.cc
+  CXX ../elements/ip/directiplookup.cc
+  CXX ../elements/ip/fixipsrc.cc
+  CXX ../elements/ip/getipaddress.cc
+  CXX ../elements/ip/ipaddrpairrewriter.cc
+  CXX ../elements/ip/ipaddrrewriter.cc
+  CXX ../elements/ip/ipclassifier.cc
+  CXX ../elements/ip/ipencap.cc
+  CXX ../elements/ip/ipfieldinfo.cc
+  CXX ../elements/ip/ipfilter.cc
+  CXX ../elements/ip/ipfragmenter.cc
+  CXX ../elements/ip/ipgwoptions.cc
+  CXX ../elements/ip/ipinputcombo.cc
+  CXX ../elements/ip/ipmirror.cc
+  CXX ../elements/ip/ipnameinfo.cc
+  CXX ../elements/ip/ipoutputcombo.cc
+  CXX ../elements/ip/ipprint.cc
+  CXX ../elements/ip/ipratemon.cc
+  CXX ../elements/ip/ipreassembler.cc
+  CXX ../elements/ip/iprewriterbase.cc
+  CXX ../elements/ip/iproutetable.cc
+  CXX ../elements/ip/iprwmapping.cc
+  CXX ../elements/ip/iprwpattern.cc
+  CXX ../elements/ip/iprwpatterns.cc
+  CXX ../elements/ip/lineariplookup.cc
+  CXX ../elements/ip/lookupiproute.cc
+  CXX ../elements/ip/lookupiproutelinux.cc
+  CXX ../elements/ip/markipce.cc
+  CXX ../elements/ip/markipheader.cc
+  CXX ../elements/ip/radixiplookup.cc
+  CXX ../elements/ip/rangeiplookup.cc
+  CXX ../elements/ip/rfc2507c.cc
+  CXX ../elements/ip/rfc2507d.cc
+  CXX ../elements/ip/ripsend.cc
+  CXX ../elements/ip/rripmapper.cc
+  CXX ../elements/ip/setipaddress.cc
+  CXX ../elements/ip/setipchecksum.cc
+  CXX ../elements/ip/setipdscp.cc
+  CXX ../elements/ip/setipecn.cc
+  CXX ../elements/ip/setrandipaddress.cc
+  CXX ../elements/ip/siphmapper.cc
+  CXX ../elements/ip/sortediplookup.cc
+  CXX ../elements/ip/storeipaddress.cc
+  CXX ../elements/ip/stripipheader.cc
+  CXX ../elements/ip/truncateippayload.cc
+  CXX ../elements/ip/unstripipheader.cc
+  CXX ../elements/simple/simpleidle.cc
+  CXX ../elements/simple/simplepriosched.cc
+  CXX ../elements/simple/simplepullswitch.cc
+  CXX ../elements/simple/simplerrsched.cc
+  CXX ../elements/standard/align.cc
+  CXX ../elements/standard/annotationinfo.cc
+  CXX ../elements/standard/averagecounter.cc
+  CXX ../elements/standard/bandwidthmeter.cc
+  CXX ../elements/standard/bandwidthshaper.cc
+  CXX ../elements/standard/block.cc
+  CXX ../elements/standard/burster.cc
+  CXX ../elements/standard/bwratedsplitter.cc
+  CXX ../elements/standard/bwratedunqueue.cc
+  CXX ../elements/standard/bypass.cc
+  CXX ../elements/standard/checkcrc32.cc
+  CXX ../elements/standard/checklength.cc
+  CXX ../elements/standard/checkpaint.cc
+  CXX ../elements/standard/classification.cc
+  CXX ../elements/standard/classifier.cc
+  CXX ../elements/standard/clickyinfo.cc
+  CXX ../elements/standard/clipboard.cc
+  CXX ../elements/standard/compblock.cc
+  CXX ../elements/standard/counter.cc
+  CXX ../elements/standard/delayshaper.cc
+  CXX ../elements/standard/delayunqueue.cc
+  CXX ../elements/standard/devirtualizeinfo.cc
+  CXX ../elements/standard/discard.cc
+  CXX ../elements/standard/discardnofree.cc
+  CXX ../elements/standard/drivermanager.cc
+  CXX ../elements/standard/dropbroadcasts.cc
+  CXX ../elements/standard/drr.cc
+  CXX ../elements/standard/flowinfo.cc
+  CXX ../elements/standard/frontdropqueue.cc
+  CXX ../elements/standard/fullnotequeue.cc
+  CXX ../elements/standard/hashswitch.cc
+  CXX ../elements/standard/hub.cc
+  CXX ../elements/standard/idle.cc
+  CXX ../elements/standard/infinitesource.cc
+  CXX ../elements/standard/inputswitch.cc
+  CXX ../elements/standard/linkunqueue.cc
+  CXX ../elements/standard/markmacheader.cc
+  CXX ../elements/standard/messageelement.cc
+  CXX ../elements/standard/meter.cc
+  CXX ../elements/standard/mixedqueue.cc
+  CXX ../elements/standard/notifierqueue.cc
+  CXX ../elements/standard/nullelement.cc
+  CXX ../elements/standard/nulls.cc
+  CXX ../elements/standard/paint.cc
+  CXX ../elements/standard/paintswitch.cc
+  CXX ../elements/standard/painttee.cc
+  CXX ../elements/standard/print.cc
+  CXX ../elements/standard/priosched.cc
+  CXX ../elements/standard/pullswitch.cc
+  CXX ../elements/standard/quicknotequeue.cc
+  CXX ../elements/standard/quitwatcher.cc
+  CXX ../elements/standard/randomerror.cc
+  CXX ../elements/standard/randomsample.cc
+  CXX ../elements/standard/randomsource.cc
+  CXX ../elements/standard/randomswitch.cc
+  CXX ../elements/standard/ratedsource.cc
+  CXX ../elements/standard/ratedsplitter.cc
+  CXX ../elements/standard/ratedunqueue.cc
+  CXX ../elements/standard/resize.cc
+  CXX ../elements/standard/rrsched.cc
+  CXX ../elements/standard/rrswitch.cc
+  CXX ../elements/standard/script.cc
+  CXX ../elements/standard/setannobyte.cc
+  CXX ../elements/standard/setcrc32.cc
+  CXX ../elements/standard/setpackettype.cc
+  CXX ../elements/standard/settimestamp.cc
+  CXX ../elements/standard/shaper.cc
+  CXX ../elements/standard/simplequeue.cc
+  CXX ../elements/standard/staticpullswitch.cc
+  CXX ../elements/standard/staticswitch.cc
+  CXX ../elements/standard/storedata.cc
+  CXX ../elements/standard/stridesched.cc
+  CXX ../elements/standard/strideswitch.cc
+  CXX ../elements/standard/strip.cc
+  CXX ../elements/standard/striptonet.cc
+  CXX ../elements/standard/suppressor.cc
+  CXX ../elements/standard/switch.cc
+  CXX ../elements/standard/tee.cc
+  CXX ../elements/standard/threadsafequeue.cc
+  CXX ../elements/standard/timedsink.cc
+  CXX ../elements/standard/timedsource.cc
+  CXX ../elements/standard/timedunqueue.cc
+  CXX ../elements/standard/truncate.cc
+  CXX ../elements/standard/unqueue.cc
+  CXX ../elements/standard/unqueue2.cc
+  CXX ../elements/standard/unstrip.cc
+  CXX ../elements/tcpudp/checktcpheader.cc
+  CXX ../elements/tcpudp/checkudpheader.cc
+  CXX ../elements/tcpudp/dynudpipencap.cc
+  CXX ../elements/tcpudp/iprewriter.cc
+  CXX ../elements/tcpudp/settcpchecksum.cc
+  CXX ../elements/tcpudp/setudpchecksum.cc
+  CXX ../elements/tcpudp/tcpfragmenter.cc
+  CXX ../elements/tcpudp/tcpipsend.cc
+  CXX ../elements/tcpudp/tcprewriter.cc
+  CXX ../elements/tcpudp/udpipencap.cc
+  CXX ../elements/tcpudp/udprewriter.cc
+  CXX ../elements/test/bhmtest.cc
+  CXX ../elements/test/biginttest.cc
+  CXX ../elements/test/bitvectortest.cc
+  CXX ../elements/test/blockthread.cc
+  CXX ../elements/test/checkpacket.cc
+  CXX ../elements/test/clptest.cc
+  CXX ../elements/test/comparepackets.cc
+  CXX ../elements/test/confparsetest.cc
+  CXX ../elements/test/cryptotest.cc
+  CXX ../elements/test/dequetest.cc
+  CXX ../elements/test/errortest.cc
+  CXX ../elements/test/functiontest.cc
+  CXX ../elements/test/handlertask.cc
+  CXX ../elements/test/hashtabletest.cc
+  CXX ../elements/test/heaptest.cc
+  CXX ../elements/test/listtest.cc
+  CXX ../elements/test/neighborhoodtest.cc
+  CXX ../elements/test/notifierdebug.cc
+  CXX ../elements/test/notifiertest.cc
+  CXX ../elements/test/nulltask.cc
+  CXX ../elements/test/packettest.cc
+  CXX ../elements/test/queueyanktest.cc
+  CXX ../elements/test/randomseed.cc
+  CXX ../elements/test/schedordertest.cc
+  CXX ../elements/test/sorttest.cc
+  CXX ../elements/test/timertest.cc
+  CXX ../elements/test/tokenbuckettest.cc
+  CXX ../elements/test/upstreamnotifier.cc
+  CXX ../elements/test/vectortest.cc
+  CXX ../elements/threads/spinlockacquire.cc
+  CXX ../elements/threads/spinlockinfo.cc
+  CXX ../elements/threads/spinlockrelease.cc
+  CXX ../elements/threads/staticthreadsched.cc
+  CXX ../elements/userlevel/changeuid.cc
+  CXX ../elements/userlevel/chattersocket.cc
+  CXX ../elements/userlevel/controlsocket.cc
+  CXX ../elements/userlevel/fakepcap.cc
+  CXX ../elements/userlevel/fromdevice.cc
+  CXX ../elements/userlevel/fromdump.cc
+  CXX ../elements/userlevel/fromhost.cc
+  CXX ../elements/userlevel/fromrawsocket.cc
+  CXX ../elements/userlevel/fromsocket.cc
+  CXX ../elements/userlevel/handlerproxy.cc
+  CXX ../elements/userlevel/ipflowrawsockets.cc
+  CXX ../elements/userlevel/kernelfilter.cc
+  CXX ../elements/userlevel/kerneltap.cc
+  CXX ../elements/userlevel/kerneltun.cc
+  CXX ../elements/userlevel/khandlerproxy.cc
+  CXX ../elements/userlevel/netmapinfo.cc
+  CXX ../elements/userlevel/progressbar.cc
+  CXX ../elements/userlevel/rawsocket.cc
+  CXX ../elements/userlevel/socket.cc
+  CXX ../elements/userlevel/todevice.cc
+  CXX ../elements/userlevel/todump.cc
+  CXX ../elements/userlevel/tohost.cc
+  CXX ../elements/userlevel/torawsocket.cc
+  CXX ../elements/userlevel/tosocket.cc
+  CXX ../elements/userlevel/umlswitch.cc
+  CXX ../elements/wifi/ap/associationresponder.cc
+  CXX ../elements/wifi/ap/beaconsource.cc
+  CXX ../elements/wifi/ap/openauthresponder.cc
+  CXX ../elements/wifi/ap/proberesponder.cc
+  CXX ../elements/wifi/ap/stationtable.cc
+  CXX ../elements/wifi/athdescdecap.cc
+  CXX ../elements/wifi/athdescencap.cc
+  CXX ../elements/wifi/autoratefallback.cc
+  CXX ../elements/wifi/availablerates.cc
+  CXX ../elements/wifi/bitrate.cc
+  CXX ../elements/wifi/ethercount.cc
+  CXX ../elements/wifi/extradecap.cc
+  CXX ../elements/wifi/extraencap.cc
+  CXX ../elements/wifi/filterfailures.cc
+  CXX ../elements/wifi/filterphyerr.cc
+  CXX ../elements/wifi/filtertx.cc
+  CXX ../elements/wifi/fromhandler.cc
+  CXX ../elements/wifi/linktable.cc
+  CXX ../elements/wifi/madwifirate.cc
+  CXX ../elements/wifi/packetstore.cc
+  CXX ../elements/wifi/printtxfeedback.cc
+  CXX ../elements/wifi/printwifi.cc
+  CXX ../elements/wifi/prism2decap.cc
+  CXX ../elements/wifi/prism2encap.cc
+  CXX ../elements/wifi/probetxrate.cc
+  CXX ../elements/wifi/pushanno.cc
+  CXX ../elements/wifi/radiotapdecap.cc
+  CXX ../elements/wifi/radiotapencap.cc
+  CXX ../elements/wifi/rc4.cc
+  CXX ../elements/wifi/readanno.cc
+  CXX ../elements/wifi/rxstats.cc
+  CXX ../elements/wifi/setnoack.cc
+  CXX ../elements/wifi/setrts.cc
+  CXX ../elements/wifi/settxpower.cc
+  CXX ../elements/wifi/settxrate.cc
+  CXX ../elements/wifi/wepdecap.cc
+  CXX ../elements/wifi/wepencap.cc
+  CXX ../elements/wifi/wifidecap.cc
+  CXX ../elements/wifi/wifidefrag.cc
+  CXX ../elements/wifi/wifidupefilter.cc
+  CXX ../elements/wifi/wifiencap.cc
+  CXX ../elements/wifi/wififragment.cc
+  CXX ../elements/wifi/wifiseq.cc
+  CXX ../elements/wifi/wirelessinfo.cc
+  CXX ../elements/wifi/station/associationrequester.cc
+  CXX ../elements/wifi/station/beaconscanner.cc
+  CXX ../elements/wifi/station/beacontracker.cc
+  CXX ../elements/wifi/station/openauthrequester.cc
+  CXX ../elements/wifi/station/proberequester.cc
+  CREATE elements.cc
+  CXX elements.cc
+  CXX click.cc
+  LINK click
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/lib
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/lib/libclick.a
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/userlevel'
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/lib'
+  CXX ../../lib/string.cc
+  CXX ../../lib/straccum.cc
+  CXX ../../lib/glue.cc
+  CXX ../../lib/bitvector.cc
+  CXX ../../lib/hashallocator.cc
+  CXX ../../lib/ipaddress.cc
+  CXX ../../lib/etheraddress.cc
+  CXX ../../lib/timestamp.cc
+  CXX ../../lib/error.cc
+  CXX elementt.cc
+  CXX eclasst.cc
+  CXX routert.cc
+  CXX runparse.cc
+  CXX ../../lib/variableenv.cc
+  CXX landmarkt.cc
+  CXX lexert.cc
+  CXX lexertinfo.cc
+  CXX ../../lib/driver.cc
+  CXX ../../lib/confparse.cc
+  CXX ../../lib/args.cc
+  CXX ../../lib/archive.cc
+  CXX processingt.cc
+  CXX etraits.cc
+  CXX elementmap.cc
+  CXX ../../lib/userutils.cc
+  CXX ../../lib/md5.cc
+  CXX toolutils.cc
+  CC ../../lib/clp.c
+  AR libclicktool.a
+  RANLIB libclicktool.a
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/lib'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/lib'
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/clicktool
+  INSTALLHEADERS /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/clicktool
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/lib/libclicktool.a
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/lib'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-align'
+  CXX alignment.cc
+  CXX alignclass.cc
+  CXX click-align.cc
+  LINK click-align
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-align
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-align'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-check'
+  CXX click-check.cc
+  LINK click-check
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-check
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-check'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-combine'
+  CXX click-combine.cc
+  LINK click-combine
+  CXX click-uncombine.cc
+  LINK click-uncombine
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-combine
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-uncombine
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-combine'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-devirtualize'
+  CXX cxxclass.cc
+  CXX specializer.cc
+  CXX signature.cc
+  CXX click-devirtualize.cc
+  LINK click-devirtualize
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-devirtualize
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-devirtualize'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-fastclassifier'
+  CXX click-fastclassifier.cc
+  CXX fc_classifier.cc
+  CXX fc_ipclassifier.cc
+  LINK click-fastclassifier
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-fastclassifier
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-fastclassifier'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-flatten'
+  CXX click-flatten.cc
+  LINK click-flatten
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-flatten
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-flatten'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-mkmindriver'
+  CXX click-mkmindriver.cc
+  LINK click-mkmindriver
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-mkmindriver
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-mkmindriver'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-pretty'
+  CXX click-pretty.cc
+  CXX html.cc
+  LINK click-pretty
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-pretty
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-pretty'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-undead'
+  CXX click-undead.cc
+  LINK click-undead
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-undead
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-undead'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-xform'
+  CXX adjacency.cc
+  CXX click-xform.cc
+  LINK click-xform
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-xform
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click-xform'
+make[6]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click2xml'
+  CXX click2xml.cc
+  LINK click2xml
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click2xml
+make[6]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools/click2xml'
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/tools'
+echo userlevel  analysis app aqm ethernet icmp ip simple standard tcpudp test threads wifi  | ./click-buildtool findelem -r "mips analysis int64 linux pcap wifi  userlevel" -p .  | perl ./click-mkelemmap -r "mips analysis int64 linux pcap wifi " -t "userlevel" -p . -Iinclude -s "`cd . && pwd`"  > elementmap.xml
+./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin
+/usr/bin/install -c -C click-buildtool /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-buildtool
+/usr/bin/install -c -C click-compile /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-compile
+/usr/bin/install -c -C ./click-mkelemmap /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-mkelemmap
+/usr/bin/install -c -C ./test/testie /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/testie
+./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click
+/usr/bin/install -c ./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/mkinstalldirs
+/usr/bin/install -c -m 644 elementmap.xml /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/elementmap.xml
+/usr/bin/install -c -C -m 644 config.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/config.mk
+/usr/bin/install -c -C -m 644 etc/pkg-config.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-config.mk
+/usr/bin/install -c -C -m 644 ./etc/pkg-Makefile /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-Makefile
+/usr/bin/install -c -C -m 644 ./etc/pkg-userlevel.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-userlevel.mk
+/usr/bin/install -c -C -m 644 ./etc/pkg-linuxmodule.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-linuxmodule.mk
+/usr/bin/install -c -C -m 644 ./etc/pkg-linuxmodule-26.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-linuxmodule-26.mk
+/usr/bin/install -c -C -m 644 ./etc/pkg-bsdmodule.mk /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/pkg-bsdmodule.mk
+(cd .; pwd) > /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/srcdir
+/bin/rm -rf /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/src
+/bin/ln -s "`cd .; pwd`" /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/share/click/src
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/doc'
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man/man1 /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man/man3 /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man/man5 /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man/man7 /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man/man8
+  INSTALLMANPAGES /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man
+  CLICK-ELEM2MAN -m /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/man
+click-elem2man: warning: unknown category shorthand 'devices' in UMLSwitch
+  INSTALL /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-elem2man
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/doc'
+./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+/usr/bin/install -c -C -m 644 ./include/click/*.h /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+/usr/bin/install -c -C -m 644 ./include/click/*.hh /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+/usr/bin/install -c -C -m 644 ./include/click/*.cc /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+/usr/bin/install -c -C -m 644 ./include/click/*.h /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click
+./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click/standard
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click/standard
+/usr/bin/install -c -C -m 644 ./include/click/standard/*.hh /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/click/standard
+./mkinstalldirs /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/clicknet
+mkdir -p -- /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/clicknet
+/usr/bin/install -c -C -m 644 ./include/clicknet/*.h /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/include/clicknet
+make[4]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803'
+# From Build/Prepare in hello_openwrt
+# Couldn't figure out how to do 'git download, then copy' in prepare
+cp -fpR ./src/* /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/
+# Then, configure, make (+ make install?) Blackadder
+# (Blackadder's configure needs to happen after building click to work)
+(cd /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src; ./configure --disable-linuxmodule --with-click=/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr --prefix=/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr )
+configure: loading site script /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/include/site/mips-openwrt-linux-uclibc
+configure: creating ./config.status
+config.status: creating Makefile
+make -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src
+make[4]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+make -R CLICK_PACKAGE_MAKING=userlevel blackadder.uo
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+echo . | /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-buildtool -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr findelem -r userlevel -r blackadder -P  > blackadder-uelem.conf
+/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-buildtool -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr elem2make -t userlevel < blackadder-uelem.conf > blackadder-uelem.mk
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+make[5]: Entering directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+  CXX activepub.cc
+  CXX ba_bitvector.cc
+  CXX common.cc
+  CXX forwarder.cc
+  CXX fromnetlink.cc
+  CXX globalconf.cc
+  CXX informationitem.cc
+  CXX localhost.cc
+  CXX localproxy.cc
+  CXX localrv.cc
+  CXX netlink.cc
+  CXX remotehost.cc
+  CXX scope.cc
+  CXX tonetlink.cc
+  CXX pla/pla.cc
+pla/pla.cc:279:2: warning: #warning PLA support not enabled [-Wcpp]
+ #warning PLA support not enabled
+  ^
+  CXX tm_ext/ba_api.cc
+  CXX tm_ext/bytearray.cc
+  CXX tm_ext/linkmon.cc
+  CXX tm_ext/lsmpacket.cc
+/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr/bin/click-buildtool -C /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr elem2package  blackadder < blackadder-uelem.conf > blackadder-umain.cc
+  CXX blackadder-umain.cc
+ccache_cxx -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -msoft-float -mips16 -minterlink-mips16 -MD -fPIC  -o blackadder.uo activepub.u.o ba_bitvector.u.o common.u.o forwarder.u.o fromnetlink.u.o globalconf.u.o informationitem.u.o localhost.u.o localproxy.u.o localrv.u.o netlink.u.o remotehost.u.o scope.u.o tonetlink.u.o  pla.u.o  ba_api.u.o bytearray.u.o linkmon.u.o lsmpacket.u.o   blackadder-umain.u.o  
+/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/../lib/gcc/mips-openwrt-linux-uclibc/4.8.3/../../../../mips-openwrt-linux-uclibc/lib/crt1.o:/BB/build/ar71xx/generic/build_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/uClibc-0.9.33.2/libc/sysdeps/linux/mips/crt1.S:95: undefined reference to `main'
+forwarder.u.o: In function `click_in_cksum_pseudohdr':
+forwarder.cc:(.text+0x28): undefined reference to `click_in_cksum_pseudohdr_raw'
+forwarder.cc:(.text+0x3a): undefined reference to `click_in_cksum_pseudohdr_hard'
+forwarder.u.o: In function `_ZNK6String5derefEv.isra.1':
+forwarder.cc:(.text+0x6c): undefined reference to `String::delete_memo(String::memo_t*)'
+forwarder.u.o: In function `Forwarder::cleanup(Element::CleanupStage)':
+forwarder.cc:(.text+0x120): undefined reference to `click_chatter'
+forwarder.u.o: In function `Forwarder::Forwarder()':
+forwarder.cc:(.text+0x196): undefined reference to `Element::Element()'
+forwarder.u.o: In function `Forwarder::~Forwarder()':
+forwarder.cc:(.text+0x1dc): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x1fa): undefined reference to `Element::~Element()'
+forwarder.cc:(.text+0x21c): undefined reference to `Element::~Element()'
+forwarder.u.o: In function `Forwarder::configure(Vector<String>&, ErrorHandler*)':
+forwarder.cc:(.text+0x294): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+forwarder.cc:(.text+0x2b2): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x2e6): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x302): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x32c): undefined reference to `cp_basic_integer(char const*, char const*, int, int, void*)'
+forwarder.cc:(.text+0x390): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x422): undefined reference to `cp_ethernet_address(String const&, EtherAddress*, Element const*)'
+forwarder.cc:(.text+0x44c): undefined reference to `cp_ethernet_address(String const&, EtherAddress*, Element const*)'
+forwarder.cc:(.text+0x556): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0x562): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x57e): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0x58c): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x5b0): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x5c4): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x5fa): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x610): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x640): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x6c4): undefined reference to `cp_ip_address(String const&, IPAddress*, Element const*)'
+forwarder.cc:(.text+0x6ee): undefined reference to `cp_ip_address(String const&, IPAddress*, Element const*)'
+forwarder.cc:(.text+0x7e0): undefined reference to `IPAddress::unparse() const'
+forwarder.cc:(.text+0x7f4): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x810): undefined reference to `IPAddress::unparse() const'
+forwarder.cc:(.text+0x81e): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x842): undefined reference to `String::hard_c_str() const'
+forwarder.cc:(.text+0x856): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x944): undefined reference to `click_chatter'
+forwarder.u.o: In function `Forwarder::push(int, Packet*)':
+forwarder.cc:(.text+0xa98): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+forwarder.cc:(.text+0xb7c): undefined reference to `Packet::clone()'
+forwarder.cc:(.text+0xc24): undefined reference to `click_in_cksum'
+forwarder.cc:(.text+0xc90): undefined reference to `click_in_cksum'
+forwarder.cc:(.text+0xe1e): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0xe3c): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0xe56): undefined reference to `String::compare(char const*, int) const'
+forwarder.cc:(.text+0xe8e): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0xea6): undefined reference to `EtherAddress::unparse_dash() const'
+forwarder.cc:(.text+0xeb4): undefined reference to `String::compare(char const*, int) const'
+forwarder.cc:(.text+0x114c): undefined reference to `Packet::expensive_push(unsigned int)'
+forwarder.cc:(.text+0x1162): undefined reference to `Packet::expensive_push(unsigned int)'
+forwarder.cc:(.text+0x117c): undefined reference to `click_chatter'
+forwarder.cc:(.text+0x118a): undefined reference to `Packet::clone()'
+forwarder.cc:(.text+0x1208): undefined reference to `click_in_cksum'
+forwarder.cc:(.text+0x1234): undefined reference to `click_in_cksum'
+forwarder.cc:(.text+0x1296): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+forwarder.u.o: In function `Forwarder::processing() const':
+forwarder.cc:(.text._ZNK9Forwarder10processingEv[_ZNK9Forwarder10processingEv]+0x12): undefined reference to `Element::PUSH'
+forwarder.u.o: In function `Packet::uniqueify()':
+forwarder.cc:(.text._ZN6Packet9uniqueifyEv[_ZN6Packet9uniqueifyEv]+0x24): undefined reference to `Packet::expensive_uniqueify(int, int, bool)'
+forwarder.u.o: In function `Packet::pull(unsigned int)':
+forwarder.cc:(.text._ZN6Packet4pullEj[_ZN6Packet4pullEj]+0x26): undefined reference to `click_chatter'
+forwarder.u.o: In function `cp_integer(String const&, int*)':
+forwarder.cc:(.text._Z10cp_integerRK6StringPi[_Z10cp_integerRK6StringPi]+0x24): undefined reference to `cp_basic_integer(char const*, char const*, int, int, void*)'
+forwarder.u.o:(.data.rel.ro._ZTI9Forwarder[_ZTI9Forwarder]+0x8): undefined reference to `typeinfo for Element'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x14): undefined reference to `Element::pull(int)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x18): undefined reference to `Element::simple_action(Packet*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x1c): undefined reference to `Element::run_task(Task*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x20): undefined reference to `Element::run_timer(Timer*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x24): undefined reference to `Element::selected(int, int)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x28): undefined reference to `Element::selected(int)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x38): undefined reference to `Element::flow_code() const'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x3c): undefined reference to `Element::flags() const'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x40): undefined reference to `Element::cast(char const*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x50): undefined reference to `Element::add_handlers()'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x5c): undefined reference to `Element::hotswap_element() const'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x64): undefined reference to `Element::declaration() const'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+forwarder.u.o:(.data.rel.ro._ZTV9Forwarder[_ZTV9Forwarder]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+globalconf.u.o: In function `GlobalConf::cleanup(Element::CleanupStage)':
+globalconf.cc:(.text+0x1e): undefined reference to `click_chatter'
+globalconf.u.o: In function `_ZNK6String5derefEv.isra.0':
+globalconf.cc:(.text+0x54): undefined reference to `String::delete_memo(String::memo_t*)'
+globalconf.u.o: In function `GlobalConf::~GlobalConf()':
+globalconf.cc:(.text+0x94): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x140): undefined reference to `Element::~Element()'
+globalconf.cc:(.text+0x1ce): undefined reference to `Element::~Element()'
+globalconf.u.o: In function `GlobalConf::configure(Vector<String>&, ErrorHandler*)':
+globalconf.cc:(.text+0x236): undefined reference to `String::null_data'
+globalconf.cc:(.text+0x26a): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x2ba): undefined reference to `cpString'
+globalconf.cc:(.text+0x2f0): undefined reference to `cp_va_kparse(Vector<String> const&, Element const*, ErrorHandler*, ...)'
+globalconf.cc:(.text+0x334): undefined reference to `String::compare(char const*, int) const'
+globalconf.cc:(.text+0x370): undefined reference to `String::compare(char const*, int) const'
+globalconf.cc:(.text+0x3aa): undefined reference to `String::compare(char const*, int) const'
+globalconf.cc:(.text+0x416): undefined reference to `String::compare(char const*, int) const'
+globalconf.cc:(.text+0x442): undefined reference to `ErrorHandler::fatal(char const*, ...)'
+globalconf.cc:(.text+0x59e): undefined reference to `ErrorHandler::fatal(char const*, ...)'
+globalconf.cc:(.text+0x604): undefined reference to `String::null_data'
+globalconf.cc:(.text+0x64a): undefined reference to `String::null_data'
+globalconf.cc:(.text+0x6ac): undefined reference to `String::null_data'
+globalconf.cc:(.text+0x71e): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0x734): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x75a): undefined reference to `ErrorHandler::fatal(char const*, ...)'
+globalconf.cc:(.text+0x828): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0x83c): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x858): undefined reference to `String::quoted_hex() const'
+globalconf.cc:(.text+0x86c): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0x880): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x89a): undefined reference to `String::quoted_hex() const'
+globalconf.cc:(.text+0x8ac): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0x8c0): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x9a2): undefined reference to `String::quoted_hex() const'
+globalconf.cc:(.text+0x9b6): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0x9cc): undefined reference to `click_chatter'
+globalconf.cc:(.text+0x9e8): undefined reference to `String::quoted_hex() const'
+globalconf.cc:(.text+0x9fc): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0xa18): undefined reference to `click_chatter'
+globalconf.cc:(.text+0xa34): undefined reference to `String::quoted_hex() const'
+globalconf.cc:(.text+0xa48): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0xa5e): undefined reference to `click_chatter'
+globalconf.cc:(.text+0xa8e): undefined reference to `String::hard_c_str() const'
+globalconf.cc:(.text+0xaa2): undefined reference to `click_chatter'
+globalconf.cc:(.text+0xaf6): undefined reference to `click_chatter'
+globalconf.u.o: In function `GlobalConf::GlobalConf()':
+globalconf.cc:(.text+0xc96): undefined reference to `Element::Element()'
+globalconf.cc:(.text+0xcae): undefined reference to `String::null_data'
+globalconf.u.o: In function `GlobalConf::processing() const':
+globalconf.cc:(.text._ZNK10GlobalConf10processingEv[_ZNK10GlobalConf10processingEv]+0x12): undefined reference to `Element::AGNOSTIC'
+globalconf.u.o: In function `String::String(char const*)':
+globalconf.cc:(.text._ZN6StringC2EPKc[_ZN6StringC5EPKc]+0x18): undefined reference to `String::assign(char const*, int, bool)'
+globalconf.u.o: In function `String::operator+=(String const&)':
+globalconf.cc:(.text._ZN6StringpLERKS_[_ZN6StringpLERKS_]+0x18): undefined reference to `String::append(char const*, int, String::memo_t*)'
+globalconf.u.o: In function `String::operator+=(char)':
+globalconf.cc:(.text._ZN6StringpLEc[_ZN6StringpLEc]+0x1e): undefined reference to `String::append(char const*, int, String::memo_t*)'
+globalconf.u.o:(.data.rel.ro._ZTI10GlobalConf[_ZTI10GlobalConf]+0x8): undefined reference to `typeinfo for Element'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x10): undefined reference to `Element::push(int, Packet*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x14): undefined reference to `Element::pull(int)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x18): undefined reference to `Element::simple_action(Packet*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x1c): undefined reference to `Element::run_task(Task*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x20): undefined reference to `Element::run_timer(Timer*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x24): undefined reference to `Element::selected(int, int)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x28): undefined reference to `Element::selected(int)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x38): undefined reference to `Element::flow_code() const'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x3c): undefined reference to `Element::flags() const'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x40): undefined reference to `Element::cast(char const*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x50): undefined reference to `Element::add_handlers()'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x5c): undefined reference to `Element::hotswap_element() const'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x64): undefined reference to `Element::declaration() const'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+globalconf.u.o:(.data.rel.ro._ZTV10GlobalConf[_ZTV10GlobalConf]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+localproxy.u.o: In function `_ZNK6String5derefEv.isra.2':
+localproxy.cc:(.text+0x28): undefined reference to `String::delete_memo(String::memo_t*)'
+localproxy.u.o: In function `LocalProxy::pushDataToLocalSubscriber(LocalHost*, String&, Packet*)':
+localproxy.cc:(.text+0xca): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::pushDataToRemoteSubscribers(Vector<String>&, BABitvector&, Packet*)':
+localproxy.cc:(.text+0x1ba): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::publishReqToRV(Packet*, BABitvector&)':
+localproxy.cc:(.text+0x282): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x312): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::sendNotificationLocally(unsigned char, LocalHost*, String)':
+localproxy.cc:(.text+0x37a): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localproxy.cc:(.text+0x3b2): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::createAndSendPacketToRV(unsigned char, unsigned char, String&, unsigned char, String&, BABitvector&, unsigned char)':
+localproxy.cc:(.text+0x480): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localproxy.cc:(.text+0x4c4): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x4fe): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x542): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x596): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localproxy.cc:(.text+0x5c4): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x61c): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x66a): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::configure(Vector<String>&, ErrorHandler*)':
+localproxy.cc:(.text+0x6f2): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+localproxy.u.o: In function `LocalProxy::getLocalHost(int, int)':
+localproxy.cc:(.text+0x724): undefined reference to `String::null_data'
+localproxy.u.o: In function `LocalProxy::deleteAllActiveInformationItemSubscriptions(LocalHost*)':
+localproxy.cc:(.text+0xca8): undefined reference to `String::null_data'
+localproxy.cc:(.text+0xd9c): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0xdd6): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::deleteAllActiveScopeSubscriptions(LocalHost*)':
+localproxy.cc:(.text+0xeca): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x10c6): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x10f4): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::deleteAllActiveScopePublications(LocalHost*)':
+localproxy.cc:(.text+0x1256): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x1428): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x1456): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::handleLocalRequest(unsigned char&, LocalHost*, String&, String&, unsigned char&, BABitvector&)':
+localproxy.cc:(.text+0x1864): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x18f6): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::findActiveSubscriptions(String&, HashTable<LocalHostSetItem, void>&)':
+localproxy.cc:(.text+0x1a7c): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::findLocalSubscribers(Vector<String>&, HashTable<LocalHost*, String>&)':
+localproxy.cc:(.text+0x1b64): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x1c3a): undefined reference to `String::substring(int, int) const'
+localproxy.u.o: In function `LocalProxy::LocalProxy()':
+localproxy.cc:(.text+0x1d4c): undefined reference to `Element::Element()'
+localproxy.cc:(.text+0x1d78): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localproxy.cc:(.text+0x1e5c): undefined reference to `Element::~Element()'
+localproxy.u.o: In function `LocalProxy::~LocalProxy()':
+localproxy.cc:(.text+0x1ea4): undefined reference to `click_chatter'
+localproxy.cc:(.text+0x1ee4): undefined reference to `Element::~Element()'
+localproxy.cc:(.text+0x1f3c): undefined reference to `Element::~Element()'
+localproxy.u.o: In function `LocalProxy::cleanup(Element::CleanupStage)':
+localproxy.cc:(.text+0x1fa8): undefined reference to `click_chatter'
+localproxy.u.o: In function `LocalProxy::handleRVNotification(Packet*)':
+localproxy.cc:(.text+0x224c): undefined reference to `String::assign(char const*, int, bool)'
+localproxy.cc:(.text+0x2908): undefined reference to `click_chatter'
+localproxy.u.o: In function `LocalProxy::deleteAllActiveInformationItemPublications(LocalHost*)':
+localproxy.cc:(.text+0x2a64): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x2b8a): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x2bca): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x2c72): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localproxy.cc:(.text+0x2c9e): undefined reference to `String::hard_c_str() const'
+localproxy.u.o: In function `LocalProxy::disconnect(LocalHost*)':
+localproxy.cc:(.text+0x2de4): undefined reference to `String::hard_c_str() const'
+localproxy.cc:(.text+0x2df6): undefined reference to `click_chatter'
+localproxy.u.o: In function `LocalProxy::handleNetworkPublication(Vector<String>&, Packet*)':
+localproxy.cc:(.text+0x2f70): undefined reference to `Packet::clone()'
+localproxy.u.o: In function `LocalProxy::handleUserPublication(String&, Packet*, LocalHost*)':
+localproxy.cc:(.text+0x305c): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x31b4): undefined reference to `Packet::clone()'
+localproxy.cc:(.text+0x31fc): undefined reference to `Packet::clone()'
+localproxy.cc:(.text+0x32d2): undefined reference to `Packet::clone()'
+localproxy.u.o: In function `LocalProxy::handleUserPublication(String&, BABitvector&, Packet*, LocalHost*)':
+localproxy.cc:(.text+0x33a4): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x3446): undefined reference to `String::substring(int, int) const'
+localproxy.cc:(.text+0x3492): undefined reference to `String::compare(char const*, int) const'
+localproxy.cc:(.text+0x3528): undefined reference to `Packet::clone()'
+localproxy.cc:(.text+0x35be): undefined reference to `Packet::clone()'
+localproxy.u.o: In function `LocalProxy::push(int, Packet*)':
+localproxy.cc:(.text+0x36c8): undefined reference to `String::null_data'
+localproxy.cc:(.text+0x372c): undefined reference to `String::assign(char const*, int, bool)'
+localproxy.cc:(.text+0x3784): undefined reference to `String::compare(char const*, int) const'
+localproxy.cc:(.text+0x37f4): undefined reference to `String::assign(char const*, int, bool)'
+localproxy.cc:(.text+0x38a8): undefined reference to `String::compare(char const*, int) const'
+localproxy.cc:(.text+0x3a02): undefined reference to `String::assign(char const*, int, bool)'
+localproxy.cc:(.text+0x3ad6): undefined reference to `click_chatter'
+localproxy.u.o: In function `LocalProxy::processing() const':
+localproxy.cc:(.text._ZNK10LocalProxy10processingEv[_ZNK10LocalProxy10processingEv]+0x12): undefined reference to `Element::PUSH'
+localproxy.u.o: In function `Packet::kill()':
+localproxy.cc:(.text._ZN6Packet4killEv[_ZN6Packet4killEv]+0x1e): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+localproxy.u.o: In function `Packet::push(unsigned int)':
+localproxy.cc:(.text._ZN6Packet4pushEj[_ZN6Packet4pushEj]+0x32): undefined reference to `Packet::expensive_push(unsigned int)'
+localproxy.u.o: In function `HashContainer<HashTable<Pair<String const, ActivePublication*>, void>::elt, HashContainer_adapter<HashTable<Pair<String const, ActivePublication*>, void>::elt> >::find(String const&)':
+localproxy.cc:(.text._ZN13HashContainerIN9HashTableI4PairIK6StringP17ActivePublicationEvE3eltE21HashContainer_adapterIS8_EE4findERS3_[_ZN13HashContainerIN9HashTableI4PairIK6StringP17ActivePublicationEvE3eltE21HashContainer_adapterIS8_EE4findERS3_]+0x4e): undefined reference to `String::hard_equals(char const*, int) const'
+localproxy.u.o: In function `HashContainer<HashTable<StringSetItem, void>::elt, HashContainer_adapter<HashTable<StringSetItem, void>::elt> >::find(String const&)':
+localproxy.cc:(.text._ZN13HashContainerIN9HashTableI13StringSetItemvE3eltE21HashContainer_adapterIS3_EE4findERK6String[_ZN13HashContainerIN9HashTableI13StringSetItemvE3eltE21HashContainer_adapterIS3_EE4findERK6String]+0x62): undefined reference to `String::hard_equals(char const*, int) const'
+localproxy.u.o: In function `HashContainer<HashTable<Pair<String const, ActiveSubscription*>, void>::elt, HashContainer_adapter<HashTable<Pair<String const, ActiveSubscription*>, void>::elt> >::find(String const&)':
+localproxy.cc:(.text._ZN13HashContainerIN9HashTableI4PairIK6StringP18ActiveSubscriptionEvE3eltE21HashContainer_adapterIS8_EE4findERS3_[_ZN13HashContainerIN9HashTableI4PairIK6StringP18ActiveSubscriptionEvE3eltE21HashContainer_adapterIS8_EE4findERS3_]+0x4e): undefined reference to `String::hard_equals(char const*, int) const'
+localproxy.u.o: In function `HashTable<LocalHostSetItem, void>::HashTable()':
+localproxy.cc:(.text._ZN9HashTableI16LocalHostSetItemvEC2Ev[_ZN9HashTableI16LocalHostSetItemvEC5Ev]+0x4a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localproxy.u.o: In function `SizedHashAllocator<20u>::SizedHashAllocator()':
+localproxy.cc:(.text._ZN18SizedHashAllocatorILj20EEC2Ev[_ZN18SizedHashAllocatorILj20EEC5Ev]+0x18): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localproxy.u.o: In function `HashTable<LocalHost*, String>::HashTable()':
+localproxy.cc:(.text._ZN9HashTableIP9LocalHost6StringEC2Ev[_ZN9HashTableIP9LocalHost6StringEC5Ev]+0x56): undefined reference to `String::null_data'
+localproxy.u.o: In function `HashTable<Pair<int const, LocalHost*>, void>::~HashTable()':
+localproxy.cc:(.text._ZN9HashTableI4PairIKiP9LocalHostEvED2Ev[_ZN9HashTableI4PairIKiP9LocalHostEvED5Ev]+0x68): undefined reference to `HashAllocator::~HashAllocator()'
+localproxy.cc:(.text._ZN9HashTableI4PairIKiP9LocalHostEvED2Ev[_ZN9HashTableI4PairIKiP9LocalHostEvED5Ev]+0x96): undefined reference to `HashAllocator::~HashAllocator()'
+localproxy.u.o: In function `HashTable<Pair<String const, ActivePublication*>, void>::~HashTable()':
+localproxy.cc:(.text._ZN9HashTableI4PairIK6StringP17ActivePublicationEvED2Ev[_ZN9HashTableI4PairIK6StringP17ActivePublicationEvED5Ev]+0x54): undefined reference to `HashAllocator::~HashAllocator()'
+localproxy.cc:(.text._ZN9HashTableI4PairIK6StringP17ActivePublicationEvED2Ev[_ZN9HashTableI4PairIK6StringP17ActivePublicationEvED5Ev]+0xaa): undefined reference to `HashAllocator::~HashAllocator()'
+localproxy.u.o: In function `HashTable<Pair<String const, ActiveSubscription*>, void>::~HashTable()':
+localproxy.cc:(.text._ZN9HashTableI4PairIK6StringP18ActiveSubscriptionEvED2Ev[_ZN9HashTableI4PairIK6StringP18ActiveSubscriptionEvED5Ev]+0x54): undefined reference to `HashAllocator::~HashAllocator()'
+localproxy.u.o:localproxy.cc:(.text._ZN9HashTableI4PairIK6StringP18ActiveSubscriptionEvED2Ev[_ZN9HashTableI4PairIK6StringP18ActiveSubscriptionEvED5Ev]+0xaa): more undefined references to `HashAllocator::~HashAllocator()' follow
+localproxy.u.o:(.data.rel.ro._ZTI10LocalProxy[_ZTI10LocalProxy]+0x8): undefined reference to `typeinfo for Element'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x14): undefined reference to `Element::pull(int)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x18): undefined reference to `Element::simple_action(Packet*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x1c): undefined reference to `Element::run_task(Task*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x20): undefined reference to `Element::run_timer(Timer*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x24): undefined reference to `Element::selected(int, int)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x28): undefined reference to `Element::selected(int)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x38): undefined reference to `Element::flow_code() const'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x3c): undefined reference to `Element::flags() const'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x40): undefined reference to `Element::cast(char const*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x50): undefined reference to `Element::add_handlers()'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x5c): undefined reference to `Element::hotswap_element() const'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x64): undefined reference to `Element::declaration() const'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+localproxy.u.o:(.data.rel.ro._ZTV10LocalProxy[_ZTV10LocalProxy]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+localrv.u.o: In function `LocalRV::configure(Vector<String>&, ErrorHandler*)':
+localrv.cc:(.text+0x3e): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+localrv.u.o: In function `LocalRV::add_handlers()':
+localrv.cc:(.text+0x78): undefined reference to `Element::add_read_handler(char const*, String (*)(Element*, void*), int, unsigned int)'
+localrv.u.o: In function `_ZNK6String5derefEv.isra.2':
+localrv.cc:(.text+0xb4): undefined reference to `String::delete_memo(String::memo_t*)'
+localrv.u.o: In function `LocalRV::publish_root_scope(RemoteHost*, String&, unsigned char&)':
+localrv.cc:(.text+0x336): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x356): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x372): undefined reference to `click_chatter'
+localrv.cc:(.text+0x418): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x438): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x454): undefined reference to `click_chatter'
+localrv.cc:(.text+0x46e): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::initialize(ErrorHandler*)':
+localrv.cc:(.text+0x68e): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localrv.cc:(.text+0x6d2): undefined reference to `String::hard_c_str() const'
+localrv.u.o: In function `LocalRV::notifyLocalSubscriber(unsigned char, HashTable<StringSetItem, void>&)':
+localrv.cc:(.text+0x7e8): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localrv.cc:(.text+0x81a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x8f6): undefined reference to `String::hard_c_str() const'
+localrv.u.o: In function `LocalRV::requestTMAssistanceForNotifyingSubscribers(unsigned char, HashTable<StringSetItem, void>&, HashTable<RemoteHostSetItem, void>&, unsigned char)':
+localrv.cc:(.text+0xa16): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localrv.cc:(.text+0xa42): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0xb2c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0xc02): undefined reference to `String::hard_c_str() const'
+localrv.u.o: In function `LocalRV::publish_inner_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0xd08): undefined reference to `String::null_data'
+localrv.cc:(.text+0xe50): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0xf04): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0xf28): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0xf42): undefined reference to `click_chatter'
+localrv.cc:(.text+0xff0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1004): undefined reference to `click_chatter'
+localrv.cc:(.text+0x10a2): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x10c8): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x10e2): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1112): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1126): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1142): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x1156): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x116a): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x1180): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1196): undefined reference to `click_chatter'
+localrv.cc:(.text+0x11ba): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::republish_inner_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x12f8): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x135c): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x1530): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1558): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1580): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x15a4): undefined reference to `click_chatter'
+localrv.cc:(.text+0x16ca): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x16de): undefined reference to `click_chatter'
+localrv.cc:(.text+0x178e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x17b6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x17d0): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1802): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1816): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1832): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x1846): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x185c): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1878): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x188c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x189c): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x18b2): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x18c6): undefined reference to `click_chatter'
+localrv.cc:(.text+0x18ee): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::publish_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x1ac2): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x1ad8): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1b10): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x1b20): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x1b36): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::LocalRV()':
+localrv.cc:(.text+0x1b7c): undefined reference to `Element::Element()'
+localrv.cc:(.text+0x1c8c): undefined reference to `Element::~Element()'
+localrv.u.o: In function `LocalRV::~LocalRV()':
+localrv.cc:(.text+0x1cd4): undefined reference to `click_chatter'
+localrv.cc:(.text+0x1d14): undefined reference to `Element::~Element()'
+localrv.cc:(.text+0x1d6c): undefined reference to `Element::~Element()'
+localrv.u.o: In function `LocalRV::cleanup(Element::CleanupStage)':
+localrv.cc:(.text+0x20f4): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::requestTMAssistanceForRendezvous(InformationItem*, HashTable<RemoteHostSetItem, void>&, HashTable<RemoteHostSetItem, void>&, HashTable<String, Pair<HashTable<RemoteHostSetItem, void>, HashTable<RemoteHostSetItem, void> >*>&)':
+localrv.cc:(.text+0x21e2): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localrv.cc:(.text+0x220e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x2308): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x23b6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x2490): undefined reference to `String::hard_c_str() const'
+localrv.u.o: In function `LocalRV::notifyLocalPublisher(InformationItem*, BABitvector*)':
+localrv.cc:(.text+0x259c): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+localrv.cc:(.text+0x25f6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x26d2): undefined reference to `String::hard_c_str() const'
+localrv.u.o: In function `LocalRV::subscribe_root_scope(RemoteHost*, String&, unsigned char&)':
+localrv.cc:(.text+0x292a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x294a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x2966): undefined reference to `click_chatter'
+localrv.cc:(.text+0x2a1a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x2a3a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x2a56): undefined reference to `click_chatter'
+localrv.cc:(.text+0x2cea): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::subscribe_inner_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x2e48): undefined reference to `String::null_data'
+localrv.cc:(.text+0x2f8a): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x304c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x306e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3086): undefined reference to `click_chatter'
+localrv.cc:(.text+0x3120): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3136): undefined reference to `click_chatter'
+localrv.cc:(.text+0x31e8): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x320a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3224): undefined reference to `click_chatter'
+localrv.cc:(.text+0x34d0): undefined reference to `click_chatter'
+localrv.cc:(.text+0x34e4): undefined reference to `click_chatter'
+localrv.cc:(.text+0x34f8): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::subscribe_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x3700): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x3716): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x374e): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x375e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3774): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::advertise_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x38d2): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x397e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x39a0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x39ba): undefined reference to `click_chatter'
+localrv.cc:(.text+0x3a1e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x3a2e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x3ad4): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3af6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3b0e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x3be0): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x3bf2): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3c08): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::readvertise_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x3d40): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x3f42): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3f62): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3f82): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x3f9a): undefined reference to `click_chatter'
+localrv.cc:(.text+0x4062): undefined reference to `click_chatter'
+localrv.cc:(.text+0x40ee): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x4110): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x4126): undefined reference to `click_chatter'
+localrv.cc:(.text+0x41f8): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x420a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x421e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x4238): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x424a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x425e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x427c): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::publish_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x43e2): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x43f8): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x4430): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x4440): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x4456): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::subscribe_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x45ee): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x469a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x46ba): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x46d4): undefined reference to `click_chatter'
+localrv.cc:(.text+0x46f2): undefined reference to `click_chatter'
+localrv.cc:(.text+0x4702): undefined reference to `click_chatter'
+localrv.cc:(.text+0x485a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x487c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x4898): undefined reference to `click_chatter'
+localrv.cc:(.text+0x48ca): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x48da): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x48f0): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::listInfoStructs()':
+localrv.cc:(.text+0x49ec): undefined reference to `String::null_data'
+localrv.cc:(.text+0x4b62): undefined reference to `StringAccum::take_string()'
+localrv.cc:(.text+0x4cb2): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x4cc4): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x4d0e): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.cc:(.text+0x4e3c): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.cc:(.text+0x4eea): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.cc:(.text+0x4fee): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x5006): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x5054): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.cc:(.text+0x514a): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.cc:(.text+0x51ae): undefined reference to `StringAccum::hard_append(char const*, int)'
+localrv.u.o: In function `LocalRV::unsubscribe_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x547e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x549e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x54b8): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5552): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5572): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x558c): undefined reference to `click_chatter'
+localrv.cc:(.text+0x55da): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x55ea): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x55fa): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5614): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5676): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x5812): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5822): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x5832): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x584a): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5884): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x589a): undefined reference to `click_chatter'
+localrv.cc:(.text+0x58b6): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x58c6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x58da): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::unpublish_info(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x5b60): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5b80): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5b9a): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5c2e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5c4e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5c68): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5d62): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5d72): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x5d82): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5d9c): undefined reference to `click_chatter'
+localrv.cc:(.text+0x5df6): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x5fa0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5fb0): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x5fc0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x5fd8): undefined reference to `click_chatter'
+localrv.cc:(.text+0x60a8): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x60be): undefined reference to `click_chatter'
+localrv.cc:(.text+0x60da): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x60ea): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x60fe): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::unpublish_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x638e): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x6570): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x66a4): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x66b6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x66cc): undefined reference to `click_chatter'
+localrv.cc:(.text+0x66ea): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x66fa): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x670e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x67da): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x67ea): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x67fc): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6816): undefined reference to `click_chatter'
+localrv.cc:(.text+0x684e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x686e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6884): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6918): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6938): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x694e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6a8e): undefined reference to `String::compare(char const*, int) const'
+localrv.cc:(.text+0x6afa): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6b0a): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x6b1a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6b34): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6b9c): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x6d48): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6d58): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x6d68): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6d82): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6e40): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6e62): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6e7e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6eb0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6ed4): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6eee): undefined reference to `click_chatter'
+localrv.cc:(.text+0x6fa2): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x6fbc): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::unsubscribe_scope(RemoteHost*, String&, String&, unsigned char&)':
+localrv.cc:(.text+0x743c): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x744c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7462): undefined reference to `click_chatter'
+localrv.cc:(.text+0x747c): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x748c): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x74a0): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7630): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7652): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x766c): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7716): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7736): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7750): undefined reference to `click_chatter'
+localrv.cc:(.text+0x77fc): undefined reference to `String::compare(char const*, int) const'
+localrv.cc:(.text+0x7868): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7878): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x788a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x78ae): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7908): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x7ac0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7ad0): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x7ae0): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7af6): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7b0a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7b1a): undefined reference to `String::quoted_hex() const'
+localrv.cc:(.text+0x7b2a): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7b40): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7b70): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7b94): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7bae): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7d0e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7d2e): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7d4a): undefined reference to `click_chatter'
+localrv.cc:(.text+0x7db6): undefined reference to `String::hard_c_str() const'
+localrv.cc:(.text+0x7dd0): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::push(int, Packet*)':
+localrv.cc:(.text+0x7e22): undefined reference to `String::null_data'
+localrv.cc:(.text+0x7e74): undefined reference to `String::assign(char const*, int, bool)'
+localrv.cc:(.text+0x7eb4): undefined reference to `String::substring(int, int) const'
+localrv.cc:(.text+0x7ef8): undefined reference to `String::assign(char const*, int, bool)'
+localrv.cc:(.text+0x7f44): undefined reference to `String::assign(char const*, int, bool)'
+localrv.cc:(.text+0x8072): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+localrv.cc:(.text+0x807e): undefined reference to `click_chatter'
+localrv.cc:(.text+0x808e): undefined reference to `click_chatter'
+localrv.u.o: In function `LocalRV::processing() const':
+localrv.cc:(.text._ZNK7LocalRV10processingEv[_ZNK7LocalRV10processingEv]+0x12): undefined reference to `Element::PUSH'
+localrv.u.o: In function `operator==(String const&, String const&)':
+localrv.cc:(.text._ZeqRK6StringS1_[_ZeqRK6StringS1_]+0x1c): undefined reference to `String::hard_equals(char const*, int) const'
+localrv.u.o: In function `StringAccum::append(char)':
+localrv.cc:(.text._ZN11StringAccum6appendEc[_ZN11StringAccum6appendEc]+0x24): undefined reference to `StringAccum::grow(int)'
+localrv.u.o: In function `StringAccum::append(char const*)':
+localrv.cc:(.text._ZN11StringAccum6appendEPKc[_ZN11StringAccum6appendEPKc]+0x16): undefined reference to `StringAccum::hard_append_cstr(char const*)'
+localrv.u.o: In function `HashTable<ScopeSetItem, void>::HashTable()':
+localrv.cc:(.text._ZN9HashTableI12ScopeSetItemvEC2Ev[_ZN9HashTableI12ScopeSetItemvEC5Ev]+0x4a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localrv.u.o: In function `HashTable<InformationItemSetItem, void>::HashTable()':
+localrv.cc:(.text._ZN9HashTableI22InformationItemSetItemvEC2Ev[_ZN9HashTableI22InformationItemSetItemvEC5Ev]+0x4a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localrv.u.o: In function `HashTable<InformationItemSetItem, void>::~HashTable()':
+localrv.cc:(.text._ZN9HashTableI22InformationItemSetItemvED2Ev[_ZN9HashTableI22InformationItemSetItemvED5Ev]+0x68): undefined reference to `HashAllocator::~HashAllocator()'
+localrv.cc:(.text._ZN9HashTableI22InformationItemSetItemvED2Ev[_ZN9HashTableI22InformationItemSetItemvED5Ev]+0x96): undefined reference to `HashAllocator::~HashAllocator()'
+localrv.u.o: In function `HashTable<Pair<String const, Scope*>, void>::~HashTable()':
+localrv.cc:(.text._ZN9HashTableI4PairIK6StringP5ScopeEvED2Ev[_ZN9HashTableI4PairIK6StringP5ScopeEvED5Ev]+0x54): undefined reference to `HashAllocator::~HashAllocator()'
+localrv.cc:(.text._ZN9HashTableI4PairIK6StringP5ScopeEvED2Ev[_ZN9HashTableI4PairIK6StringP5ScopeEvED5Ev]+0xaa): undefined reference to `HashAllocator::~HashAllocator()'
+localrv.u.o: In function `HashTable<Pair<String const, InformationItem*>, void>::~HashTable()':
+localrv.cc:(.text._ZN9HashTableI4PairIK6StringP15InformationItemEvED2Ev[_ZN9HashTableI4PairIK6StringP15InformationItemEvED5Ev]+0x86): undefined reference to `HashAllocator::~HashAllocator()'
+localrv.u.o:localrv.cc:(.text._ZN9HashTableI4PairIK6StringP15InformationItemEvED2Ev[_ZN9HashTableI4PairIK6StringP15InformationItemEvED5Ev]+0xb4): more undefined references to `HashAllocator::~HashAllocator()' follow
+localrv.u.o:(.data.rel.ro._ZTI7LocalRV[_ZTI7LocalRV]+0x8): undefined reference to `typeinfo for Element'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x14): undefined reference to `Element::pull(int)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x18): undefined reference to `Element::simple_action(Packet*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x1c): undefined reference to `Element::run_task(Task*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x20): undefined reference to `Element::run_timer(Timer*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x24): undefined reference to `Element::selected(int, int)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x28): undefined reference to `Element::selected(int)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x38): undefined reference to `Element::flow_code() const'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x3c): undefined reference to `Element::flags() const'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x40): undefined reference to `Element::cast(char const*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x5c): undefined reference to `Element::hotswap_element() const'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x64): undefined reference to `Element::declaration() const'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+localrv.u.o:(.data.rel.ro._ZTV7LocalRV[_ZTV7LocalRV]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+linkmon.u.o: In function `LinkMon::push(int, Packet*)':
+linkmon.cc:(.text+0x1c): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x68): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+linkmon.u.o: In function `_ZNK6String5derefEv.isra.4':
+linkmon.cc:(.text+0xc0): undefined reference to `String::delete_memo(String::memo_t*)'
+linkmon.u.o: In function `LinkMon::configure(Vector<String>&, ErrorHandler*)':
+linkmon.cc:(.text+0x1f8): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+linkmon.cc:(.text+0x218): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+linkmon.cc:(.text+0x274): undefined reference to `String::append(char const*, int, String::memo_t*)'
+linkmon.cc:(.text+0x29e): undefined reference to `String::append(char const*, int, String::memo_t*)'
+linkmon.cc:(.text+0x2c2): undefined reference to `Timer::initialize(Element*, bool)'
+linkmon.cc:(.text+0x2d6): undefined reference to `Timer::element_hook(Timer*, void*)'
+linkmon.cc:(.text+0x2fe): undefined reference to `Timer::initialize(Element*, bool)'
+linkmon.cc:(.text+0x314): undefined reference to `Timer::element_hook(Timer*, void*)'
+linkmon.cc:(.text+0x346): undefined reference to `click_chatter'
+linkmon.u.o: In function `LinkMon::poll()':
+linkmon.cc:(.text+0x3fa): undefined reference to `click_chatter'
+linkmon.u.o: In function `LinkMon::initialize(ErrorHandler*)':
+linkmon.cc:(.text+0x5fc): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x62a): undefined reference to `Router::handler(Element const*, String const&)'
+linkmon.cc:(.text+0x65a): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x66c): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x680): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x6a4): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x6b6): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x6ca): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x6fe): undefined reference to `Router::handler(Element const*, String const&)'
+linkmon.cc:(.text+0x71e): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x730): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x744): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x77a): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x800): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x812): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x826): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x97e): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+linkmon.cc:(.text+0x9ec): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x9fc): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0xa76): undefined reference to `click_chatter'
+linkmon.cc:(.text+0xd8a): undefined reference to `Router::handler(Element const*, String const&)'
+linkmon.cc:(.text+0xda8): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0xdc0): undefined reference to `click_chatter'
+linkmon.cc:(.text+0xe38): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+linkmon.cc:(.text+0xe92): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0xea2): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0xeb6): undefined reference to `click_chatter'
+linkmon.cc:(.text+0xedc): undefined reference to `Router::handler(Element const*, String const&)'
+linkmon.cc:(.text+0xefe): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0xf0c): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0xf20): undefined reference to `click_chatter'
+linkmon.cc:(.text+0xfd6): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0xfe2): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0xff2): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x1002): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x1012): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x1022): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x1032): undefined reference to `Element::name() const'
+linkmon.cc:(.text+0x1042): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text+0x1084): undefined reference to `click_chatter'
+linkmon.u.o: In function `LinkMon::report()':
+linkmon.cc:(.text+0x128e): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x13fe): undefined reference to `click_chatter'
+linkmon.cc:(.text+0x1436): undefined reference to `String::hard_c_str() const'
+linkmon.u.o: In function `LinkMon::processing() const':
+linkmon.cc:(.text._ZNK7LinkMon10processingEv[_ZNK7LinkMon10processingEv]+0x12): undefined reference to `Element::PUSH'
+linkmon.u.o: In function `Handler::call_read(Element*, ErrorHandler*) const':
+linkmon.cc:(.text._ZNK7Handler9call_readEP7ElementP12ErrorHandler[_ZNK7Handler9call_readEP7ElementP12ErrorHandler]+0x16): undefined reference to `String::null_data'
+linkmon.cc:(.text._ZNK7Handler9call_readEP7ElementP12ErrorHandler[_ZNK7Handler9call_readEP7ElementP12ErrorHandler]+0x28): undefined reference to `Handler::call_read(Element*, String const&, ErrorHandler*) const'
+linkmon.u.o: In function `Timer::~Timer()':
+linkmon.cc:(.text._ZN5TimerD2Ev[_ZN5TimerD5Ev]+0x1a): undefined reference to `Timer::unschedule()'
+linkmon.u.o: In function `Timer::schedule_after_sec(unsigned int)':
+linkmon.cc:(.text._ZN5Timer18schedule_after_secEj[_ZN5Timer18schedule_after_secEj]+0x1e): undefined reference to `Timer::schedule_after(Timestamp const&)'
+linkmon.u.o: In function `LinkMon::~LinkMon()':
+linkmon.cc:(.text._ZN7LinkMonD2Ev[_ZN7LinkMonD5Ev]+0xb2): undefined reference to `Element::~Element()'
+linkmon.cc:(.text._ZN7LinkMonD2Ev[_ZN7LinkMonD5Ev]+0xf4): undefined reference to `Element::~Element()'
+linkmon.u.o: In function `_links::update()':
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x4e): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0xc6): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x114): undefined reference to `String::hard_c_str() const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x160): undefined reference to `String::find_left(String const&, int) const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x1ae): undefined reference to `String::find_left(String const&, int) const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x204): undefined reference to `String::find_left(String const&, int) const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x24a): undefined reference to `String::find_left(String const&, int) const'
+linkmon.cc:(.text._ZN6_links6updateEv[_ZN6_links6updateEv]+0x3c4): undefined reference to `String::hard_c_str() const'
+linkmon.u.o:(.data.rel.ro._ZTI7LinkMon[_ZTI7LinkMon]+0x8): undefined reference to `typeinfo for Element'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x14): undefined reference to `Element::pull(int)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x18): undefined reference to `Element::simple_action(Packet*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x1c): undefined reference to `Element::run_task(Task*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x24): undefined reference to `Element::selected(int, int)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x28): undefined reference to `Element::selected(int)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x38): undefined reference to `Element::flow_code() const'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x3c): undefined reference to `Element::flags() const'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x40): undefined reference to `Element::cast(char const*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x50): undefined reference to `Element::add_handlers()'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x5c): undefined reference to `Element::hotswap_element() const'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x64): undefined reference to `Element::declaration() const'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+linkmon.u.o:(.data.rel.ro._ZTV7LinkMon[_ZTV7LinkMon]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+lsmpacket.u.o: In function `_ZNK6String5derefEv.isra.4':
+lsmpacket.cc:(.text+0x88): undefined reference to `String::delete_memo(String::memo_t*)'
+lsmpacket.u.o: In function `operator<<(std::ostream&, LSMPacket&)':
+lsmpacket.cc:(.text+0x972): undefined reference to `String::hard_c_str() const'
+blackadder-umain.u.o: In function `beetlemonkey(unsigned int)':
+blackadder-umain.cc:(.text+0x10e): undefined reference to `Element::Element()'
+blackadder-umain.cc:(.text+0x12c): undefined reference to `Timer::Timer()'
+blackadder-umain.cc:(.text+0x138): undefined reference to `Timer::Timer()'
+blackadder-umain.cc:(.text+0x144): undefined reference to `String::null_data'
+blackadder-umain.cc:(.text+0x17a): undefined reference to `Timer::unschedule()'
+blackadder-umain.cc:(.text+0x190): undefined reference to `Element::~Element()'
+blackadder-umain.u.o: In function `init_module':
+blackadder-umain.cc:(.text+0x212): undefined reference to `click_provide'
+blackadder-umain.cc:(.text+0x228): undefined reference to `click_add_element_type'
+blackadder-umain.cc:(.text+0x24c): undefined reference to `click_add_element_type'
+blackadder-umain.cc:(.text+0x26e): undefined reference to `click_add_element_type'
+blackadder-umain.cc:(.text+0x290): undefined reference to `click_add_element_type'
+blackadder-umain.cc:(.text+0x2b2): undefined reference to `click_add_element_type'
+blackadder-umain.u.o:blackadder-umain.cc:(.text+0x2d4): more undefined references to `click_add_element_type' follow
+blackadder-umain.u.o: In function `cleanup_module':
+blackadder-umain.cc:(.text+0x37e): undefined reference to `click_remove_element_type'
+blackadder-umain.cc:(.text+0x390): undefined reference to `click_remove_element_type'
+blackadder-umain.cc:(.text+0x39e): undefined reference to `click_remove_element_type'
+blackadder-umain.cc:(.text+0x3ac): undefined reference to `click_remove_element_type'
+blackadder-umain.cc:(.text+0x3ba): undefined reference to `click_remove_element_type'
+blackadder-umain.u.o:blackadder-umain.cc:(.text+0x3c8): more undefined references to `click_remove_element_type' follow
+blackadder-umain.u.o: In function `cleanup_module':
+blackadder-umain.cc:(.text+0x404): undefined reference to `click_unprovide'
+activepub.u.o: In function `_ZNK6String5derefEv.isra.0':
+activepub.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+activepub.u.o: In function `ActiveSubscription::ActiveSubscription(String, unsigned char, bool)':
+activepub.cc:(.text+0x48): undefined reference to `String::null_data'
+activepub.cc:(.text+0x94): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+activepub.u.o: In function `ActivePublication::ActivePublication(String, unsigned char, bool)':
+activepub.cc:(.text+0x1dc): undefined reference to `String::null_data'
+activepub.cc:(.text+0x206): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+activepub.u.o: In function `HashTable<LocalHostSetItem, void>::~HashTable()':
+activepub.cc:(.text._ZN9HashTableI16LocalHostSetItemvED2Ev[_ZN9HashTableI16LocalHostSetItemvED5Ev]+0x7e): undefined reference to `HashAllocator::~HashAllocator()'
+activepub.u.o: In function `HashTable<Pair<LocalHost* const, unsigned char>, void>::~HashTable()':
+activepub.cc:(.text._ZN9HashTableI4PairIKP9LocalHosthEvED2Ev[_ZN9HashTableI4PairIKP9LocalHosthEvED5Ev]+0x7e): undefined reference to `HashAllocator::~HashAllocator()'
+ba_bitvector.u.o: In function `_ZNK6String5derefEv.isra.0':
+ba_bitvector.cc:(.text+0x50): undefined reference to `String::delete_memo(String::memo_t*)'
+ba_bitvector.u.o: In function `BABitvector::to_string()':
+ba_bitvector.cc:(.text+0x65c): undefined reference to `String::null_data'
+ba_bitvector.cc:(.text+0x6be): undefined reference to `String::append(char const*, int, String::memo_t*)'
+fromnetlink.u.o: In function `FromNetlink::cleanup(Element::CleanupStage)':
+fromnetlink.cc:(.text+0x1a): undefined reference to `click_chatter'
+fromnetlink.u.o: In function `FromNetlink::~FromNetlink()':
+fromnetlink.cc:(.text+0x50): undefined reference to `click_chatter'
+fromnetlink.cc:(.text+0x60): undefined reference to `Element::~Element()'
+fromnetlink.cc:(.text+0x74): undefined reference to `Element::~Element()'
+fromnetlink.u.o: In function `FromNetlink::configure(Vector<String>&, ErrorHandler*)':
+fromnetlink.cc:(.text+0xfe): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+fromnetlink.u.o: In function `FromNetlink::initialize(ErrorHandler*)':
+fromnetlink.cc:(.text+0x134): undefined reference to `Element::add_select(int, int)'
+fromnetlink.u.o: In function `FromNetlink::selected(int, int)':
+fromnetlink.cc:(.text+0x184): undefined reference to `click_chatter'
+fromnetlink.cc:(.text+0x190): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+fromnetlink.cc:(.text+0x1d4): undefined reference to `click_chatter'
+fromnetlink.cc:(.text+0x208): undefined reference to `click_chatter'
+fromnetlink.cc:(.text+0x288): undefined reference to `click_chatter'
+fromnetlink.cc:(.text+0x2a4): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+fromnetlink.u.o: In function `FromNetlink::FromNetlink()':
+fromnetlink.cc:(.text+0x2ca): undefined reference to `Element::Element()'
+fromnetlink.u.o: In function `FromNetlink::processing() const':
+fromnetlink.cc:(.text._ZNK11FromNetlink10processingEv[_ZNK11FromNetlink10processingEv]+0x12): undefined reference to `Element::PUSH'
+fromnetlink.u.o:(.data.rel.ro._ZTI11FromNetlink[_ZTI11FromNetlink]+0x8): undefined reference to `typeinfo for Element'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x10): undefined reference to `Element::push(int, Packet*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x14): undefined reference to `Element::pull(int)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x18): undefined reference to `Element::simple_action(Packet*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x1c): undefined reference to `Element::run_task(Task*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x20): undefined reference to `Element::run_timer(Timer*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x28): undefined reference to `Element::selected(int)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x38): undefined reference to `Element::flow_code() const'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x3c): undefined reference to `Element::flags() const'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x40): undefined reference to `Element::cast(char const*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x50): undefined reference to `Element::add_handlers()'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x5c): undefined reference to `Element::hotswap_element() const'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x64): undefined reference to `Element::declaration() const'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+fromnetlink.u.o:(.data.rel.ro._ZTV11FromNetlink[_ZTV11FromNetlink]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+informationitem.u.o: In function `_ZNK6String5derefEv.isra.2':
+informationitem.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+informationitem.u.o: In function `InformationItem::printID()':
+informationitem.cc:(.text+0x4a0): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x4c0): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x52c): undefined reference to `StringAccum::hard_extend(int, int)'
+informationitem.cc:(.text+0x5f2): undefined reference to `StringAccum::take_string()'
+informationitem.u.o: In function `InformationItem::printID(unsigned int)':
+informationitem.cc:(.text+0x68c): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x6ae): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x736): undefined reference to `StringAccum::hard_extend(int, int)'
+informationitem.cc:(.text+0x790): undefined reference to `StringAccum::take_string()'
+informationitem.u.o: In function `InformationItem::printIDs(char)':
+informationitem.cc:(.text+0x878): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x89c): undefined reference to `String::null_data'
+informationitem.cc:(.text+0x8e6): undefined reference to `StringAccum::take_string()'
+informationitem.cc:(.text+0x98a): undefined reference to `StringAccum::hard_extend(int, int)'
+informationitem.u.o: In function `InformationItem::InformationItem(unsigned char, Scope*)':
+informationitem.cc:(.text+0xa50): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+informationitem.cc:(.text+0xad0): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+informationitem.u.o: In function `InformationItem::checkForOtherPubSub(Scope*)':
+informationitem.cc:(.text+0xe5a): undefined reference to `String::substring(int, int) const'
+informationitem.cc:(.text+0xee0): undefined reference to `String::append(char const*, int, String::memo_t*)'
+informationitem.u.o: In function `InformationItem::updateIDs(HashTable<String, InformationItem*>&, String)':
+informationitem.cc:(.text+0x104a): undefined reference to `String::append(char const*, int, String::memo_t*)'
+informationitem.u.o: In function `String::hashcode() const':
+informationitem.cc:(.text._ZNK6String8hashcodeEv[_ZNK6String8hashcodeEv]+0x1e): undefined reference to `String::hashcode(char const*, char const*)'
+informationitem.u.o: In function `HashAllocator::allocate()':
+informationitem.cc:(.text._ZN13HashAllocator8allocateEv[_ZN13HashAllocator8allocateEv]+0x36): undefined reference to `HashAllocator::hard_allocate()'
+informationitem.u.o: In function `HashTable<RemoteHostSetItem, void>::HashTable()':
+informationitem.cc:(.text._ZN9HashTableI17RemoteHostSetItemvEC2Ev[_ZN9HashTableI17RemoteHostSetItemvEC5Ev]+0x4a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+informationitem.u.o: In function `HashContainer<HashTable<Pair<String const, Pair<HashTable<RemoteHostSetItem, void>, HashTable<RemoteHostSetItem, void> >*>, void>::elt, HashContainer_adapter<HashTable<Pair<String const, Pair<HashTable<RemoteHostSetItem, void>, HashTable<RemoteHostSetItem, void> >*>, void>::elt> >::find(String const&)':
+informationitem.cc:(.text._ZN13HashContainerIN9HashTableI4PairIK6StringPS1_IS0_I17RemoteHostSetItemvES5_EEvE3eltE21HashContainer_adapterISA_EE4findERS3_[_ZN13HashContainerIN9HashTableI4PairIK6StringPS1_IS0_I17RemoteHostSetItemvES5_EEvE3eltE21HashContainer_adapterISA_EE4findERS3_]+0x4e): undefined reference to `String::hard_equals(char const*, int) const'
+informationitem.u.o: In function `HashTable<String, InformationItem*>::set(String const&, InformationItem* const&)':
+informationitem.cc:(.text._ZN9HashTableI6StringP15InformationItemE3setERKS0_RKS2_[_ZN9HashTableI6StringP15InformationItemE3setERKS0_RKS2_]+0x48): undefined reference to `String::hard_equals(char const*, int) const'
+informationitem.u.o: In function `HashTable<RemoteHostSetItem, void>::~HashTable()':
+informationitem.cc:(.text._ZN9HashTableI17RemoteHostSetItemvED2Ev[_ZN9HashTableI17RemoteHostSetItemvED5Ev]+0x4c): undefined reference to `HashAllocator::~HashAllocator()'
+informationitem.cc:(.text._ZN9HashTableI17RemoteHostSetItemvED2Ev[_ZN9HashTableI17RemoteHostSetItemvED5Ev]+0x8c): undefined reference to `HashAllocator::~HashAllocator()'
+informationitem.u.o: In function `HashTable<ScopeSetItem, void>::~HashTable()':
+informationitem.cc:(.text._ZN9HashTableI12ScopeSetItemvED2Ev[_ZN9HashTableI12ScopeSetItemvED5Ev]+0x5a): undefined reference to `HashAllocator::~HashAllocator()'
+informationitem.u.o: In function `HashTable<Pair<String const, Pair<HashTable<RemoteHostSetItem, void>, HashTable<RemoteHostSetItem, void> >*>, void>::~HashTable()':
+informationitem.cc:(.text._ZN9HashTableI4PairIK6StringPS0_IS_I17RemoteHostSetItemvES4_EEvED2Ev[_ZN9HashTableI4PairIK6StringPS0_IS_I17RemoteHostSetItemvES4_EEvED5Ev]+0x5a): undefined reference to `HashAllocator::~HashAllocator()'
+informationitem.cc:(.text._ZN9HashTableI4PairIK6StringPS0_IS_I17RemoteHostSetItemvES4_EEvED2Ev[_ZN9HashTableI4PairIK6StringPS0_IS_I17RemoteHostSetItemvES4_EEvED5Ev]+0xb2): undefined reference to `HashAllocator::~HashAllocator()'
+localhost.u.o: In function `_ZNK6String5derefEv.isra.0':
+localhost.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+localhost.u.o: In function `LocalHost::LocalHost(int, int)':
+localhost.cc:(.text+0x48): undefined reference to `String::null_data'
+localhost.cc:(.text+0x9a): undefined reference to `String::make_numeric(unsigned long long, int, bool)'
+localhost.cc:(.text+0x104): undefined reference to `String::make_numeric(unsigned long long, int, bool)'
+localhost.u.o: In function `operator+(char const*, String const&)':
+localhost.cc:(.text._ZplPKcRK6String[_ZplPKcRK6String]+0x16): undefined reference to `String::assign(char const*, int, bool)'
+localhost.cc:(.text._ZplPKcRK6String[_ZplPKcRK6String]+0x32): undefined reference to `String::append(char const*, int, String::memo_t*)'
+localhost.u.o: In function `HashTable<StringSetItem, void>::HashTable()':
+localhost.cc:(.text._ZN9HashTableI13StringSetItemvEC2Ev[_ZN9HashTableI13StringSetItemvEC5Ev]+0x4a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+localhost.u.o: In function `HashContainer<HashTable<StringSetItem, void>::elt, HashContainer_adapter<HashTable<StringSetItem, void>::elt> >::rehash(unsigned int)':
+localhost.cc:(.text._ZN13HashContainerIN9HashTableI13StringSetItemvE3eltE21HashContainer_adapterIS3_EE6rehashEj[_ZN13HashContainerIN9HashTableI13StringSetItemvE3eltE21HashContainer_adapterIS3_EE6rehashEj]+0xba): undefined reference to `String::hashcode(char const*, char const*)'
+localhost.u.o: In function `HashTable<StringSetItem, void>::~HashTable()':
+localhost.cc:(.text._ZN9HashTableI13StringSetItemvED2Ev[_ZN9HashTableI13StringSetItemvED5Ev]+0x96): undefined reference to `HashAllocator::~HashAllocator()'
+localhost.cc:(.text._ZN9HashTableI13StringSetItemvED2Ev[_ZN9HashTableI13StringSetItemvED5Ev]+0xc6): undefined reference to `HashAllocator::~HashAllocator()'
+netlink.u.o: In function `Netlink::cleanup(Element::CleanupStage)':
+netlink.cc:(.text+0x9c): undefined reference to `click_chatter'
+netlink.u.o: In function `Netlink::~Netlink()':
+netlink.cc:(.text+0xd4): undefined reference to `click_chatter'
+netlink.cc:(.text+0xf2): undefined reference to `Element::~Element()'
+netlink.cc:(.text+0x114): undefined reference to `Element::~Element()'
+netlink.u.o: In function `Netlink::Netlink()':
+netlink.cc:(.text+0x17a): undefined reference to `Element::Element()'
+netlink.cc:(.text+0x1f6): undefined reference to `Element::~Element()'
+netlink.u.o: In function `Netlink::processing() const':
+netlink.cc:(.text._ZNK7Netlink10processingEv[_ZNK7Netlink10processingEv]+0x12): undefined reference to `Element::AGNOSTIC'
+netlink.u.o:(.data.rel.ro._ZTI7Netlink[_ZTI7Netlink]+0x8): undefined reference to `typeinfo for Element'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x10): undefined reference to `Element::push(int, Packet*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x14): undefined reference to `Element::pull(int)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x18): undefined reference to `Element::simple_action(Packet*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x1c): undefined reference to `Element::run_task(Task*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x20): undefined reference to `Element::run_timer(Timer*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x24): undefined reference to `Element::selected(int, int)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x28): undefined reference to `Element::selected(int)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x38): undefined reference to `Element::flow_code() const'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x3c): undefined reference to `Element::flags() const'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x40): undefined reference to `Element::cast(char const*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x4c): undefined reference to `Element::configure(Vector<String>&, ErrorHandler*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x50): undefined reference to `Element::add_handlers()'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x5c): undefined reference to `Element::hotswap_element() const'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x64): undefined reference to `Element::declaration() const'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+netlink.u.o:(.data.rel.ro._ZTV7Netlink[_ZTV7Netlink]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+remotehost.u.o: In function `_ZNK6String5derefEv.isra.0':
+remotehost.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+remotehost.u.o: In function `RemoteHost::RemoteHost(String)':
+remotehost.cc:(.text+0x48): undefined reference to `String::null_data'
+scope.u.o: In function `_ZNK6String5derefEv.isra.2':
+scope.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+scope.u.o: In function `Scope::getIDs(HashTable<StringSetItem, void>&)':
+scope.cc:(.text+0x680): undefined reference to `String::hard_equals(char const*, int) const'
+scope.u.o: In function `Scope::printID()':
+scope.cc:(.text+0x7f8): undefined reference to `String::null_data'
+scope.cc:(.text+0x818): undefined reference to `String::null_data'
+scope.cc:(.text+0x884): undefined reference to `StringAccum::hard_extend(int, int)'
+scope.cc:(.text+0x94a): undefined reference to `StringAccum::take_string()'
+scope.u.o: In function `Scope::printID(unsigned int)':
+scope.cc:(.text+0x9e4): undefined reference to `String::null_data'
+scope.cc:(.text+0xa06): undefined reference to `String::null_data'
+scope.cc:(.text+0xa8e): undefined reference to `StringAccum::hard_extend(int, int)'
+scope.cc:(.text+0xae8): undefined reference to `StringAccum::take_string()'
+scope.u.o: In function `Scope::printIDs(char)':
+scope.cc:(.text+0xbd0): undefined reference to `String::null_data'
+scope.cc:(.text+0xbf4): undefined reference to `String::null_data'
+scope.cc:(.text+0xc3e): undefined reference to `StringAccum::take_string()'
+scope.cc:(.text+0xce2): undefined reference to `StringAccum::hard_extend(int, int)'
+scope.u.o: In function `Scope::Scope(unsigned char, Scope*)':
+scope.cc:(.text+0xda6): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+scope.cc:(.text+0xe3a): undefined reference to `HashAllocator::HashAllocator(unsigned int)'
+scope.u.o: In function `Scope::checkForOtherPubSub(Scope*)':
+scope.cc:(.text+0x10fc): undefined reference to `String::substring(int, int) const'
+scope.cc:(.text+0x1162): undefined reference to `String::append(char const*, int, String::memo_t*)'
+scope.u.o: In function `Scope::recursivelyUpdateIDs(HashTable<String, Scope*>&, HashTable<String, InformationItem*>&, String)':
+scope.cc:(.text+0x1370): undefined reference to `String::append(char const*, int, String::memo_t*)'
+scope.cc:(.text+0x14ce): undefined reference to `String::substring(int, int) const'
+scope.cc:(.text+0x15e0): undefined reference to `String::substring(int, int) const'
+tonetlink.u.o: In function `ToNetlink::cleanup(Element::CleanupStage)':
+tonetlink.cc:(.text+0x1e): undefined reference to `click_chatter'
+tonetlink.u.o: In function `ToNetlink::~ToNetlink()':
+tonetlink.cc:(.text+0x54): undefined reference to `click_chatter'
+tonetlink.cc:(.text+0x64): undefined reference to `Element::~Element()'
+tonetlink.cc:(.text+0x78): undefined reference to `Element::~Element()'
+tonetlink.u.o: In function `ToNetlink::configure(Vector<String>&, ErrorHandler*)':
+tonetlink.cc:(.text+0x102): undefined reference to `cp_element(String const&, Element const*, ErrorHandler*, char const*)'
+tonetlink.u.o: In function `ToNetlink::selected(int, int)':
+tonetlink.cc:(.text+0x198): undefined reference to `WritablePacket::recycle(WritablePacket*)'
+tonetlink.cc:(.text+0x1e8): undefined reference to `Element::remove_select(int, int)'
+tonetlink.cc:(.text+0x1f2): undefined reference to `Element::remove_select(int, int)'
+tonetlink.cc:(.text+0x206): undefined reference to `Element::add_select(int, int)'
+tonetlink.u.o: In function `ToNetlink::ToNetlink()':
+tonetlink.cc:(.text+0x22a): undefined reference to `Element::Element()'
+tonetlink.u.o: In function `ToNetlink::push(int, Packet*)':
+tonetlink.cc:(.text+0x2ba): undefined reference to `Element::add_select(int, int)'
+tonetlink.cc:(.text+0x2cc): undefined reference to `Packet::expensive_push(unsigned int)'
+tonetlink.u.o: In function `ToNetlink::processing() const':
+tonetlink.cc:(.text._ZNK9ToNetlink10processingEv[_ZNK9ToNetlink10processingEv]+0x12): undefined reference to `Element::PUSH'
+tonetlink.u.o:(.data.rel.ro._ZTI9ToNetlink[_ZTI9ToNetlink]+0x8): undefined reference to `typeinfo for Element'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x14): undefined reference to `Element::pull(int)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x18): undefined reference to `Element::simple_action(Packet*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x1c): undefined reference to `Element::run_task(Task*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x20): undefined reference to `Element::run_timer(Timer*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x28): undefined reference to `Element::selected(int)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x38): undefined reference to `Element::flow_code() const'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x3c): undefined reference to `Element::flags() const'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x40): undefined reference to `Element::cast(char const*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x50): undefined reference to `Element::add_handlers()'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x5c): undefined reference to `Element::hotswap_element() const'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x64): undefined reference to `Element::declaration() const'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+tonetlink.u.o:(.data.rel.ro._ZTV9ToNetlink[_ZTV9ToNetlink]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+pla.u.o: In function `PLA::~PLA()':
+pla.cc:(.text+0x24): undefined reference to `click_chatter'
+pla.cc:(.text+0x34): undefined reference to `Element::~Element()'
+pla.cc:(.text+0x48): undefined reference to `Element::~Element()'
+pla.u.o: In function `PLA::PLA()':
+pla.cc:(.text+0xaa): undefined reference to `Element::Element()'
+pla.u.o: In function `PLA::port_count() const':
+pla.cc:(.text._ZNK3PLA10port_countEv[_ZNK3PLA10port_countEv]+0x12): undefined reference to `Element::PORTS_0_0'
+pla.u.o:(.data.rel.ro._ZTI3PLA[_ZTI3PLA]+0x8): undefined reference to `typeinfo for Element'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x10): undefined reference to `Element::push(int, Packet*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x14): undefined reference to `Element::pull(int)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x18): undefined reference to `Element::simple_action(Packet*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x1c): undefined reference to `Element::run_task(Task*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x20): undefined reference to `Element::run_timer(Timer*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x24): undefined reference to `Element::selected(int, int)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x28): undefined reference to `Element::selected(int)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x34): undefined reference to `Element::processing() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x38): undefined reference to `Element::flow_code() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x3c): undefined reference to `Element::flags() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x40): undefined reference to `Element::cast(char const*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x44): undefined reference to `Element::port_cast(bool, int, char const*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x48): undefined reference to `Element::configure_phase() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x4c): undefined reference to `Element::configure(Vector<String>&, ErrorHandler*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x50): undefined reference to `Element::add_handlers()'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x54): undefined reference to `Element::initialize(ErrorHandler*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x58): undefined reference to `Element::take_state(Element*, ErrorHandler*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x5c): undefined reference to `Element::hotswap_element() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x60): undefined reference to `Element::cleanup(Element::CleanupStage)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x64): undefined reference to `Element::declaration() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x68): undefined reference to `Element::can_live_reconfigure() const'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x6c): undefined reference to `Element::live_reconfigure(Vector<String>&, ErrorHandler*)'
+pla.u.o:(.data.rel.ro._ZTV3PLA[_ZTV3PLA]+0x70): undefined reference to `Element::llrpc(unsigned int, void*)'
+ba_api.u.o: In function `_ZNK6String5derefEv.isra.0':
+ba_api.cc:(.text+0x24): undefined reference to `String::delete_memo(String::memo_t*)'
+ba_api.u.o: In function `bapi_makepacket(unsigned char, String, String, unsigned char)':
+ba_api.cc:(.text+0x78): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+ba_api.cc:(.text+0x8e): undefined reference to `String::hard_c_str() const'
+ba_api.cc:(.text+0xd8): undefined reference to `String::hard_c_str() const'
+ba_api.u.o: In function `bapi_publish_data(String, String, unsigned char, char*, unsigned short)':
+ba_api.cc:(.text+0x414): undefined reference to `String::append(char const*, int, String::memo_t*)'
+ba_api.cc:(.text+0x47a): undefined reference to `Packet::make(unsigned int, void const*, unsigned int, unsigned int)'
+ba_api.cc:(.text+0x4a0): undefined reference to `String::hard_c_str() const'
+collect2: error: ld returned 1 exit status
+make[5]: *** [blackadder.uo] Error 1
+make[5]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+make[4]: *** [blackadder.uo] Error 2
+make[4]: Leaving directory `/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src'
+make[3]: *** [/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/.built] Error 2
+make[3]: Leaving directory `/home/jack/Desktop/Project/repos/Information-Centric-Networking/openwrt_packages/click_blackadder'

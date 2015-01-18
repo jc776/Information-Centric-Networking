@@ -7,6 +7,8 @@ All the time:
 
 
 Next time I work:
+	Add new files to dirs. Move ba 5 line test to gen_logs.
+	
 
 Soon:
 	Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or something automatic)
