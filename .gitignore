@@ -29,3 +29,6 @@
 
 # GEdit - backup files
 *~
+
+# Copy of Blackadder repository.
+openwrt/packages/click_blackadder/src/blackadder/

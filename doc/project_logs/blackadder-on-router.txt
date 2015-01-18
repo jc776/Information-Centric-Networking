@@ -217,6 +217,14 @@ existing
 		Trying "make clean" in blackadder/src then rerun
 		Did not fix.
 	
+		So BA's Makefile can find "clicktool" (binary)
+		
+		Removing "click/elements/blackadder"
+		- re. ns3 problem: "click/elements/blackadder/src/(...).cc" or "click/elements/blackadder/(...).cc" for the symlink?
+		- no, this is a new download of click which didn't have that anyway.
+		
+		Changing "click_blackadder/src/blackadder" to be a git clone, instead of a link to a git clone.
+		
 	4. This is "blackadder/src"... I still probably need "blackadder/TopologyManager" + other programs using the library to cross-compile easily on the router as well.
 		
 	
