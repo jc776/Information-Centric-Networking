@@ -18,13 +18,13 @@ Get OpenWRT SDK
 Link this folder in the SDK's packages folder.
 	ln -s $HOME/.../openwrt_packages/click $HOME/.../OpenWRT-SDK-.../package
 	
-Clone a copy of Blackadder.
-(repos)
+In src/, clone a copy of Blackadder.
+(openwrt_packages/click_blackadder/src)
 	git clone https://github.com/fp7-pursuit/blackadder.git
 	
-Link that copy in src.
-	ln -s $HOME/.../repos/blackadder $HOME/.../openwrt_packages/click_blackadder/src
-	
+Important: Fresh clone, not a symlink to a clone, otherwise SDK's 'make clean' won't work.
+Important: Don't manually build this clone
+(SDK make uses a copy of /src/* and clean deletes it rather than running Blackadder's clean on this directory, so this has to stay fresh)
 
 (OpenWRT-SDK-...)
 	make
