@@ -197,8 +197,27 @@ existing
 		It downloads/extracts click source (a specific revision from Aug 2014) into SDK "build_dir/[target]/click-20140803"
 		
 		So I need to create symlinks to that location?
+		- Symlinks were for NS3 compat, not router.
 	
+	3. Add Blackadder, trying out "configure/make click then configure/make blackadder" change.
+		Several false starts due to mistakes with "click-[version]" vs "click", "PKG_BUILD_DIR" vs "BUILD_DIR", etc
+		
+		Got to Blackadder building stage...
+		
+		CMD used:
+		(cd /home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/blackadder/src;
+		./configure
+		--disable-linuxmodule
+		--with-click=/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr
+		    --prefix=/home/jack/Desktop/Project/Downloads/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2/build_dir/target-mips_34kc_uClibc-0.9.33.2/click-20140803/ipkg-install/usr 		)
+		    
+		"Undefined reference to..." errors on pretty much every file.
+		"/src/blackadder" is a LINK right now, even when copied to build_dir so won't be cleaned when "sdk/make clean" is ran (even though the copy-of-link is deleted)
+		
+		Trying "make clean" in blackadder/src then rerun
+		Did not fix.
 	
-	2. Try with latest click instead of a specific revision?
-	3. Change to local latest click (or do symlinks on the downloaded copy, still requiring cloned Blackadder?)
-	4. Add Blackadder, trying out "configure/make click then configure/make blackadder" change.
+	4. This is "blackadder/src"... I still probably need "blackadder/TopologyManager" + other programs using the library to cross-compile easily on the router as well.
+		
+	
+	(Possible: Try with latest Click from repository instead of a specific version)

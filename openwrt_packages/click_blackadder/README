@@ -23,7 +23,7 @@ Clone a copy of Blackadder.
 	git clone https://github.com/fp7-pursuit/blackadder.git
 	
 Link that copy in src.
-	ln -s $HOME/.../repos/blackadder $HOME/.../openwrt_packages/click/src
+	ln -s $HOME/.../repos/blackadder $HOME/.../openwrt_packages/click_blackadder/src
 	
 
 (OpenWRT-SDK-...)

@@ -8,6 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=click
+
 PKG_VERSION:=20140803
 PKG_RELEASE:=1
 PKG_REV:=d0a93f20beb786a55089657a08b663d721c2e9bc
@@ -24,14 +25,14 @@ define Package/click
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
-  TITLE:=The Click Modular Router
-  MAINTAINER:=Roberto Riggio <roberto.riggio@create-net.org>
+  TITLE:=Click Modular Router w/ Blackadder
+  MAINTAINER:=John Coady
   DEPENDS:=+kmod-tun +libpcap +libstdcpp
   URL:=http://www.read.cs.ucla.edu/
 endef
 
 define Package/click/Description
-  The Click Modular Router
+  Click Modular Router w/ Blackadder
 endef
 
 EXTRA_CFLAGS=-MD
@@ -44,7 +45,24 @@ CONFIGURE_ARGS += \
 	--disable-dynamic-linking \
 
 define Build/Compile
+	# First, make? + make install Click
 	$(call Build/Install/Default, install)
+	
+	# From Build/Prepare in hello_openwrt
+	# Couldn't figure out how to do 'git download, then copy' in prepare
+	$(CP) ./src/* $(BUILD_DIR)/
+	
+	# Then, configure, make (+ make install?) Blackadder
+	# (Blackadder's configure needs to happen after building click to work)
+	(cd $(BUILD_DIR)/blackadder/src; \
+		./configure \
+			--disable-linuxmodule \
+			--with-click=$(PKG_INSTALL_DIR)/usr \
+			--prefix=$(PKG_INSTALL_DIR)/usr \
+	)
+	
+	$(MAKE) -C $(BUILD_DIR)/blackadder/src
+	# make install?
 endef
 
 define Package/click/install
