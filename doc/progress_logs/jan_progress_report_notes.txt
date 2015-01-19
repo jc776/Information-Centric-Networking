@@ -1,0 +1,83 @@
+(Very unofficial)
+
+The main goals of the project are the statistics from the simulations (proving the protocol's advantages) and getting the physical demo (applications, connection) to work well/smoothly.
+In particular, the individual platform ports (simulator, router, phone) are NOT the focus.
+
+I haven't been able to do any main progress since I need any/all platforms running first.
+It turns out that putting the platform ports together myself from existing work is too slow:
+	I have been researching and fixing minor problems.
+	Version differences (or possibly difficult mistakes) are now producing errors I don't know how to resolve.
+	(or rather, errors that would take over the rest of the entire project time working alone.)
+	
+
+***
+
+
+I put too little time on the schedule towards completing these.
+I hadn't been asking for help even when missing milestones in this way, since I only knew of the minor problems.
+
+Supervisor has put me in contact with another project that has attempted (completed?) the simulator, router stages.
+Still trying to find public work on phone port.
+	In particular, the phone port needs specialized things like "use Android's Wi-Fi" which is long by itself.
+
+Supervisor is confident that once these stages are complete, the remaining work will be faster.
+
+
+***
+
+
+In particular, once past this block, all other work will be:
+	My own work
+		Mainly turning single-function examples into slightly more configurable simulations/applications
+		Accomplishing something new rather than 'fixing what used to work 4 years ago'
+	Producing useful content for the dissertation
+		In both areas of "statistics" or "physical demo"
+	
+***
+
+	
+I've learned (first weeks) the high level parts/functions of ICN
+	Definitely useful later on.
+	
+I've learned a lot about each part's build system.
+	This was useful for minor errors.
+	
+I still have not learned about the internals/source code of each project.
+	This won't be needed later on.
+	
+I still haven't learned about the language libraries.
+	There are many useful examples, I'm confident this will go better than the current stage.
+
+
+***
+	
+	
+Scenarios haven't changed.
+- Mobility (1 server, 2 routers (1 pre-subscribed), 1 phone (subscribes)) - prove "delay on connecting to subscribed router unnoticable"
+- QoS (1 server, 1 router, 2 phones (both subscribe)) - prove "2 phones have the same usage as 1 phone"
+	
+"Scripted Simulation Components"
+- Needs the simulator working first.
+- Example tests create a few components, send single packets and exit
+- Self-contained scripts for each scenario: "Run [this hardware] multiple times varying [bandwidth] and plot graphs of [a,b,c per d]"
+- Put my notes into better documentation "how to get the simulations working the same as I have them"
+
+"Video Server for Desktop"
+- There's example applications in several languages
+- Making new controls eg "delay responding to requests" to simulate "server is very far away"
+
+"Deployable router"
+- Needs the router working first.
+- Might need a single custom script to 'turn on Topology Manager', etc.
+
+"Video Client for Phone"
+- Needs the phone working first.
+- I think an existing (Java, so easier to port) example already receives video, probably displays it.
+- My modifications:
+	- Deal with "switching routers"/interruption if Blackadder's application interface doesn't automatically
+	- Collect statistics (for the physical demo, this time) - goal is to prove "720p", etc.
+
+Putting together physical demos
+- Once each device+application works, both applications should work at roughly the same time
+	- Only difference is the "interruption" thing.
+- Put my notes into better documentation "how to get the demos working the same as I have them"
