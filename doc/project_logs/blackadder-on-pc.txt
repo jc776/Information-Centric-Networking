@@ -1,6 +1,9 @@
 Installing Blackadder, its dependencies, NS3 and running an example on local desktop.
 -----
 
+(19/01/15 - maybe not mkdir? so that "click/elements/blackadder/[source files]" instead of "click/elements/blackadder/src/[source files]")
+
+
 Summary
 -----
 Installed:
@@ -69,10 +72,18 @@ Clone repositories
 	
 Creating a symbolic link
 	(repos/click/elements)
+	
+	
 	mkdir blackadder
 	ln -s $HOME/.../repos/blackadder/src $HOME/.../repos/click/elements/blackadder
 	* Local paths can be strange for links, I specified the whole path.
-	* Need to create the directory before setting the link, otherwise console errors.
+	* Need to create the directory before setting the link:
+		Not doing so gets "*** No rule to make target `../elements/blackadder/src/activepub.cc'".
+		(You end up with "click/elements/blackadder/[source files]" instead of "click/elements/blackadder/src/[source files]")
+		
+		... "*** No rule to make target `../elements/blackadder/activepub.cc', needed by `activepub.o'. Stop."
+		Unsure.
+		
 
 Compile and install Click Modular Router.
 	(repos/click)

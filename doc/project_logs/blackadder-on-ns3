@@ -17,7 +17,8 @@ sudo apt-get install
    libqt4-dev (required by build.py)
 
 (repos/ns3)
-./build.py -­‐disable-nsc --disable-netanim
+(3.15) ./build.py -­‐disable-nsc --disable-netanim
+[19/01/15] (3.21) ./build.py --disable-netanim
 This step is a 'fast build' to get some non-Click/Blackadder dependencies compiled first 
  
  I got a message "NS-3 Click Integration : not enabled (nsclick not enabled (see option --with-nsclick))"
@@ -52,6 +53,36 @@ visualizer"
  cd ns-3.XX/
  ./waf configure ***
  --with-nsclick=$HOME/.../repos/click
+ 
+[19/01/15] ./waf configure --enable-examples --enable-tests --with-nsclick=$HOME/Desktop/Project/repos/click
+
+ERRORS:
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 97, in waf_entry_point
+    run_commands()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 153, in run_commands
+    ctx=run_command(cmd_name)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 146, in run_command
+    ctx.execute()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Configure.py", line 128, in execute
+    super(ConfigurationContext,self).execute()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 87, in execute
+    self.recurse([os.path.dirname(g_module.root_path)])
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/wscript", line 378, in configure
+    conf.recurse('src')
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/src/wscript", line 68, in configure
+    conf.recurse(module, mandatory=False)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/src/blackadder/wscript", line 19, in configure
+    if conf.options_test.disable_nsclick:
+AttributeError: 'ConfigurationContext' object has no attribute 'options_test'
+---
+
+
  
  "No module named Options" - Haven't seen a solution to this online.
 Possibly caused by cut/pasting repos/ns3/.../ to repos/ns3/ via GUI/without checking for hidden files.
