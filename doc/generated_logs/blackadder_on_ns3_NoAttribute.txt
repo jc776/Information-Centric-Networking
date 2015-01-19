@@ -1,0 +1,91 @@
+Latest Blackadder + Latest NS3 (3.21)
+
+Following Blackadder's "HowTo" instructions:
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21/ns-3.21$ ./build.py --disable-nsc --disable-netanim
+
+Usage: build.py [options]
+
+build.py: error: no such option: --disable-nsc
+
+> OK, version difference.
+
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21/ns-3.21$ ./build.py --disable-netanim
+[runs fine, building 1765 .o files]
+""
+Modules built:
+antenna                   aodv                      applications             
+bridge                    buildings                 config-store             
+core                      csma                      csma-layout              
+dsdv                      dsr                       emu                      
+energy                    fd-net-device             flow-monitor             
+internet                  lr-wpan                   lte                      
+mesh                      mobility                  mpi                      
+netanim (no Python)       network                   nix-vector-routing       
+olsr                      point-to-point            point-to-point-layout    
+propagation               sixlowpan                 spectrum                 
+stats                     tap-bridge                test (no Python)         
+topology-read             uan                       virtual-net-device       
+wave                      wifi                      wimax                    
+
+Modules not built (see ns-3 tutorial for explanation):
+brite                     click                     openflow                 
+visualizer               
+
+Leaving directory `./ns-3.21'
+""
+
+> That's fine so far, "click not built" is expected as it's only added next step:
+
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21$ ln -s /home/jack/Desktop/Project/repos/blackadder/ns3/blackadder-model/ /home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/src/blackadder
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21$ ln -s /home/jack/Desktop/Project/repos/blackadder/ns3/blackadder-examples/ /home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/examples/blackadder
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21$ cd ns-3.21/
+jack@galillean:~/Desktop/Project/repos/ns-allinone-3.21/ns-3.21$ ./waf configure --enable-examples --enable-tests --with-nsclick=$HOME/Desktop/Project/repos/click
+Setting top to                           : /home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21 
+Setting out to                           : /home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/build 
+Checking for 'gcc' (c compiler)          : /usr/bin/gcc 
+Checking for cc version                  : 4.8.2 
+Checking for 'g++' (c++ compiler)        : /usr/bin/g++ 
+Checking for compilation flag -Wl,--soname=foo... support : ok 
+Checking for program python                               : /usr/bin/python 
+Checking for python version                               : (2, 7, 6, 'final', 0) 
+Checking for library python2.7 in LIBDIR                  : yes 
+Checking for program /usr/bin/python-config,python2.7-config,python-config-2.7,python2.7m-config : /usr/bin/python-config 
+Checking for header Python.h                                                                     : yes 
+Checking for compilation flag -fvisibility=hidden... support                                     : ok 
+Checking for compilation flag -Wno-array-bounds... support                                       : ok 
+Checking for pybindgen location                                                                  : ../pybindgen-0.17.0.876 (guessed) 
+Python module pybindgen                                                                          : 0.17.0.876 
+Checking for pybindgen version                                                                   : 0.17.0.876 
+Checking for types uint64_t and unsigned long equivalence                                        : yes 
+Checking for types uint64_t and unsigned long long equivalence                                   : no 
+Checking for the apidefs that can be used for Python bindings                                    : gcc-LP64 
+Checking for internal GCC cxxabi                                                                 : complete 
+Python module pygccxml                                                                           : not found 
+Checking boost includes                                                                          : 1_53 
+Checking boost libs                                                                              : ok 
+Checking for boost linkage                                                                       : Traceback (most recent call last):
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 97, in waf_entry_point
+    run_commands()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 153, in run_commands
+    ctx=run_command(cmd_name)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Scripting.py", line 146, in run_command
+    ctx.execute()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Configure.py", line 128, in execute
+    super(ConfigurationContext,self).execute()
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 87, in execute
+    self.recurse([os.path.dirname(g_module.root_path)])
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/wscript", line 378, in configure
+    conf.recurse('src')
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/src/wscript", line 68, in configure
+    conf.recurse(module, mandatory=False)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/.waf-1.7.13-5a064c2686fe54de4e11018d22148cfc/waflib/Context.py", line 128, in recurse
+    user_function(self)
+  File "/home/jack/Desktop/Project/repos/ns-allinone-3.21/ns-3.21/src/blackadder/wscript", line 19, in configure
+    if conf.options_test.disable_nsclick:
+AttributeError: 'ConfigurationContext' object has no attribute 'options_test'
+
+> Something's wrong between Blackadder's "wscript" and how 3.21's "waf" works.
