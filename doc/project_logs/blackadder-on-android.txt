@@ -1,0 +1,7 @@
+Port to Android, get wifi etc running, making 'video client + statistics recording' application
+-----
+
+The main goal is a smooth demonstration and statistics, not the port itself.
+
+'Port to Android' was an ACS project a few years ago - was this finished?
+http://www.cl.cam.ac.uk/research/srg/netos/stud-projs/acsproj-11/
