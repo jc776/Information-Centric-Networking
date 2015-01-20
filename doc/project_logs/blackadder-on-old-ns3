@@ -53,6 +53,72 @@ click sample.conf
 	* (click is in /usr/local/bin so on PATH, sample.conf is in blackadder/src)	
 	* Output references "TM, RV" which are Blackadder components.
 
+Extract ns-allinone-3.15.tar.bz2 to $PROJ
+
+($PROJ/ns-allinone-3.15)
+./build.py --disable-nsc --disable-netanim
+
+OUTPUT:
+"
+Modules built:
+antenna                   aodv                      applications             
+bridge                    buildings                 config-store             
+core                      csma                      csma-layout              
+dsdv                      dsr                       emu                      
+energy                    flow-monitor              internet                 
+lte                       mesh                      mobility                 
+mpi                       netanim (no Python)       network                  
+nix-vector-routing        olsr                      point-to-point           
+point-to-point-layout     propagation               spectrum                 
+stats                     tap-bridge                test (no Python)         
+tools                     topology-read             uan                      
+virtual-net-device        wifi                      wimax                    
+
+Modules not built:
+click                     openflow                  visualizer 
+"
+
+ln -s $PROJ/repos/blackadder/ns3/blackadder-model $PROJ/repos/ns-allinone-3.15/ns-3.15/src/blackadder
+ln -s $PROJ/repos/blackadder/ns3/blackadder-examples $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder
+
+($PROJ/ns-allinone-3.15/ns-3.15)
+
+sudo apt-get install libtool autoconf automake libigraph0 libigraph0-dev libconfig++8 libconfig++8-dev libtclap-dev libboost-graph-dev
+* As listed in HowTo.
+* libboost takes ages.
+
+
+./waf configure --enable-examples --enable-tests --with-nsclick=$PROJ/repos/click
+* Successful - got further than "blackadder-on-ns3".
+
+./waf build
+
+Output:
+"
+Modules built:
+antenna                   aodv                      applications             
+blackadder (no Python)    bridge                    buildings                
+click                     config-store              core                     
+csma                      csma-layout               dsdv                     
+dsr                       emu                       energy                   
+flow-monitor              internet                  lte                      
+mesh                      mobility                  mpi                      
+netanim (no Python)       network                   nix-vector-routing       
+olsr                      point-to-point            point-to-point-layout    
+propagation               spectrum                  stats                    
+tap-bridge                test (no Python)          tools                    
+topology-read             uan                       virtual-net-device       
+wifi                      wimax                    
+
+Modules not built:
+openflow                  visualizer   
+"
+
+Installed sucessfully! Much better than attempts on new Ubuntu.
+
+
+See generated_logs/blackadder_on_old_ns3.txt for attempts to run 'examples'.
+
 
 Problems found:
 
@@ -65,7 +131,13 @@ Problems found:
 	sudo apt-get install build-essential
 
 ./configure --enable-nsclick --enable-blackadder
-	"System.map" error
-./configure --enable-nsclick --enable-blackadder --disable-linuxmodule
+	* "System.map" error
+	* Changing to: ./configure --enable-nsclick --enable-blackadder --disable-linuxmodule
 	(No dependenices, surprisingly)
-make -j4
+
+
+./waf configure --enable-examples --enable-tests --with-nsclick=$PROJ/repos/click
+	* The configuration failed (complete log in /home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build/config.log)
+	* ... "-ligraph" in that file.
+	* Forgot to get Blackadder's dependencies.
+

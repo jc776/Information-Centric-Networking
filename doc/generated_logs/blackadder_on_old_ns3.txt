@@ -1,0 +1,27 @@
+jack@jack-ubuntu:~/Desktop/Project/repos/ns-allinone-3.15/ns-3.15$ ./waf --run examples/tutorial/first
+Waf: Entering directory `/home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build'
+Waf: Leaving directory `/home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build'
+'build' finished successfully (0.924s)
+At time 2s client sent 1024 bytes to 10.1.1.2 port 9
+At time 2.00369s server received 1024 bytes from 10.1.1.1 port 49153
+At time 2.00369s server sent 1024 bytes to 10.1.1.1 port 49153
+At time 2.00737s client received 1024 bytes from 10.1.1.2 port 9
+
+
+I'm not sure how to run 'all' tutorial ones:
+jack@jack-ubuntu:~/Desktop/Project/repos/ns-allinone-3.15/ns-3.15$ ./waf --run examples/tutorial/examples-to-run.py 
+Waf: Entering directory `/home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build'
+program 'examples/tutorial/examples-to-run.py' not found; available programs are: ['aodv', ..., 'examples/matrix-topology/matrix-topology', 'hello-simulator', 'examples/tutorial/hello-simulator', 'first', 'examples/tutorial/first', 'second', 'examples/tutorial/second', 'third', 'examples/tutorial/third', 'fourth', 'examples/tutorial/fourth', 'fifth', 'examples/tutorial/fifth', 'sixth', 'examples/tutorial/sixth', ...,  'src/tap-bridge/tap-creator']
+
+
+It looks like the directory name in HowTo is wrong:
+jack@jack-ubuntu:~/Desktop/Project/repos/ns-allinone-3.15/ns-3.15$ ./waf --run examples/blackadder/example1
+Waf: Entering directory `/home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build'
+Waf: Leaving directory `/home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build'
+'build' finished successfully (0.942s)
+/home/pursuit/ns-allinone-3.14.1/ns-3.14.1/examples/blackadder-examples/test.click: No such file or directory
+/home/pursuit/ns-allinone-3.14.1/ns-3.14.1/examples/blackadder-examples/test.click: not a valid router
+
+"blackadder-examples" vs "blackadder"
+It's actually referring to "/home/pursuit", I'll need to change that to run this.
+Hard-coded "3.14.1", too.
