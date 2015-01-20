@@ -1,0 +1,71 @@
+
+-----
+
+So far, latest Blackadder + latest Click + NS3 3.21 on Ubuntu 14.10 has been failing with strange errors.
+
+This is an attempt using:
+latest Click (could try "2.0.1")
+latest Blackadder
+NS3 *3.15* (version Blackadder tested against)
+Ubuntu 12.04 LTS (recommended for NS3 3.15, older than 13 required)
+
+Final instructions:
+sudo apt-get install git
+click
+blackadder
+
+export PROJ=$HOME/Desktop/Project
+	* Temporary.
+
+($PROJ/repos/click)
+sudo apt-get install build-essential
+	* GCC
+	* make)
+
+ln -s $PROJ/repos/blackadder/src $PROJ/repos/click/elements/blackadder
+
+./configure --enable-nsclick --enable-blackadder --disable-linuxmodule
+	* NS3 support
+	* No Kernel module
+	* Installs to OS
+
+make -j4
+	* Parallel, a bit faster.
+
+sudo make install
+	* sudo since it's installing to OS.
+
+($PROJ/repos/blackadder/src)
+sudo apt-get autoconf
+autoconf
+
+which click
+	* Returned "/usr/local/bin/click". Modify rest if yours differs.
+
+./configure --disable-linuxmodule --with-click=/usr/local --prefix=/usr/local
+	* Since I'm using non-kernel (user) module & default location, this is where click is
+
+* Quickstart says "make", later doesn't. Odd.
+
+sudo make install
+
+click sample.conf
+	* (click is in /usr/local/bin so on PATH, sample.conf is in blackadder/src)	
+	* Output references "TM, RV" which are Blackadder components.
+
+
+Problems found:
+
+./configure --enable-nsclick --enable-blackadder
+	* Kernel module
+	* Install to OS
+	"error: C++ preprocessor "/lib/cpp" fails sanity check"
+	-> GCC isn't installed.
+	-> will also need Make soon
+	sudo apt-get install build-essential
+
+./configure --enable-nsclick --enable-blackadder
+	"System.map" error
+./configure --enable-nsclick --enable-blackadder --disable-linuxmodule
+	(No dependenices, surprisingly)
+make -j4
