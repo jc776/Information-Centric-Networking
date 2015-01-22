@@ -167,6 +167,8 @@ Install Blackadder C++ Library & SWIG Bindings
 Installing Blackadder Java Library
 	* Not yet attempted.
 
+"blackadder.hpp: No such file or directory"
+
 Installing NS3
 	* See blackadder-on-ns3.
 	

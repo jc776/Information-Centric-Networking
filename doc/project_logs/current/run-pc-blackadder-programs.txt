@@ -1,7 +1,8 @@
 
 -----
 
-blackadder-on-old-ns3 is currently 'install instructions', will rename.
+install-pc-blackadder-and-ns3 and install-pc-blackadder-lib-and-examples needed first.
+
 
 Attempting to run Blackadder programs:
 "1 FN, 1 RV?, 1 publisher, 1 subscriber on local PC"

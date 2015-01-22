@@ -1,0 +1,105 @@
+
+-----
+
+install-pc-blackadder-and-ns3 needed first.
+
+
+sudo apt-get install python-dev
+sudo apt-get install openjdk-6-jdk ("sun-java6-jdk" is also possible)
+
+sudo apt-get install ant swig
+	* ant: Build system
+	* swig: Language bindings generator.
+
+Install Blackadder C++ Library & SWIG Bindings
+
+	($PROJ/repos/blackadder/lib)
+	* Note "/lib".
+	
+	autoreconf -fi
+		* "regenerate configure and Makefile"
+		* Options from guide:
+		* force: "remake all files, not just old ones" - Since this might be a different platform to the one they generated files on.
+		* install: "copy missing auxilliary files"
+	
+		* I got many warnings about "subdir-objects is disabled", "this option will be true in future automake versions"
+		* Not sure which behaviour is intended.
+		
+	./configure --enable-python --enable-c
+		* C:      "C Samples"
+		* Python: I think NS3 accepts Python scripts, may be useful.
+		* Java:   Using "alternative to SWIG bindings" instead.
+		* Ruby is also available.
+		
+		* Check HowTo for specifics on "Multiple versions of Python 2.x"
+		
+		* Specifically not using --prefix option:
+		* Other make scripts refer to "-lblackadder" which uses default directory.
+		* They could be modified to look in different locations
+		
+		* Will look into "set CLASSPATH..." "set PYTHONPATH..." when making scripts using these.
+	
+	make
+	sudo make install
+		* 'sudo' since we're installing to OS.
+
+Installing Blackadder JAVA Library
+	* As in HowTo.
+	* My location for jni.h was different to default:
+	/usr/lib/jvm/java-6-openjdk-amd64/include/
+	
+	Files generated:
+	$PROJ/repos/blackadder/lib/bindings/java-binding/jni/eu_pursuit_client_BlackadderWrapper.so
+	$PROJ/repos/blackadder/lib/bindings/java-binding/dist/blackadder-java-binding.jar
+	
+	* Will look into importing when making scripts using these.
+
+Installing Topology Manager
+	* This is the source of "topology.graphml" that ns3 examples were looking for.
+	* As in HowTo.
+	
+	(dependencies already installed earlier)
+	($PROJ/repos/blackadder/TopologyManager)
+		make
+			* Worked.
+		
+		./tm topology.graphml
+			* Encountered some problems here, see end for attempts to fix.
+		
+			* "Blackadder Library: Could not send SUBSCRIBE_SCOPE request: Operation not permitted"
+		sudo ./tm topology.graphml
+			* "Blackadder Library: Could not send SUBSCRIBE_SCOPE request: Connection refused"
+
+		Joining the "dialout" group didn't work.
+		
+		"sudo sysctl net.ipv4.ip_forward"
+	
+Deployment Tools
+	($PROJ/repos/blackadder/deployment)
+		make
+			* Worked, generated "deploy" executable.
+
+
+-------------------------------------------
+
+Problems found:
+	swig: command not found
+	Dependencies.
+
+./tm topology.graphml
+	* "Blackadder Library: Could not send SUBSCRIBE_SCOPE request: Operation not permitted"
+sudo ./tm topology.graphml
+	* "Blackadder Library: Could not send SUBSCRIBE_SCOPE request: Connection refused"
+
+These are OS ("perror") messages - from source, "sendmsg" function is failing.
+
+Joining the "dialout" group didn't work.
+		
+http://ubuntuforums.org/showthread.php?t=812644
+	"net.ipv4.ip_forward"
+	* Didn't work.
+
+	
+
+
+
