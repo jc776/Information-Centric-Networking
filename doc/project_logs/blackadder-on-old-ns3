@@ -79,7 +79,12 @@ click                     openflow                  visualizer
 "
 
 ln -s $PROJ/repos/blackadder/ns3/blackadder-model $PROJ/repos/ns-allinone-3.15/ns-3.15/src/blackadder
-ln -s $PROJ/repos/blackadder/ns3/blackadder-examples $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder
+
+The built-in Blackadder examples refer to "/home/pursuit/ns-allinone-3.14.1/ns-3.14.1/examples/blackadder-examples", hard coded.
+ln -s $PROJ/repos/blackadder/ns3/blackadder-examples-examples $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples
+My attempt at finding path names automatically:
+Still fails due to needing other 'local PC' files.
+ln -s $PROJ/repos/Information-Centric-Networking/ns3_scripts/blackadder-examples $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples
 
 ($PROJ/ns-allinone-3.15/ns-3.15)
 
