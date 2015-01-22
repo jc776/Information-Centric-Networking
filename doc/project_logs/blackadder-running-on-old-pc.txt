@@ -1,0 +1,8 @@
+
+-----
+
+blackadder-on-old-ns3 is currently 'install instructions', will rename.
+
+Attempting to run Blackadder programs:
+"1 FN, 1 RV?, 1 publisher, 1 subscriber on local PC"
+"2 FNs as virtual machines?, 1 RV?, 1 publisher, 1 subscriber on local PC"
