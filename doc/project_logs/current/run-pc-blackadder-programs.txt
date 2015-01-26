@@ -1,9 +1,116 @@
-
+Getting 'example' programs running.
 -----
 
-install-pc-blackadder-and-ns3 and install-pc-blackadder-lib-and-examples needed first.
+install-pc-blackadder-and-ns3 and install-pc-blackadder-lib-and-programs needed first.
+
+sudo apt-get install vlc
+
+Currently everything needs "sudo". Will work on this later.
+
+
+
+1. 'Deploy' a 'single node' config, start "Click + Blackadder"
+
+(This is probably awful security.)
+sudo apt-get install openssh-server
+Make a key, add self to ssh e.g. http://superuser.com/questions/336226/how-to-ssh-to-localhost-without-password
+
+($PROJ/repos/blackadder/TopologyManager)
+Copy single_node.cfg to single_node_mod.cfg
+"
+BLACKADDER_ID_LENGTH = 8;
+LIPSIN_ID_LENGTH = 32;
+CLICK_HOME = "/usr/local/";			<-- Click "prefix", if changed. (Leave as this if unchanged)
+WRITE_CONF = "/tmp/";
+USER = "jack";					<-- Your username.
+SUDO = true;
+OVERLAY_MODE = "mac";
+
+network = {
+    nodes = (
+    {
+        testbed_ip = "127.0.0.1";		<-- Or "localhost" or internal ip e.g. 192.---, 172.---, 10.---
+        running_mode = "user";
+        label = "00000001";
+        role = ["RV","TM"];
+    });
+};
+"
+
+
+
+
+
+
+"Advertise the catalog by pressing . and enter" - oh.
+
+LocalRV: added subscriber 00000001 to (new) scope /FFFFFFFFFFFFFFFB (2)					(TM)
+LocalRV: added publisher 00000001 to (new) scope: /0000000000000000(2)					(Publisher startup)
+LocalRV: added publisher 00000001 to (new) InformationItem: /0000000000000000/7CF130A877261C4C(2)	(Publisher video #1)
+LocalRV: added publisher 00000001 to (new) InformationItem: /0000000000000000/0000000000000000(2)	(Publisher catalog)
+LocalRV: added subscriber 00000001 to information item /0000000000000000/0000000000000000(2)		(Subscriber looking for catalog)
+... nothing?
+
+
+
+----
+I can get the programs to build and run
+For some reason every BA program needs "sudo" or I get "operation not permitted"
+"video subscriber" never recieves the list, even if I have TM etc running.
+----
+
+
+
+./deploy -c single_node_mod.cfg
+
+"restart Click if needed" - I think deploy did this for me
+
+Unsure. I can't run click [new conf] any more.
+
+
+($PROJ/repos/blackadder/video_streaming)
+	Create folder "videos"
+	Put some video files in it.
+	(will put some in repo to symlink in)
+	
+	make
+
+
+#(Terminal 1: 
+#	sudo click $PROJ/repos/blackadder/src/sample.conf
+	
+(Terminal 2 - /blackadder/TopologyManager)
+	sudo ./tm /tmp/topology.graphml
+	
+(Terminal 3 - /blackadder/examples/video_streaming)
+	sudo ./video_publisher
+	
+	Type "gizmo.mp4"
+	
+(Terminal 4 - /blackadder/examples/video_streaming)
+	sudo ./video_subscriber
 
 
 Attempting to run Blackadder programs:
 "1 FN, 1 RV?, 1 publisher, 1 subscriber on local PC"
 "2 FNs as virtual machines?, 1 RV?, 1 publisher, 1 subscriber on local PC"
+
+
+-----
+Problems encountered
+
+Deploy "connection refused"
+Install ssh. For some reason it connects to self.
+
+Running "click sample.conf" fails after "eth0: socket: Operation not permitted".
+Topology Manager and examples failing with "Blackadder Library: Could not send ... request: Operation not permitted"
+sudo (above) failing with "Blackadder Library: Could not send ... request: Connection refused"
+
+- Have "sudo click $PROJ/repos/blackadder/src/sample.conf" running first.
+- Run each program with "sudo". (I'd prefer not to, will work on this later)
+
+
+video subscriber:
+"subscribing to the video catalogue information item"
+Then no response.
+Need to do the whole "single_node_mod", "deploy", "run click and TM"

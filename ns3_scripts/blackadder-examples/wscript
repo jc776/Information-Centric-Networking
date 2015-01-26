@@ -3,6 +3,9 @@
 def build(bld):
     obj = bld.create_ns3_program('example1', ['core', 'point-to-point', 'blackadder', 'applications'])
     obj.source = ['example1.cc', 'publisher.cc','subscriber.cc',]
-
+    
     obj = bld.create_ns3_program('example2', ['core', 'point-to-point', 'blackadder', 'applications'])
     obj.source = ['example2.cc', 'publisher.cc','subscriber.cc',]
+    
+    obj = bld.create_ns3_program('example3', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['example3.cc', 'publisher.cc','subscriber.cc',]

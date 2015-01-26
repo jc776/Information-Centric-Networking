@@ -1,0 +1,32 @@
+
+-----
+
+Attempting to run ns3 examples by themselves fails requiring specific files from user "pursuit".
+It turns out these files & a CPP file for your username/etc can be created by the "deploy" tool.
+
+(Following HowTo's "Running an NS3 simulation"
+($PROJ/repos/blackadder/deployment)
+	./deploy -c $PROJ/repos/blackadder/ns3/blackadder-model/model/ns3_topology1.cfg -s
+
+	cp /tmp/topology.cpp $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples/example3.cc
+	
+($PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples)
+	Modify example3.cc
+	Add to the top of the file:
+"
+#include "publisher.h"
+#include "subscriber.h"
+"
+
+	Modify wscript
+	Copy example2 section
+"
+    obj = bld.create_ns3_program('example3', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['example3.cc', 'publisher.cc','subscriber.cc',]
+"
+
+($PROJ/repos/ns-allinone-3.15/ns-3.15/)
+	./waf build
+	./waf --run examples/blackadder-examples/example3
+	
+	Appears to work.

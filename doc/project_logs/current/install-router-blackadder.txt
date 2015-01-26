@@ -1,0 +1,24 @@
+
+-----
+
+(Will need to copy up 'how I made these' from failed/...)
+
+I'm attempting to make these a normal 'package' through the SDK instead of cross-compiling the entire OS.
+
+Install OpenWRT SDK
+(... picking for specific router, etc)
+
+Link packages in I-C-N/openwrt_packages to sdk/package/
+(ADDITIONAL INSTRUCTIONS - "link Blackadder in /src", etc)
+
+New dependencies -
+GNU awk (apt: "gawk")
+SVN (apt: "subversion")
+
+
+click:
+	make[4]: *** No rule to make target `elementmap.xml'.  Stop.
+	(this is an old one, will remove.)
+
+click_download:
+	
