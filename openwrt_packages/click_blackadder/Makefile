@@ -44,6 +44,10 @@ EXTRA_CFLAGS=-MD
 
 PKG_FIXUP:=autoreconf
 
+# From a different Click-package makefile.
+#TARGET_CFLAGS += "-static -O2 -MD"
+#TARGET_CXXFLAGS += "-static -O2 -MD"
+
 # From 'click by itself':
 #CONFIGURE_ARGS += \
 #	--enable-tools=host \
@@ -63,8 +67,14 @@ CONFIGURE_ARGS += \
 	--disable-linuxmodule \
 	--disable-dynamic-linking \
 	--enable-blackadder \
+	--enable-ipsec \
+
+# The last one is a test.
 
 define Build/Prepare
+	echo $(PKG_INSTALL_DIR);
+	false;
+	
 	# Get Click.
 	$(Build/Prepare/Default)
 	
@@ -87,6 +97,11 @@ define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/$(MAKE_PATH) \
 		$(MAKE_FLAGS) \
 		elemlist;
+
+	# "click-by-itself" doesn't do this one.
+	# This attempts to put cross-compiled click into REAL /usr/local
+	# make Click
+	#$(call Build/Compile/Default, install)
 	
 	# make (+ make install?) Click
 	$(call Build/Install/Default, install)
