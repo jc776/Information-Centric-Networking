@@ -14,11 +14,13 @@ Link packages in I-C-N/openwrt_packages to sdk/package/
 New dependencies -
 GNU awk (apt: "gawk")
 SVN (apt: "subversion")
+ccache (apt: "ccache")  ("C compiler cannot make executables")
 
 
-click:
-	make[4]: *** No rule to make target `elementmap.xml'.  Stop.
-	(this is an old one, will remove.)
+hello_openwrt worked.
+click worked.
 
-click_download:
-	
+Changed click+blackadder to clone blackadder as well.
+"undefined ref to everything" as before in blackadder.
+
+Learning 'quilt patch' to make click+blackadder 'drop in packages/, run make'. (instead of "link the source here & edit these configs, then run make") 

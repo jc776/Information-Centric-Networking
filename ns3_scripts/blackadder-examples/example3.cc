@@ -10,7 +10,7 @@ NS_LOG_COMPONENT_DEFINE("topology");
 int main(int argc, char *argv[]) {
    Ptr<Node> node0 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev0_0 = Create<PointToPointNetDevice>();
-   dev0_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:18"));
+   dev0_0->SetAddress (Mac48Address("7f:d5:c7:24:db:18"));
    dev0_0->SetDataRate (DataRate("100Mbps"));
    dev0_0->SetMtu (1500);
    node0->AddDevice(dev0_0);
@@ -19,28 +19,28 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node1 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev1_0 = Create<PointToPointNetDevice>();
-   dev1_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:19"));
+   dev1_0->SetAddress (Mac48Address("7f:d5:c7:24:db:19"));
    dev1_0->SetDataRate (DataRate("100Mbps"));
    dev1_0->SetMtu (1500);
    node1->AddDevice(dev1_0);
    Ptr<DropTailQueue> queue1_0 = CreateObject<DropTailQueue > ();
    dev1_0->SetQueue(queue1_0);
    Ptr<PointToPointNetDevice> dev1_1 = Create<PointToPointNetDevice>();
-   dev1_1->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1a"));
+   dev1_1->SetAddress (Mac48Address("7f:d5:c7:24:db:1a"));
    dev1_1->SetDataRate (DataRate("100Mbps"));
    dev1_1->SetMtu (1500);
    node1->AddDevice(dev1_1);
    Ptr<DropTailQueue> queue1_1 = CreateObject<DropTailQueue > ();
    dev1_1->SetQueue(queue1_1);
    Ptr<PointToPointNetDevice> dev1_2 = Create<PointToPointNetDevice>();
-   dev1_2->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1c"));
+   dev1_2->SetAddress (Mac48Address("7f:d5:c7:24:db:1c"));
    dev1_2->SetDataRate (DataRate("100Mbps"));
    dev1_2->SetMtu (1500);
    node1->AddDevice(dev1_2);
    Ptr<DropTailQueue> queue1_2 = CreateObject<DropTailQueue > ();
    dev1_2->SetQueue(queue1_2);
    Ptr<PointToPointNetDevice> dev1_3 = Create<PointToPointNetDevice>();
-   dev1_3->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1e"));
+   dev1_3->SetAddress (Mac48Address("7f:d5:c7:24:db:1e"));
    dev1_3->SetDataRate (DataRate("100Mbps"));
    dev1_3->SetMtu (1500);
    node1->AddDevice(dev1_3);
@@ -49,28 +49,28 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node2 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev2_0 = Create<PointToPointNetDevice>();
-   dev2_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1b"));
+   dev2_0->SetAddress (Mac48Address("7f:d5:c7:24:db:1b"));
    dev2_0->SetDataRate (DataRate("100Mbps"));
    dev2_0->SetMtu (1500);
    node2->AddDevice(dev2_0);
    Ptr<DropTailQueue> queue2_0 = CreateObject<DropTailQueue > ();
    dev2_0->SetQueue(queue2_0);
    Ptr<PointToPointNetDevice> dev2_1 = Create<PointToPointNetDevice>();
-   dev2_1->SetAddress (Mac48Address("7f:a4:cf:c4:fb:20"));
+   dev2_1->SetAddress (Mac48Address("7f:d5:c7:24:db:20"));
    dev2_1->SetDataRate (DataRate("100Mbps"));
    dev2_1->SetMtu (1500);
    node2->AddDevice(dev2_1);
    Ptr<DropTailQueue> queue2_1 = CreateObject<DropTailQueue > ();
    dev2_1->SetQueue(queue2_1);
    Ptr<PointToPointNetDevice> dev2_2 = Create<PointToPointNetDevice>();
-   dev2_2->SetAddress (Mac48Address("7f:a4:cf:c4:fb:22"));
+   dev2_2->SetAddress (Mac48Address("7f:d5:c7:24:db:22"));
    dev2_2->SetDataRate (DataRate("100Mbps"));
    dev2_2->SetMtu (1500);
    node2->AddDevice(dev2_2);
    Ptr<DropTailQueue> queue2_2 = CreateObject<DropTailQueue > ();
    dev2_2->SetQueue(queue2_2);
    Ptr<PointToPointNetDevice> dev2_3 = Create<PointToPointNetDevice>();
-   dev2_3->SetAddress (Mac48Address("7f:a4:cf:c4:fb:24"));
+   dev2_3->SetAddress (Mac48Address("7f:d5:c7:24:db:24"));
    dev2_3->SetDataRate (DataRate("100Mbps"));
    dev2_3->SetMtu (1500);
    node2->AddDevice(dev2_3);
@@ -79,21 +79,21 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node3 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev3_0 = Create<PointToPointNetDevice>();
-   dev3_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1d"));
+   dev3_0->SetAddress (Mac48Address("7f:d5:c7:24:db:1d"));
    dev3_0->SetDataRate (DataRate("100Mbps"));
    dev3_0->SetMtu (1500);
    node3->AddDevice(dev3_0);
    Ptr<DropTailQueue> queue3_0 = CreateObject<DropTailQueue > ();
    dev3_0->SetQueue(queue3_0);
    Ptr<PointToPointNetDevice> dev3_1 = Create<PointToPointNetDevice>();
-   dev3_1->SetAddress (Mac48Address("7f:a4:cf:c4:fb:21"));
+   dev3_1->SetAddress (Mac48Address("7f:d5:c7:24:db:21"));
    dev3_1->SetDataRate (DataRate("100Mbps"));
    dev3_1->SetMtu (1500);
    node3->AddDevice(dev3_1);
    Ptr<DropTailQueue> queue3_1 = CreateObject<DropTailQueue > ();
    dev3_1->SetQueue(queue3_1);
    Ptr<PointToPointNetDevice> dev3_2 = Create<PointToPointNetDevice>();
-   dev3_2->SetAddress (Mac48Address("7f:a4:cf:c4:fb:26"));
+   dev3_2->SetAddress (Mac48Address("7f:d5:c7:24:db:26"));
    dev3_2->SetDataRate (DataRate("100Mbps"));
    dev3_2->SetMtu (1500);
    node3->AddDevice(dev3_2);
@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node4 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev4_0 = Create<PointToPointNetDevice>();
-   dev4_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:23"));
+   dev4_0->SetAddress (Mac48Address("7f:d5:c7:24:db:23"));
    dev4_0->SetDataRate (DataRate("100Mbps"));
    dev4_0->SetMtu (1500);
    node4->AddDevice(dev4_0);
@@ -111,7 +111,7 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node5 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev5_0 = Create<PointToPointNetDevice>();
-   dev5_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:27"));
+   dev5_0->SetAddress (Mac48Address("7f:d5:c7:24:db:27"));
    dev5_0->SetDataRate (DataRate("100Mbps"));
    dev5_0->SetMtu (1500);
    node5->AddDevice(dev5_0);
@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node6 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev6_0 = Create<PointToPointNetDevice>();
-   dev6_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:25"));
+   dev6_0->SetAddress (Mac48Address("7f:d5:c7:24:db:25"));
    dev6_0->SetDataRate (DataRate("100Mbps"));
    dev6_0->SetMtu (1500);
    node6->AddDevice(dev6_0);
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]) {
 
    Ptr<Node> node7 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev7_0 = Create<PointToPointNetDevice>();
-   dev7_0->SetAddress (Mac48Address("7f:a4:cf:c4:fb:1f"));
+   dev7_0->SetAddress (Mac48Address("7f:d5:c7:24:db:1f"));
    dev7_0->SetDataRate (DataRate("100Mbps"));
    dev7_0->SetMtu (1500);
    node7->AddDevice(dev7_0);

@@ -43,6 +43,10 @@ These are the commands I used, listing any differences to 'HowTo'.
 		* No Kernel module
 		* Installs to OS
 	
+	* --enable-blackadder is necesary.
+	* There's a warning "unrecognised option: --enable-blackadder"
+	* but it also looks for "any enable-*", which is necessary.
+	
 	make -j4
 		* Parallel, a bit faster.
 	

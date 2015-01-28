@@ -8,7 +8,7 @@ It turns out these files & a CPP file for your username/etc can be created by th
 ($PROJ/repos/blackadder/deployment)
 	./deploy -c $PROJ/repos/blackadder/ns3/blackadder-model/model/ns3_topology1.cfg -s
 
-	cp /tmp/topology.cpp $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples/example3.cc
+	cp /tmp/topology.cpp $PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder/example3.cc
 	
 ($PROJ/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-examples)
 	Modify example3.cc
@@ -18,9 +18,11 @@ It turns out these files & a CPP file for your username/etc can be created by th
 #include "subscriber.h"
 "
 
-	Modify wscript
+Modify wscript
 	Copy example2 section
+	If inserting newlines, match the indenting. (Required by Python)
 "
+    
     obj = bld.create_ns3_program('example3', ['core', 'point-to-point', 'blackadder', 'applications'])
     obj.source = ['example3.cc', 'publisher.cc','subscriber.cc',]
 "
@@ -30,3 +32,15 @@ It turns out these files & a CPP file for your username/etc can be created by th
 	./waf --run examples/blackadder-examples/example3
 	
 	Appears to work.
+
+-----
+Errors found:
+
+When making simulations for real, it looks like separate .cfg files are needed for real deploy vs simulated deploy.
+ns3's has a lot of extra options for "delay of this connection", etc.
+Might also specify some simple tests to automate (checking)
+
+"expected )":
+	Comes from deploying a non-ns3 cfg file.
+	single_node generates a line 'fw::Forwarder(globalconf,0,' with no ending bracket.
+	ns3_topology1.cfg ends the network object with an extra ");".

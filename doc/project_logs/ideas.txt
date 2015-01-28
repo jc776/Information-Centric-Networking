@@ -10,15 +10,16 @@ Next time I work:
 	Add new files to dirs. Move ba 5 line test to gen_logs.
 	
 
+New useful work I'll have:
+	Finished simulations should be self-contained i.e. no "mod cfg, deploy, add includes"
+	Finished demo should be self-contained (./deploy on one PC, run publisher on server, subscriber on client. Anything to start up TM? (on server, or router)
+
+
 Soon:
-	Set up backing up to MCS. ("Set up SSH, then use to clone every so often", or something automatic)
 	If I keep up 'log per section' ("OpenWRT on router" separate to "BA port to router", etc), each one will only be a couple days long. Rethink structure.
 	Not yet tested:                                     Will do at stage:
-		Installing NS3, so Click NS3 support            Creating NS3 components ('are Click components there')
-		In NS3: Blackadder 'example' components         Creating NS3 components ('are Blackadder components there')
 		Java binding                                    Blackadder on Android and/or Blackadder Java Applications
 		Python binding                                  If useful for NS3
-		C binding                                       If useful for applications
 	Instructions for "Building programs with ___"       When I make or run C++, Java, C? examples.
 
 
@@ -34,4 +35,10 @@ Completed ideas:
 	25/11
 		Added file structure description to top of files
 	
-	26/11
+	26/01
+		Installing NS3, so Click NS3 support
+		In NS3: Blackadder 'example' components (can deploy Blackadder's ns3-sample)
+		C binding (used for some examples)
+	27/01
+		Backed up to the MCS.
+	

@@ -19,6 +19,11 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
+# Custom var.
+PKG_BLACKADDER_URL:=https://github.com/fp7-pursuit/blackadder.git
+# could be made version specific. As of 26/01/2015, the latest commit I'm using is from 30/04/2013.
+# https://github.com/fp7-pursuit/blackadder/commit/866c3d72135e44317b59eb4ba1e461a1b403c7e5
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/click
@@ -37,31 +42,66 @@ endef
 
 EXTRA_CFLAGS=-MD
 
+PKG_FIXUP:=autoreconf
+
+# From 'click by itself':
+#CONFIGURE_ARGS += \
+#	--enable-tools=host \
+#	--enable-userlevel \
+#	--enable-wifi \
+#	--disable-linuxmodule \
+#	--disable-dynamic-linking \
+
+# From 'blackadder w/ cross-compiler'
+#--disable-linuxmodule --target=mips-openwrt-linux  --enable-blackadder  --enable-tools=mixed --disable-dynamic-linking ARCH=mips CFLAGS=-static CXXFLAGS=-static
+# tools=mixed: "cc1plus: error: unrecognized command line option"
+# ARCH - should be done by SDK?
+
 CONFIGURE_ARGS += \
 	--enable-tools=host \
 	--enable-userlevel \
-	--enable-wifi \
 	--disable-linuxmodule \
 	--disable-dynamic-linking \
+	--enable-blackadder \
+
+define Build/Prepare
+	# Get Click.
+	$(Build/Prepare/Default)
+	
+	# Get Blackadder.
+	(	cd $(BUILD_DIR); \
+		git clone $(PKG_BLACKADDER_URL) \
+	)
+	
+	# ~ "NS3" instructions
+	# OK: This causes "/elements/blackadder" to compile.
+	ln -s $(BUILD_DIR)/blackadder/src $(PKG_BUILD_DIR)/elements/blackadder
+	
+	# I should really be patching 'configure.in' then running autoconf.
+	# $(CP) ./src/configure_mod $(PKG_BUILD_DIR)/configure
+endef
 
 define Build/Compile
-	# First, make? + make install Click
-	$(call Build/Install/Default, install)
+	# First, rebuild 'element list'
+	$(MAKE_VARS);
+	$(MAKE) -C $(PKG_BUILD_DIR)/$(MAKE_PATH) \
+		$(MAKE_FLAGS) \
+		elemlist;
 	
-	# From Build/Prepare in hello_openwrt
-	# Couldn't figure out how to do 'git download, then copy' in prepare
-	$(CP) ./src/* $(BUILD_DIR)/
+	# make (+ make install?) Click
+	$(call Build/Install/Default, install)
 	
 	# Then, configure, make (+ make install?) Blackadder
 	# (Blackadder's configure needs to happen after building click to work)
-	(cd $(BUILD_DIR)/blackadder/src; \
-		./configure \
-			--disable-linuxmodule \
-			--with-click=$(PKG_INSTALL_DIR)/usr \
-			--prefix=$(PKG_INSTALL_DIR)/usr \
-	)
+	#(	cd $(BUILD_DIR)/blackadder/src; \
+	#	./configure \
+	#		--disable-linuxmodule \
+	#		--with-click=$(PKG_INSTALL_DIR)/usr \
+	#		--prefix=$(PKG_INSTALL_DIR)/usr; \
+	#	echo "Configure worked." \
+	#)
 	
-	$(MAKE) -C $(BUILD_DIR)/blackadder/src
+	# $(MAKE) -C $(BUILD_DIR)/blackadder/src
 	# make install?
 endef
 
