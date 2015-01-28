@@ -1,0 +1,39 @@
+
+-----
+
+I'm attempting to make the NS3 simulations self contained instead of needing 'deployed'.
+I'll need to work out how to have a subscriber move between nodes (i.e. continue where it left off) etc to do project's scenarios.
+I'll also be modifying them to output graphs etc. of network characteristics
+
+
+Log
+-----
+Copying blackadder-examples to blackadder-jc776
+Linking in ns3/examples directory.
+
+I'm creating a "cfg" by modifying "ns3_topology1.cfg", deploying it, then copying generated files to "originals" and "conf"
+eg.
+
+./deploy -c $PROJ/repos/Information-Centric-Networking/ns3_scripts/blackadder-jc776/deploy_originals/cfg/2nodes.cfg -s
+in /tmp/:
+00000001.conf
+00000002.conf
+topology.graphml
+topology.cpp     -> 2nodes.cpp
+Moving to my folder structure and changing hard-coded paths to "source file's directory/..."
+Modifying wcript for new directory structure
+
+Running scenarios
+-----
+README in blackadder-jc776.
+
+
+
+
+
+
+etc
+-----
+($PROJ/repos/ns-allinone-3.15/ns-3.15/)
+	./waf build
+	./waf --run examples/blackadder-examples/example3

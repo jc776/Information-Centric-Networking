@@ -1,0 +1,20 @@
+TO RUN:
+
+[Install blackadder + ns3 + original examples]
+ln -s $PROJ/repos/Information-Centric-Networking/ns3_scripts/blackadder-jc776 $PROJ/repos/ns-allinone-3.15/ns-3.15/examples
+
+($PROJ/repos/ns-allinone-3.15/ns-3.15)
+./waf --run examples/blackadder-jc776/2nodes
+or
+./waf --run 2nodes
+NOTE: Not "2nodes.cpp".
+
+Directory Structure:
+
+
+deploy_originals/
+	cfg/	The original cfg files put into 'deploy -c [...].cfg -s'.
+	cpp/	The original cpp files created by ^
+lib/	Include files needed by blackadder-examples.
+
+

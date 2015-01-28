@@ -1,0 +1,5 @@
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    obj = bld.create_ns3_program('2nodes', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['2nodes.cpp', 'lib/publisher.cc','lib/subscriber.cc',]

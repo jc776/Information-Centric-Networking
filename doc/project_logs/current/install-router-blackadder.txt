@@ -21,6 +21,11 @@ hello_openwrt worked.
 click worked.
 
 Changed click+blackadder to clone blackadder as well.
-"undefined ref to everything" as before in blackadder.
 
-Learning 'quilt patch' to make click+blackadder 'drop in packages/, run make'. (instead of "link the source here & edit these configs, then run make") 
+Learning 'quilt patch' to make click+blackadder 'drop in packages/, run make'. (instead of "link the source here & edit these configs, then run make")
+28/1: didn't do "patch configure" method, did "ln -s blackadder click/elements/"
+
+"undefined ref to everything" as before in blackadder.
+28/1: fixed, maybe.
+
+The CPP files cross-compiled, but "requirement blackadder not available" when ran on router.
