@@ -32,3 +32,6 @@
 
 # Copy of Blackadder repository.
 openwrt/packages/click_blackadder/src/blackadder/
+
+# blackadder_applications
+blackadder_applications/deploy_sudo/deploy
