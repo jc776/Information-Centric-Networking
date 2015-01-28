@@ -10,9 +10,11 @@ Built-in "deploy":
 - Has commented out code to 'start topology manager' on a chosen node.
 
 To minimize the number of commands between "start this network" and "start using the video applications":
+- Don't throw away click's output.
 (NOT YET DONE) - Check "pidof click" before trying to kill. (This minimizes password entries)
 (NOT YET DONE) - Auto-starts topology manager.
 
+I'm only modifying "sudo turned on" + "user level".
 
 
 

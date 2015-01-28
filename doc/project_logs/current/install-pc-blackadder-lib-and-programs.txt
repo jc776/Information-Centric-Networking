@@ -78,6 +78,12 @@ Deployment Tools
 	($PROJ/repos/blackadder/deployment)
 		make
 			* Worked, generated "deploy" executable.
+			* Some problems with this program on Ubuntu 12.04 - it can't run "sudo click", and non-sudo "click" can't actually send data.
+			* Either use more commands ("./deploy -c [...].cfg", "pkill -9 click", "sudo click /tmp/[...].conf"
+			* or see "blackadder_applications"
+	($PROJ/repos/Information-Centric-Networking/blackadder_applications/deploy_sudo)
+		make
+			* Fixed version, for running "SUDO = true" config files.
 
 
 -------------------------------------------

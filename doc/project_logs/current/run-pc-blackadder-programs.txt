@@ -8,14 +8,67 @@ sudo apt-get install vlc
 Currently everything needs "sudo". Will work on this later.
 
 
+1. Install some example programs:
 
-1. 'Deploy' a 'single node' config, start "Click + Blackadder"
+(blackadder/examples/samples)
+	make
+	"publisher" and "subscriber" work.
+
+(blackadder/examples/video_streaming)
+	make
+	Haven't been able to run these yet. (blackadder can't communicate without root, VLC refuses to run with root)
+
+(blackadder/examples/video_streaming/VideoDemoApp)
+	sudo apt-get install libvlc-dev
+	
+	For the following paths, $PROJ won't work as a shortcut.
+	
+	Paths on my system:
+		/usr/lib/jvm/java-6-openjdk-amd64/include/jni.h
+		/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding/jni/eu_pursuit_client_BlackadderWrapper.so
+		/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding/dist/blackadder-java-binding.jar
+	
+	Build 'Native' (Not SWIG) Java Binding from "install-pc-blackadder-and-programs"
+	then:
+	
+	Modify the two paths in VideoDemoApp/project.properties to match your "BlackadderWrapper.so":
+		BAWrapperPath=/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding/jni/eu_pursuit_client_BlackadderWrapper.so
+		DefaultMovieFolder=/home/jack/Videos
+
+	Modify line 4 of build.xml to match your username/Blackadder location e.g
+		<property name="BlackadderJava.location" value="/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
+	
+	For some reason the default instructions as for "commons-codec-1.5", when we already got "1.4" for Native Java Lib.
+	Modify line 10 of build.xml:
+		<pathelement location="${BlackadderJava.location}/lib/commons-codec-1.4.jar"/>
+	Delete line 16 of build.xml (for some reason the same jar would need to be in two places?)
+		<pathelement location="lib/commons-codec-1.5.jar"/>
+	
+	Open VideoDemoApp/lib/BuildLib.txt, download the listed files into that folder.
+		Codec had a broken link. Attempting to use "1.4" which we got with Native Java Binding.
+		 try eg http://archive.apache.org/
+	
+	Attempting to use codec 1.4: Sound works, picture does not.
+	
+	sudo ant g_publisher
+	sudo ant subscriber
+	
+	
+
+
+
+
+
+
+2. 'Deploy' a 'single node' config, start "Click + Blackadder"
 
 (This is probably awful security.)
 sudo apt-get install openssh-server
 Make a key, add self to ssh e.g. http://superuser.com/questions/336226/how-to-ssh-to-localhost-without-password
 
-($PROJ/repos/blackadder/TopologyManager)
+($PROJ/repos/Information-Centric-Networking/blackadder_applications/deploy_sudo)
+ALTERNATE: ($PROJ/repos/blackadder/deployment)
+
 Copy single_node.cfg to single_node_mod.cfg
 "
 BLACKADDER_ID_LENGTH = 8;
@@ -23,7 +76,7 @@ LIPSIN_ID_LENGTH = 32;
 CLICK_HOME = "/usr/local/";			<-- Click "prefix", if changed. (Leave as this if unchanged)
 WRITE_CONF = "/tmp/";
 USER = "jack";					<-- Your username.
-SUDO = true;
+SUDO = true;                                    <-- 'true' necessary on Ubuntu.
 OVERLAY_MODE = "mac";
 
 network = {
@@ -37,6 +90,43 @@ network = {
 };
 "
 
+
+
+./deploy -c (...)/single_node_mod.cfg
+ALTERNATE:
+	"Restart Click if needed"
+	SUDO=true:  The "sudo /.../click" command actually failed since it was in the background.
+	SUDO=false: On Ubuntu 12.04, this version of click can't actually communicate with other processes.
+	so
+		sudo pkill -9 click
+		(+ alt. command for kernel mode click)
+		sudo click /tmp/00000001.conf
+		... You have to do this on all network devices.
+	The modified version runs "sudo click in the background" in the background correctly.
+
+(Terminal 1 - /blackadder/TopologyManager)
+sudo ./tm /tmp/topology.graphml
+
+(Terminal 2 - /blackadder/examples/samples)
+sudo ./publisher
+
+(Terminal 3 - /blackadder/examples/samples)
+sudo ./subscriber
+
+Lots of output on "PUBLISH_SCOPE", etc:
+	Working as intended.
+
+After running subscriber, still no output except "Process ID:" on all:
+	Click isn't running, or wasn't restarted from 'ALTERNATE:' deploy.
+
+
+
+
+
+
+Other notes
+---------------------------------
+	
 
 
 

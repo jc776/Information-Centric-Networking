@@ -13,6 +13,11 @@
  * See LICENSE and COPYING for more details.
  */
 
+// JC776 mod:
+// - Check "pidof click" before trying to kill. (This minimizes password entries)
+// case "$(pidof click | wc -w)" in 0) echo "None" ;; *) echo "Some" ;; esac
+#include <string>
+
 #include <map>
 #include <sstream>
 #include <iomanip> 
@@ -778,43 +783,55 @@ void Domain::scpClickFiles() {
 void Domain::startClick() {
     FILE *ssh_command;
     string command;
+    string killcmd;
+    string checkcmd;
     for (size_t i = 0; i < network_nodes.size(); i++) {
         NetworkNode *nn = network_nodes[i];
         if (overlay_mode.compare("mac_ml") == 0 && nn->type.compare("PN") != 0) {
             // avoid starting Click in optical nodes
             continue;
         }
+	// JC776 MOD:
+	// case "$(pidof click | wc -w)" in 0) echo "None" ;; *) echo "Some" ;; esac
         /*kill click first both from kernel and user space*/
         if (sudo) {
-            command = "ssh " + user + "@" + nn->testbed_ip + " -t \"sudo pkill -9 click\"";
+            killcmd = "sudo pkill -9 click";
+            checkcmd = "case `pidof click | wc -w` in 0) true ;; *) " + killcmd + " ;; esac";
+            command = "ssh " + user + "@" + nn->testbed_ip + " -t \"" + checkcmd + "\"";
         } else {
             command = "ssh " + user + "@" + nn->testbed_ip + " -t \"pkill -9 click\"";
         }
-        cout << command << endl;
+	cout << (sudo ? "Check for and kill" : "Kill") << "user-level click:" << (sudo ? " (If stopped, enter password)" : "") << endl;
+        cout << "> " << command << endl;
         ssh_command = popen(command.c_str(), "r");
         if (ssh_command == NULL) {
             cerr << "Failed to stop click at node " << nn->label << endl;
         }
         pclose(ssh_command);
         if (sudo) {
-            command = "ssh " + user + "@" + nn->testbed_ip + " -t \"sudo " + click_home + "sbin/click-uninstall\"";
+            killcmd = "sudo " + click_home + "sbin/click-uninstall";
+            checkcmd = "case `pidof click | wc -w` in 0) true ;; *) " + killcmd + " ;; esac";
+            command = "ssh " + user + "@" + nn->testbed_ip + " -t \"" + checkcmd + "\"";
         } else {
             command = "ssh " + user + "@" + nn->testbed_ip + " -t \"" + click_home + "sbin/click-uninstall \"";
         }
-        cout << command << endl;
+	cout << (sudo ? "Check for and kill" : "Kill") << "kernel-level click:" << (sudo ? " (If stopped, enter password)" : "") << endl;
+        cout << "> " << command << endl;
         ssh_command = popen(command.c_str(), "r");
         if (ssh_command == NULL) {
             cerr << "Failed to stop click at node " << nn->label << endl;
         }
         pclose(ssh_command);
         /*now start click*/
+        // JC776 MOD: Instead of starting sudo in the background, set 'background' option, so you can enter the password.
         if (nn->running_mode.compare("user") == 0) {
             if (sudo) {
-                command = "ssh " + user + "@" + nn->testbed_ip + " \"sudo " + click_home + "bin/click " + write_conf + nn->label + ".conf > /dev/null 2>&1 &\"";
+                command = "ssh " + user + "@" + nn->testbed_ip + " -t \"sudo -b " + click_home + "bin/click " + write_conf + nn->label + ".conf\""; // > /dev/null 2>&1 &\"";
             } else {
-                command = "ssh " + user + "@" + nn->testbed_ip + " \"" + click_home + "bin/click " + write_conf + nn->label + ".conf > /dev/null 2>&1 &\"";
+                command = "ssh " + user + "@" + nn->testbed_ip + " -t \"" + click_home + "bin/click " + write_conf + nn->label + ".conf > /dev/null 2>&1 &\"";
             }
-            cout << command << endl;
+	    cout << "Start user-level click:" << (sudo ? "(If stopped, enter password)" : "") << endl;
+            cout << "> " << command << endl;
             ssh_command = popen(command.c_str(), "r");
             if (ssh_command == NULL) {
                 cerr << "Failed to start click at node " << nn->label << endl;
@@ -822,11 +839,12 @@ void Domain::startClick() {
             pclose(ssh_command);
         } else {
             if (sudo) {
-                command = "ssh " + user + "@" + nn->testbed_ip + " \"sudo " + click_home + "sbin/click-install " + write_conf + nn->label + ".conf > /dev/null 2>&1 &\"";
+                command = "ssh " + user + "@" + nn->testbed_ip + " \"sudo -b" + click_home + "sbin/click-install " + write_conf + nn->label + ".conf\""; // > /dev/null 2>&1 &\"";
             } else {
                 command = "ssh " + user + "@" + nn->testbed_ip + " \"" + click_home + "sbin/click-install " + write_conf + nn->label + ".conf > /dev/null 2>&1 &\"";
             }
-            cout << command << endl;
+	    cout << "Start kernel-level click:" << (sudo ? "(If stopped, enter password)" : "") << endl;
+            cout << "> " << command << endl;
             ssh_command = popen(command.c_str(), "r");
             if (ssh_command == NULL) {
                 cerr << "Failed to start click at node " << nn->label << endl;
