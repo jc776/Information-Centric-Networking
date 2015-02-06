@@ -38,27 +38,15 @@ Currently everything needs "sudo". Will work on this later.
 	Modify line 4 of build.xml to match your username/Blackadder location e.g
 		<property name="BlackadderJava.location" value="/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
 	
-	For some reason the default instructions as for "commons-codec-1.5", when we already got "1.4" for Native Java Lib.
-	Modify line 10 of build.xml:
-		<pathelement location="${BlackadderJava.location}/lib/commons-codec-1.4.jar"/>
-	Delete line 16 of build.xml (for some reason the same jar would need to be in two places?)
-		<pathelement location="lib/commons-codec-1.5.jar"/>
-	
-	Open VideoDemoApp/lib/BuildLib.txt, download the listed files into that folder.
+	Open VideoDemoApp/lib/BuildLib.txt, download the listed files.
 		Codec had a broken link. Attempting to use "1.4" which we got with Native Java Binding.
 		 try eg http://archive.apache.org/
-	
-	Attempting to use codec 1.4: Sound works, picture does not.
-	
-	sudo ant g_publisher
-	sudo ant subscriber
-	
-	
-
-
-
-
-
+		http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+		Extract "commons-codec-1.5.jar" into that folder.
+		Put the other jar files into that folder.
+		
+	Copy "commons-codec-1.5.jar" to blackadder/lib/bindings/java_binding/lib
+	(This needs 1.5, old video example needs 1.4)
 
 2. 'Deploy' a 'single node' config, start "Click + Blackadder"
 
@@ -107,17 +95,29 @@ ALTERNATE:
 (Terminal 1 - /blackadder/TopologyManager)
 sudo ./tm /tmp/topology.graphml
 
-(Terminal 2 - /blackadder/examples/samples)
-sudo ./publisher
+(Terminal 2)
+	(/blackadder/examples/samples)
+		sudo ./publisher
+	or
+	(blackadder/examples/video_streaming/VideoDemoApp)
+		sudo ant g_publisher
+	
 
-(Terminal 3 - /blackadder/examples/samples)
-sudo ./subscriber
+(Terminal 3)
+	(/blackadder/examples/samples)
+		sudo ./subscriber
+	(blackadder/examples/video_streaming/VideoDemoApp)
+		sudo ant subscriber
 
-Lots of output on "PUBLISH_SCOPE", etc:
+(Text publisher)
+Lots of output on "PUBLISH_SCOPE", etc
 	Working as intended.
 
 After running subscriber, still no output except "Process ID:" on all:
 	Click isn't running, or wasn't restarted from 'ALTERNATE:' deploy.
+
+(Video publisher)
+"VLC can't run as root!" - I got this for the C/console-based video programs but not the GUI ones.
 
 
 
