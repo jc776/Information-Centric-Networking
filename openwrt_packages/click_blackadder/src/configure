@@ -819,7 +819,6 @@ enable_icmp
 enable_ip
 enable_ip6
 enable_ipsec
-enable_blackadder
 enable_json
 enable_local
 enable_radio
@@ -6904,16 +6903,6 @@ if test "x$enable_ipsec" = xyes; then
     :
     $as_echo "#define HAVE_IPSEC 1" >>confdefs.h
 
-
-# Cross-compile custom: Check whether --enable-blackadder was given.
-if test "${enable_blackadder+set}" = set; then :
-  enableval=$enable_blackadder;
-else
-  enable_blackadder=NO
-fi
-# Omitting the 'enable_all_elements', 'confdefs.h' sections
-
-
 fi
 # Check whether --enable-json was given.
 if test "${enable_json+set}" = set; then :
@@ -7894,7 +7883,7 @@ fi
 $as_echo "$ac_cv_va_list_addr" >&6; }
     if test "x$ac_cv_va_list_addr" = xyes; then
 
-$as_echo "#define HAVE_ADDRESSABLE_VA_LIST 0" >>confdefs.h
+$as_echo "#define HAVE_ADDRESSABLE_VA_LIST 1" >>confdefs.h
 
     fi
 

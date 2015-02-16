@@ -1,0 +1,52 @@
+
+-----
+
+12 PC:
+($PROJ/repos/)
+./Information-Centric-Networking/blackadder_applications/deploy_sudo/deploy -c ./Information-Centric-Networking/deploy_scripts/2nodes_assigned.cfg
+
+
+
+
+sudo ./blackadder/TopologyManager/tm /tmp/topology.graphml
+
+
+
+14 PC:
+(Blackadder installed slightly different on here, so I needed to restart the programs)
+
+($PROJ)
+sudo ./builds/click/bin/click /tmp/00000002.conf
+
+sudo ./repos/blackadder/examples/samples/publisher
+Outputs lots of "START_PUBLISH"
+
+
+12 PC:
+($PROJ/repos/)
+sudo ./blackadder/examples/samples/subscriber
+Outputs lots of "SCOPE_PUBLISHED", "PUBLISHED_DATA"
+
+
+
+2 NODE CONNECTION IS WORKING
+
+To make things smoother:
+- Fix Blackadder install on 14 PC. (Only Blackadder, no attempt at NS3 or cross-compile)
+- Fix (cfg or code) for 'auto assign connections'.
+- Re-add/uncomment deploy's 'auto start TM'
+
+----
+
+Deploy "-a" option isn't working for MAC mode either modified deploy or original
+"0 nodes"
+segfault 
+- Specifying connections and roles.
+- Below changing overlay mode fixed this.
+
+
+Response on 14 PC's click to publisher starting
+No response on 12 PC's tm (or restarted click)
+"source MAC: 00-00-00-00-00-00"
+- was running in MAC mode but unable to get addresses for some reason.
+- changed overlay mode to IP for now

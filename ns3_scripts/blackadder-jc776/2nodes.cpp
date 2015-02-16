@@ -1,9 +1,18 @@
+// Changes from "original":
+// - Imported (new) publisher/subscriber
+// - Local file paths instead of "/tmp" or "/home/pursuit"
+// - Switching "PointToPointNetDevice"/"Channel" to "PointToPointHelper" so that I can use Tracing
+// - *Tracing traffic on wire*
+
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
 #include <ns3/point-to-point-module.h>
 #include <ns3/blackadder-module.h>
 
-#include "lib/publisher.h"
+//jc776: new
+#include <ns3/flow-monitor-module.h>
+
+#include "lib/ns3_video_publisher_app.h"
 #include "lib/subscriber.h"
 
 // jc776
@@ -22,7 +31,20 @@ int main(int argc, char *argv[]) {
    //   /home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build/examples/blackadder-jc776/
    //-> /home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-jc776/conf/2nodes/
    std::string path = aux.substr(0,pos+1) + "../../../examples/blackadder-jc776/conf/2nodes/";
-
+   
+   //NodeContainer n0n1;
+   //n0n1.Create (2);
+   
+   //Ptr<Node> node0 = n0n1.Get (0);
+   //Ptr<Node> node1 = n0n1.Get (1);
+   
+   //
+   //p2p.SetDeviceAttribute ("DataRate", DataRateValue (DataRate (10000000)));
+   //p2p.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (10)));
+   
+   //jc776: Using helper for trace.
+   PointToPointHelper p2p;
+   
    Ptr<Node> node0 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev0_0 = Create<PointToPointNetDevice>();
    dev0_0->SetAddress (Mac48Address("7f:fa:28:48:cb:18"));
@@ -62,7 +84,7 @@ int main(int argc, char *argv[]) {
    tm->SetAttribute("Topology", StringValue(path + "topology.graphml"));
    node0->AddApplication(tm); 
 
-   Ptr<Publisher> app0_0 = CreateObject<Publisher> ();
+   Ptr<VideoPublisher> app0_0 = CreateObject<VideoPublisher> ();
    app0_0->SetStartTime(Seconds(2.34)); 
    app0_0->SetStopTime(Seconds(14.87)); 
    node0->AddApplication(app0_0);
@@ -71,8 +93,26 @@ int main(int argc, char *argv[]) {
    app1_0->SetStartTime(Seconds(2.34)); 
    app1_0->SetStopTime(Seconds(14.87)); 
    node1->AddApplication(app1_0);
+   
+   //jc776: Recording packets/destinations
+   //Ptr<FlowMonitor> flowMonitor;
+   //FlowMonitorHelper flowHelper;
+   //flowMonitor = flowHelper.InstallAll();
+   
+   //jc776: Set up tracing on the up/down wires.
+   // Can't use "All" since the nodes etc weren't created by helper
+   // - switch to helper for nodes, queue, channel?
+   //AsciiTraceHelper ascii;
+   //Ptr<OutputStreamWrapper> asciiStream = ascii.CreateFileStream ("2nodes");
+   //p2p.EnableAscii(asciiStream,dev0_0); // p -> s
+   //p2p.EnableAscii(asciiStream,dev1_0); // s -> p
+   //p2p.EnablePcap("2nodes",dev0_0,false); // p -> s
+   //p2p.EnablePcap("2nodes",dev1_0,false); // s -> p
 
    Simulator::Run();
    Simulator::Destroy();
+   
+   //jc776
+   flowMonitor->SerializeToXmlFile("2nodes-flow.xml", true, true);
    return 0;
 }

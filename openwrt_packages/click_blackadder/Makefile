@@ -72,8 +72,8 @@ CONFIGURE_ARGS += \
 # The last one is a test.
 
 define Build/Prepare
-	echo $(PKG_INSTALL_DIR);
-	false;
+	#echo $(PKG_INSTALL_DIR);
+	#false;
 	
 	# Get Click.
 	$(Build/Prepare/Default)
@@ -88,7 +88,7 @@ define Build/Prepare
 	ln -s $(BUILD_DIR)/blackadder/src $(PKG_BUILD_DIR)/elements/blackadder
 	
 	# I should really be patching 'configure.in' then running autoconf.
-	# $(CP) ./src/configure_mod $(PKG_BUILD_DIR)/configure
+	$(CP) ./src/configure_mod $(PKG_BUILD_DIR)/configure
 endef
 
 define Build/Compile

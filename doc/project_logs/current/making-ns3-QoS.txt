@@ -1,0 +1,110 @@
+
+-----
+
+Quality Of Service Simulation
+
+Layout
+------
+	Main:
+		One Server (Publisher, FN, TM, RV)
+		One Router (FN)
+		Two Clients (Subscriber, FN or part of router's FN? Need to check distinction for Mobility.)
+	
+	Secondary:
+		One Server
+		One Router
+		One Client
+	
+	TCP
+		(Completely different code, same data file and wires I guess)
+		One Server
+		One Router
+		Two Clients
+
+Experiment
+----------
+	The server is publishing a video. (Fixed, v. large file OR rapidly changing chunks on a single ID)
+	The clients subscribe to the video.
+	Through the protocol (I think?) the router is *passively/internally* a subscriber (Mobility: 'second' router is *actively* a subscriber)
+
+	Monitor the traffic on the line between server and router.
+	- 1x traffic in secondary case
+	- 1-1.1x traffic in primary case - the server only needs to send the video data over the network as a single connection (Either "once", for large file, or still repeatedly for chunks)
+	- 2x traffic in the TCP case - there are two connections each sending video data from the server towards a client
+	
+Existing
+----
+Auto-generated "deploy_originals"
+- create 'devices', create 'click'/'tm' running on particular nodes
+- create 'applications' using imported classes, that run on particular nodes for a fixed length of time
+
+publisher.h (Imported class)
+	(publisher.h says:)
+	* 'A sample publisher application.'
+	* When the publisher is started, it advertises root scope 00000000000 and schedules (at 0 seconds) an NS3 event. 
+	* Each time this event is scheduled, the publisher will advertise a randomly generated information identifier.
+	
+subscriber.h (Imported class)
+- Subscribes to scope 00000000000
+- Logs anything it recieves.
+- (Paired up with publisher, it should receive something every half second)
+
+Random reference:
+http://www.nsnam.org/docs/release/3.18/doxygen/tcp-large-transfer_8cc_source.html
+- "Ask for ASCII and pcap traces of network traffic"
+- Might be TCP specific.
+
+"For instance, a video streamer would constantly publish different video chunks using the same Information ID" - api.pdf
+
+
+New Work
+--------
+
+ns3_video_publisher_app.cc
+- The "video_publisher" example started a CVLC stream
+- Asks for 1500 bytes at a time - this is either "whenever the stream makes this much" (slow) or "more than is available, so as much as possible"
+
+https://support.google.com/youtube/answer/2853702?hl=en
+"Recommended Encoder Settings"
+"720p"
+1280x720
+Video Bitrates
+    Maximum 4000 Kbps
+    Recommended 2500 Kbps
+    Minimum 1500 Kbps
+
+These are the rates I'll set the publisher to make data at.
+May need to test or measure "how fast it generates them", but the data rate is all that should matter.
+
+1500b per packet
+2500000b per second
+
+3/5000 seconds per packet
+... ah.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
