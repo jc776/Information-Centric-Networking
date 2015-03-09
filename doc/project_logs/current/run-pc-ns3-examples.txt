@@ -1,6 +1,20 @@
 
 -----
 
+I made a more comprehensive change that makes the examples more self-contained, so end users don't have to run the deployment tool (Still needs 'ns3+Blackadder' working)
+
+In ns3-3.15/examples, make a link to I-C-N/ns3_scripts/blackadder-jc776 folder in the same way as the existing "blackadder-examples".
+export NS_LOG=Publisher=level_info:Subscriber=level_info
+./waf --run ns3_topology1
+should work without running the deployment tool.
+
+
+Details of the 'file path' changes are in I-C-N/ns3_scripts/blackadder-jc776/ns3_topology1_selfcontained.cpp.
+The deploy-generated files are copied into the folder structure there instead of /tmp/.
+
+Original version:
+-----
+
 Attempting to run ns3 examples by themselves fails requiring specific files from user "pursuit".
 It turns out these files & a CPP file for your username/etc can be created by the "deploy" tool.
 
@@ -32,6 +46,12 @@ Modify wscript
 	./waf --run examples/blackadder-examples/example3
 	
 	Appears to work.
+
+-----
+
+
+
+
 
 -----
 Errors found:

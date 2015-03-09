@@ -9,9 +9,6 @@
 #include <ns3/point-to-point-module.h>
 #include <ns3/blackadder-module.h>
 
-//jc776: new
-#include <ns3/flow-monitor-module.h>
-
 #include "lib/ns3_video_publisher_app.h"
 #include "lib/subscriber.h"
 
@@ -44,6 +41,7 @@ int main(int argc, char *argv[]) {
    
    //jc776: Using helper for trace.
    PointToPointHelper p2p;
+   p2p.
    
    Ptr<Node> node0 = CreateObject<Node>();
    Ptr<PointToPointNetDevice> dev0_0 = Create<PointToPointNetDevice>();
@@ -102,12 +100,7 @@ int main(int argc, char *argv[]) {
    //jc776: Set up tracing on the up/down wires.
    // Can't use "All" since the nodes etc weren't created by helper
    // - switch to helper for nodes, queue, channel?
-   //AsciiTraceHelper ascii;
-   //Ptr<OutputStreamWrapper> asciiStream = ascii.CreateFileStream ("2nodes");
-   //p2p.EnableAscii(asciiStream,dev0_0); // p -> s
-   //p2p.EnableAscii(asciiStream,dev1_0); // s -> p
-   //p2p.EnablePcap("2nodes",dev0_0,false); // p -> s
-   //p2p.EnablePcap("2nodes",dev1_0,false); // s -> p
+
 
    Simulator::Run();
    Simulator::Destroy();

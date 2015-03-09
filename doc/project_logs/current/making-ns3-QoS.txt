@@ -86,7 +86,22 @@ May need to test or measure "how fast it generates them", but the data rate is a
 
 
 
+Generating and Modifying
+------------------------
+Network layout - one of 'deploy_originals/cfg'
 
+(repos) ./blackadder/deployment/deploy -c ./Information-Centric-Networking/ns3_scripts/blackadder-jc776/deploy_originals/cfg/QoS_single_client.cfg -s
+("Generate click conf & ns3 cpp files for this network layout")
+
+/tmp/000[...].conf, /tmp/topology.graphml into blackadder-jc776/conf/QoS_single_client/
+/tmp/topology.cpp into blackadder-jc776/deploy_originals/cpp/QoS_single_client.cpp (Unused)
+/tmp/topology.cpp into blackadder-jc776/QoS_single_client.cpp
+
+Added lines to wscript:
+    obj = bld.create_ns3_program('QoS_single_client', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['QoS_single_client.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
+"Add this cpp file as a program to run with ./waf --run QoS_single_client"
+"This file depends on these 'application' class files"
 
 
 

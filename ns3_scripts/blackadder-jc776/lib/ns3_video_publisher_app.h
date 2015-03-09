@@ -5,7 +5,7 @@
  * - Packet size to 1500b (Maybe customizable later)
  * - Delay from 1/2sec to 3/5000 sec. (w/ packet size, "Youtube 720p". Videos are fast.)
  * - "Randomly generated info ID" once instead of every event to match Blackadder API comments on "video"
- * 
+ * - Changed "application startup", "event every 600us" and "first subscriber" for this
  */
 
 #ifndef VIDEO_PUBLISHER_NS3_H
@@ -14,6 +14,11 @@
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
 #include <ns3/blackadder-module.h>
+
+//jc776
+#include <string>
+//"stringify":
+#include <sstream>
 
 
 
@@ -53,16 +58,19 @@ namespace ns3 {
         /**@
          * 
          */
-        void publish(void);
+        //jc776: Separate events.
+        void change_data(void);
+        void advertise_info(void);
 
         Time m_interval;
         EventId m_Event;
         
-	//jc776: Constant info ID.
-        double m_infoID;
-	
-	//jc776: Send changing data.
-	char m_data;
+	//jc776: Send *changing* data on *constant* info ID.
+        // smurf naming in case I'm messing up 'PubSubApplication' or something
+        string m_video_channelID; // name taken from (video_streaming's) 'video_publisher.cc'
+        double m_video_infoID;    // originally the constant "d1" from (BA+ns3 example's) publisher.cc
+        bool m_video_publishing;
+	char m_video_data;
 
     };
 
