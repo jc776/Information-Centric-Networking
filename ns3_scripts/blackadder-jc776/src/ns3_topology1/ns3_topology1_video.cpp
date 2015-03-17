@@ -2,14 +2,15 @@
 // - Imported pub/sub applications (as in HowTo)
 // - Self-contained 'local' file paths (this is new)
 // - Import string
+// - Using my "VideoPublisher" app
 
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
 #include <ns3/point-to-point-module.h>
 #include <ns3/blackadder-module.h>
 
-#include "lib/publisher.h"
-#include "lib/subscriber.h"
+#include "../../lib/ns3_video_publisher_app.h"
+#include "../../lib/subscriber.h"
 #include <string>
 
 using namespace ns3;
@@ -249,7 +250,7 @@ int main(int argc, char *argv[]) {
    app4_0->SetStopTime(Seconds(14.87)); 
    node4->AddApplication(app4_0);
 
-   Ptr<Publisher> app5_0 = CreateObject<Publisher> ();
+   Ptr<VideoPublisher> app5_0 = CreateObject<VideoPublisher> ();
    app5_0->SetStartTime(Seconds(2.34)); 
    app5_0->SetStopTime(Seconds(14.87)); 
    node5->AddApplication(app5_0);

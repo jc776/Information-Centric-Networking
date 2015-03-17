@@ -1,41 +1,49 @@
 LIST OF SIMULATIONS
 
-ns3_topology1_selfcontained    Blackadder's ns3 example, runs from these directories instead of needing to run 'deploy' every time.
+ns3_topology1                  Blackadder's ns3 example, runs from these directories instead of needing to run 'deploy' every time.
 ns3_topology1_video            The example with the "Publisher" application replaced by the "Video Publisher"
 
-
-2nodes
-2nodes_measure_test
+2nodes_measure_pub             Runs tracing/packet-capture on 'Publisher -- Subscriber'
+2nodes_measure_video           Runs tracing/packet-capture on 'VideoPublisher -- Subscriber'
 
 ns3_topology1_video
-
-
-APPLICATIONS (lib)
-Each 'application' runs on a node.
-
-Subscriber         Comes with Blackadder - receives items from scope 00...00 and prints some info.
-Publisher          Publishes scope 00...00, then items 00...00/[random] every half second that each return 'A'*1000
-Video Publisher    Publishes scope 00...00, then for a *fixed* item 00...00/[random] updates it at high 'frame rate' with [one of 'A' to 'Z' changing every frame]*1000
-
-TO RUN:
-
-[Install blackadder + ns3 + original examples]
-ln -s $PROJ/repos/Information-Centric-Networking/ns3_scripts/blackadder-jc776 $PROJ/repos/ns-allinone-3.15/ns-3.15/examples
-
-($PROJ/repos/ns-allinone-3.15/ns-3.15)
-
-./waf --run ns3_topology1
-   Gets a lot of "Click+Blackadder" info of startup/shutdown.
-
-export NS_LOG=Publisher=level_info:Subscriber=level_info
-./waf --run ns3_topology1
-   Adds event notifications of "START_PUBLISH" ("publisher needs to send out info"), "PUBLISHED_DATA" ("a subscriber received data"), etc.
+	
+TO RUN A SIMULATION:
+	[Install blackadder + ns3 + original examples]
+		ln -s $PROJ/repos/Information-Centric-Networking/ns3_scripts/blackadder-jc776 $PROJ/repos/ns-allinone-3.15/ns-3.15/examples
+	
+	($PROJ/repos/ns-allinone-3.15/ns-3.15)
+		CREATE THIS DIRECTORY STRUCTURE FOR LOGGING
+		ns3-3.15/		
+			log/
+				2nodes/
+					pub/
+					video/
+				QoS/
+					BA_single/
+					BA_double/
+					TCP_single/
+					TCP_double/
+	
+		./waf --run ns3_topology1
+			Gets a lot of "Click+Blackadder" info of startup/shutdown.
+		
+		export NS_LOG=Publisher=level_info:Subscriber=level_info
+		./waf --run ns3_topology1
+			Adds event notifications of "START_PUBLISH" ("publisher needs to send out info"), "PUBLISHED_DATA" ("a subscriber received data"), etc.
 
 NOTE: Not "ns3_topology1_selfcontained.cpp". The different names are set in "wscript".
 
-Directory Structure:
-*.cpp              Defines the actual simulation. ("what network, what is being measured about it")
+SIMULATED APPLICATIONS (lib)
+	Each 'application' runs on a node.
+	
+	Subscriber         (Comes with Blackadder) Receives items from scope 00...00 and prints some info.
+	Publisher          (Comes with Blackadder) Publishes scope 00...00, then items 00...00/[random] every half second that each return 'A'*1000
+	Video Publisher    Publishes scope 00...00, then for a *fixed* item 00...00/[random] updates it at high 'frame rate' with [one of 'A' to 'Z' changing every frame]*1000
+
+DIRECTORY STRUCTURE
 wscript            Makes these files visible to ns3/waf.
+src/               The actual simulations. ("what network hardware/software, and what is being measured")
 conf/              Generated files needed by these scripts.
 lib/               Include files needed by these scripts.
 deploy_originals/

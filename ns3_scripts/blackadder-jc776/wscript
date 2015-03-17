@@ -3,17 +3,18 @@
 def build(bld):
     #obj = bld.create_ns3_program('2nodes', ['core', 'point-to-point', 'blackadder', 'applications'])
     #obj.source = ['2nodes.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
-    obj = bld.create_ns3_program('2nodes_measure_test', ['core', 'point-to-point', 'blackadder', 'applications'])
-    obj.source = ['2nodes_measure_test.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
-    
     obj = bld.create_ns3_program('ns3_topology1', ['core', 'point-to-point', 'blackadder', 'applications'])
-    obj.source = ['ns3_topology1_selfcontained.cpp', 'lib/publisher.cc','lib/subscriber.cc',]
-    
+    obj.source = ['src/ns3_topology1/ns3_topology1_selfcontained.cpp', 'lib/publisher.cc','lib/subscriber.cc',]
     obj = bld.create_ns3_program('ns3_topology1_video', ['core', 'point-to-point', 'blackadder', 'applications'])
-    obj.source = ['ns3_topology1_video.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
+    obj.source = ['src/ns3_topology1/ns3_topology1_video.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
     
-    obj = bld.create_ns3_program('QoS_single_client', ['core', 'point-to-point', 'blackadder', 'applications'])
-    obj.source = ['QoS_single_client.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
+    obj = bld.create_ns3_program('2nodes_measure_pub', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['src/2nodes/2nodes_measure_pub.cpp', 'lib/publisher.cc','lib/subscriber.cc',]
+    obj = bld.create_ns3_program('2nodes_measure_video', ['core', 'point-to-point', 'blackadder', 'applications'])
+    obj.source = ['src/2nodes/2nodes_measure_video.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
     
-    obj = bld.create_ns3_program('QoS_double_client', ['core', 'point-to-point', 'blackadder', 'applications'])
-    obj.source = ['QoS_double_client.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
+    #obj = bld.create_ns3_program('QoS_single_client', ['core', 'point-to-point', 'blackadder', 'applications'])
+    #obj.source = ['QoS_single_client.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
+    
+    #obj = bld.create_ns3_program('QoS_double_client', ['core', 'point-to-point', 'blackadder', 'applications'])
+    #obj.source = ['QoS_double_client.cpp', 'lib/ns3_video_publisher_app.cc','lib/subscriber.cc',]
