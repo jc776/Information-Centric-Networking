@@ -207,8 +207,22 @@ SETTING UP STATIC IPS
 At this point, Ubuntu-Server can use "ssh 192.168.56.11" without a password and modify Ubuntu-Client.
 
 CREATING 'DEPLOY' CFG
-    
 
+deploy_scripts/2nodes_vm_pursuit.txt
+- I think all the nodes are wired to the same "Host" adapter.
+- I'm using "Connections" to set up my specific scenarios. (Blackadder communicates over IP here)
+- A better example might be getting the wiring entirely correct and then communicating over MAC
+
+2nodes:
+Ubuntu-Server is 0...01 and runs TM (and Video Publisher)
+Ubuntu-Client is 0...02 and runs RV (and Video Client)
+
+(START BOTH VMS)
+(SERVER: repos)
+git clone https://github.com/jc776/Information-Centric-Networking.git
+./blackadder/deployment/deploy -c ./Information-Centric-Networking/deploy_scripts/2nodes_vm_pursuit.cfg
+   ^
+   Blackadder's deploy, not my hacked sudo one.
 
 
 
