@@ -1,0 +1,241 @@
+
+1. Getting a "Blackadder on Ubuntu 12.04" image
+2. Networking images together? 
+3. "The existing" Blackadder demo (unsure where to find "three_nodes" config)
+4. Now I can make new programs.
+
+
+
+1.
+    http://www.howopensource.com/2013/04/install-virtualbox-ubuntu-ppa/
+    
+    (commands in order)
+    sudo apt-get install dkms
+    wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+    sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+    sudo apt-get install virtualbox-4.3
+    
+    http://web.archive.org/web/20120830170018/http://icn-phd-course.euro-nf.net/index.php/presentations
+    The 'vdi' file isn't available, so I'm installing all the parts myself.
+    
+    http://askubuntu.com/questions/142549/how-to-install-ubuntu-on-virtualbox
+
+    virtualbox
+    (GUI)
+    New
+    Name: "Ubuntu-Blackadder"
+    Type: "Linux", "Ubuntu 32bit"
+    1GB RAM (as presentation)
+    Create a new VDI (I chose 10GB - VB 'recommends' 8GB, but Ubuntu installer won't continue without 8.6GB)
+    
+    Downloaded 'ubuntu-12.04.5-dvd-i386.iso'
+    "Start", selected iso
+    This runs the Ubuntu installer with the ISO as a "install disk", putting the OS onto the VDI.
+    Settings I chose:
+        Chose "Install Updates" (since this is internet-connected right now...)
+        Not choosing "Third Party" yet.
+    
+        Name: pursuit
+        Computer Name: VM-Blackadder-0
+        Username: pursuit    (For 'default' deployment tool to work)
+        Password: admin      (anything)
+        Log In Automatically (enabling "passwordless SSH" when I'm disconnected from the internet, too)
+    
+    "bridge network adapter" - not yet. I'll be using NAT-mode to download Blackadder etc. and Internal for the 'self-contained' scripts
+    "renew mac address" - will need to know addresses for Deploy tool
+    
+    https://www.virtualbox.org/wiki/Network_tips - Packet Capture on a specific interface. Equivalent to NS3-QoS, maybe Caching, maybe Mobility.
+    
+    (ON THE NEW SYSTEM)
+    Apply system's updates but NOT distribution upgrade.
+
+MISC CHANGES
+    Device -> "Insert Guest Additions"
+    Install this.
+    ("Unmount" in file browser, Devices -> CD -> Remove virtual disk if not already gone)
+    Restart (the VM)
+    * You can change the desktop resolution and enable "copy-paste from outside".
+    
+    * "Open Terminal Here" for convenience.
+    sudo apt-get install nautilus-open-terminal
+    nautilus -q
+
+
+
+
+
+
+    Following HowTo & "install-pc-blackadder-and-ns3" (without NS3)
+(all)        sudo apt-get install git
+(blackadder) sudo apt-get install libtool autoconf automake libigraph0 libigraph0-dev libconfig++8 libconfig++8-dev libtclap-dev libboost-graph-dev
+(all)        sudo apt-get install build-essential
+(clicky)     sudo apt-get install libgtk2.0-dev
+(JNI lib)    sudo apt-get install libcommons-codec-java openjdk-6-jdk ant
+(TopologyManager) sudo apt-get install libssl-dev
+    
+    (Desktop/Project/repos)
+    git clone https://github.com/kohler/click.git
+    git clone https://github.com/fp7-pursuit/blackadder.git
+
+CLICK
+    (Desktop/Project/repos/click)
+    ./configure --disable-linuxmodule
+    * Kernel module enabled gives "System.map unreadable" (fixed by sudo) into "... defined in dicarded section ..."
+    make
+    sudo make install
+
+CLICK CONF VISUALIZER
+    (Desktop/Project/repos/click/apps/clicky)
+    autoreconf -i
+    ./configure
+    make
+    sudo make install
+
+BLACKADDER
+    (Desktop/Project/repos/blackadder/src)
+    autoconf
+    ./configure --disable-linuxmodule
+    make
+    sudo make install
+
+TEST BLACKADDER
+    sudo click sample.conf
+    * (then Ctrl+C to quit)
+    * Works.
+
+BLACKADDER C LIBRARY
+    (Desktop/Project/repos/blackadder/lib)
+    autoreconf -i
+    ./configure --enable-c
+    make
+    sudo make install
+
+BLACKADDER NATIVE JAVA LIBRARY
+    (Desktop/Project/repos/blackadder/lib/binding/java-binding/jni)
+    gedit Makefile
+    Modify the JNI_LOC line to:
+        JNI_LOC = /usr/lib/jvm/java-6-openjdk-i386/include
+
+    (Desktop/Project/repos/blackadder/lib/binding/java-binding/lib)
+    Follow the "README":
+        wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.4-bin.zip
+        Extract "commons-codec-1.4.jar" from this.
+    
+    Extra steps used by Video App later:
+    wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+    Extract "commons-codec-1.5.jar" from this.
+    
+    (Desktop/Project/repos/blackadder/lib/binding/java-binding)
+    ant
+    * Build successful.
+    ant dist
+    "Remember binding location": /home/pursuit/Desktop/Project/repos/blackadder/lib/binding/java-binding/
+    "Remember so path": /home/pursuit/Desktop/Project/repos/blackadder/lib/binding/java-binding/jnieu_pursuit_client_BlackadderWrapper.so
+    "Remember jar path": /home/pursuit/Desktop/Project/repos/blackadder/lib/binding/java-binding/dist/blackadder-java-binding.jar
+
+BLACKADDER TOPOLOGY MANAGER
+    (Desktop/Project/repos/blackadder/TopologyManager)
+    make
+
+BLACKADDER DEPLOY TOOL
+    (Desktop/Project/repos/blackadder/deployment)
+    make
+
+BLACKADDER EXAMPLES
+    (Desktop/Project/repos/blackadder/examples/samples)
+    make
+
+BLACKADDER JAVA VIDEO EXAMPLE
+    (Desktop/Project/repos/blackadder/examples/video_streaming/VideoDemoApp/lib)
+    Follow BuildLib.txt
+    ... except the 'mirror penguin' link doesn't work.
+    wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+    Extract "commons-codec-1.5.jar" from this.
+    (I'm not sure why it's needed twice. There's two separate references in build.xml)
+    Get the other three JAR files.
+    
+    (Desktop/Project/repos/blackadder/examples/video_streaming/VideoDemoApp)
+    gedit project.properties
+    Modify the first path to "so path"
+    (Optionally modify video path)
+    
+    Modify line 4 of build.xml to "binding location"
+
+
+SETTING UP PUBLIC-KEY PASSWORDLESS SSH
+    This is necessary for the non-modified deploy tool to work.
+    Even if it was completely public, it should be safe for the VMs - default "NAT" mode is "they can access outside, outside can't access them".
+    
+    sudo apt-get install openssh-server
+    (allow passworded ssh to self)
+    
+    ssh-keygen -t rsa
+    (pursuit/id_rsa, No passphrase)
+    
+    (Kind of sloppy. Every clone of this VM has the same key and can SSH to any other.)
+    (Currently cloning this VM has the same PC and an unknown dynamic IP)
+    (Real demo: 'The deploy server' generates a public key, each network node authorizes that one only and doesn't know its private key)
+
+
+This is the 'base' OS with all programs installed.
+
+CREATING MORE VMS
+- Clone the original one to quickly have multiple working copies with the OS/programs installed.
+- I chose "Linked Clone" and "unique MAC addresses"
+
+- When linked, the original hard drive is a fixed snapshot and both VMs start recording 'changes made'
+- Running 'the original' VM and modifying it DOES NOT affect the hard drive of the clone.
+- So inside the VMs it's the same effect as two entire disks (full clone), but uses less space.
+
+
+SETTING UP STATIC IPS
+    http://coding4streetcred.com/blog/post/VirtualBox-Configuring-Static-IPs-for-VMs
+
+    prefs/network
+        Adapter: 192.168.56.1 / 255.255.255.0
+        DHCP server: Enabled, 192.168.56.100 (No idea why it's needed)
+        
+        VM settings: Add (or replace NAT with) a "Host-Only Adapter", record its MAC
+        Inside each VM: Find which interface is the Host-Only Network (e.g. ifconfig, compare MAC addresses)
+                        Set a static IP on the "Wired Network" corresponding to the Host-Only Network
+        Ubuntu-Server: MAC: 08002771E391
+                       IP:  192.168.56.10
+        Ubuntu-Client: MAC: 08002704FE7D
+                       IP:  192.168.56.11
+
+
+At this point, Ubuntu-Server can use "ssh 192.168.56.11" without a password and modify Ubuntu-Client.
+
+CREATING 'DEPLOY' CFG
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

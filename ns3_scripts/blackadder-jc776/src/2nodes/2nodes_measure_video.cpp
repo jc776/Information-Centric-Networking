@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
    //jc776: Set up tracing on the up/down wires.
    AsciiTraceHelper ascii;
    p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/2nodes/video/video.tr"));
-   p2p.EnablePcapAll ("logs/2nodes/video/");
+   p2p.EnablePcapAll ("logs/2nodes/video/video");
 
    Simulator::Run();
    Simulator::Destroy();

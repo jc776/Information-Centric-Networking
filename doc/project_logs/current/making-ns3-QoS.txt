@@ -104,6 +104,78 @@ Added lines to wscript:
 "This file depends on these 'application' class files"
 
 
+[Modifications for "path independent"]
+
+[Modifications for packet capture 'pcap']
+
+
+Visualizing PCAP files
+----------------------
+what I want: PCAP to Graph(Throughput over Time)
+
+https://ask.wireshark.org/questions/25662/question-on-linebreaks-on-output-from-tsharks-z-iostat-option
+tshark -r pub-0-0.pcap -q -z io,stat,1
+
+-r: Input file.
+-q: Don't attempt to parse packets.
+-z io,stat,N: Instead, aggregate per N seconds, output a "table" that I have to parse:
+"
+
+===================================================================
+IO Statistics
+Interval: 1.000 secs
+Column #0: 
+                |   Column #0    
+Time            |frames|  bytes  
+000.000-001.000       8      7428 
+001.000-002.000       2      2104 
+002.000-003.000       2      2104 
+003.000-004.000       2      2104 
+004.000-005.000       2      2104 
+005.000-006.000       1        64
+===================================================================
+"
+
+Pipe filters to parse:
+    Remove lines before the data: tail -n +8
+-E quote=d
+
+echo "Time,Length" >lengths.csv && tshark -r pub-0-0.pcap -T fields -E separator=, -e frame.time_relative -e frame.len >>lengths.csv
+./csvpy 
+
+rs: set of dictionaries {'Time':0,'Length':1023}
+round? times, sum lengths
+
+
+
+
+-t "Time (/s),Throughput (B/s)"
+
+
+PCAP -> CSV(time,data per time) -> graph?
+
+
+
+http://raffy.ch/blog/2012/03/21/visualizing-packet-captures-for-fun-and-profit/
+
+Downloaded:
+
+
+(CSV to Graph Desc.)   http://afterglow.sf.net/
+(Graph Desc. to Image) (apt) graphviz 
+
+
+
+
+ Apt: "r-base" (possibly smaller: "r-base-core")
+     Wireshark.
+
+tshark -q -z 'io,stat,1' -r <PcapFile> > <StatisticsFile>
+           ^ "aggregate in units of 1 sec"
+        
+
+
+
 
 
 
