@@ -101,8 +101,8 @@ namespace ns3 {
                 // This is slightly less than 'Youtube 720p' data rate.
 
 	        m_video_data = (m_video_data + 1) % 26;
-                char *payload = (char *) malloc(1000);
-                memset(payload, 'A'+m_video_data, 1000);
+                char *payload = (char *) malloc(1316);
+                memset(payload, 'A'+m_video_data, 1316);
                 publish_data(m_video_channelID, DOMAIN_LOCAL, NULL, 0, payload, 1000);
                 free(payload);
 	
