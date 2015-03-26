@@ -6,8 +6,8 @@
 #include <ns3/point-to-point-module.h>
 //#include <ns3/blackadder-module.h>
 
-#include <ns3/applications-module.h>
 #include <ns3/internet-module.h>
+#include <ns3/applications-module.h>
 
 // jc776
 #include <string>
@@ -24,8 +24,9 @@ int main(int argc, char *argv[]) {
    
    // jc776 - Find source file's path.
    //UNIX-like only, but so is the rest of this so far.
-   std::string aux(argv[0]);
-   int pos = aux.rfind('/');
+   // Conf files not needed yet.
+   //std::string aux(argv[0]);
+   //int pos = aux.rfind('/');
    
    //   /home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/build/examples/blackadder-jc776/
    //-> /home/jack/Desktop/Project/repos/ns-allinone-3.15/ns-3.15/examples/blackadder-jc776/conf/QoS_double_client/
@@ -87,7 +88,7 @@ int main(int argc, char *argv[]) {
   ipv4.SetBase ("10.1.3.0", "255.255.255.0");
   ipv4.Assign (wires_server_router);
   ipv4.SetBase ("10.1.2.0", "255.255.255.0");
-  Ipv4InterfaceContainer ipInterfs = ipv4.Assign (wires_router_client);
+  Ipv4InterfaceContainer rcInterfaces = ipv4.Assign (wires_router_client);
 
   // IP-level connectivity.
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
@@ -104,7 +105,8 @@ int main(int argc, char *argv[]) {
   // 1316B/600us = 1316MB/600s = 2.193MB/s
 
   // The server (0) sends at a constant rate, towards the client.
-  Address remoteAddress (InetSocketAddress (ipv4Interfaces.GetAddress (j), servPort));
+  // rcInterfaces.GetAddress(1) is 'the second half of the router-client interface' so the client...
+  Address remoteAddress (InetSocketAddress (rcInterfaces.GetAddress(1), servPort));
   OnOffHelper clientHelper ("ns3::TcpSocketFactory", remoteAddress);
   clientHelper.SetConstantRate(DataRate ("2.2MB/s"));
   ApplicationContainer clientApp = clientHelper.Install (node0);

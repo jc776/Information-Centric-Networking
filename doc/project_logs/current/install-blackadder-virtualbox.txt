@@ -162,9 +162,8 @@ BLACKADDER JAVA VIDEO EXAMPLE
     Modify line 4 of build.xml to "binding location"
 
 
-SETTING UP PUBLIC-KEY PASSWORDLESS SSH
-    This is necessary for the non-modified deploy tool to work.
-    Even if it was completely public, it should be safe for the VMs - default "NAT" mode is "they can access outside, outside can't access them".
+SETTING UP PUBLIC-KEY SSH
+    This saves entering some passwords.
     
     sudo apt-get install openssh-server
     (allow passworded ssh to self)
@@ -175,6 +174,22 @@ SETTING UP PUBLIC-KEY PASSWORDLESS SSH
     (Kind of sloppy. Every clone of this VM has the same key and can SSH to any other.)
     (Currently cloning this VM has the same PC and an unknown dynamic IP)
     (Real demo: 'The deploy server' generates a public key, each network node authorizes that one only and doesn't know its private key)
+
+SETTING UP PASSWORDLESS SUDO
+    This is necessary for the non-modified deploy tool to work.
+    
+    Aaaah security risk.
+    It should be safe for the VMs - default "NAT" mode is "they can access outside, outside can't access them".
+    Dubious for real deployment, though.
+    
+    http://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux
+    I chose "Wheel Group" method. (Add 'pursuit' to that group)
+    
+    sudo addgroup --system wheel
+                     ^
+                     A "system group" vs "user group" isn't actually a thing, but the script sets some other IDs and defaults from this.
+    
+    sudo usermod -a -G wheel pursuit
 
 
 This is the 'base' OS with all programs installed.
@@ -213,26 +228,38 @@ deploy_scripts/2nodes_vm_pursuit.txt
 - I'm using "Connections" to set up my specific scenarios. (Blackadder communicates over IP here)
 - A better example might be getting the wiring entirely correct and then communicating over MAC
 
+(ssh parts freeze and fail to start click: Set up passwordless sudo or use hacked deploy)
+
 2nodes:
 Ubuntu-Server is 0...01 and runs TM (and Video Publisher)
 Ubuntu-Client is 0...02 and runs RV (and Video Client)
 
 (START BOTH VMS)
-(SERVER: repos)
+(SERVER/DEPLOYER: the one with SSH access: repos)
 git clone https://github.com/jc776/Information-Centric-Networking.git
 ./blackadder/deployment/deploy -c ./Information-Centric-Networking/deploy_scripts/2nodes_vm_pursuit.cfg
    ^
    Blackadder's deploy, not my hacked sudo one.
 
+(BOTH)
+(repos)
+pgrep click
+-> FNs are running on both, RV running as chosen.
 
-
-
+(SERVER/TOPOLOGY MANAGER)
+(repos)
+sudo ./blackadder/TopologyManager/tm /tmp/topology.graphml
     
+(really should make the VM script or hacked sudo auto-start this)
 
 
 
+libvlc-dev
+vlc-nox
+export VLC_PLUGIN_PATH=/usr/lib/vlc/plugins/
 
-
+various errors in build xml
+project properties
 
 
 
