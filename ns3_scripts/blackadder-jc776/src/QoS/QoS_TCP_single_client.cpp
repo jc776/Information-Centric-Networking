@@ -113,19 +113,12 @@ int main(int argc, char *argv[]) {
   clientApp.Start (Seconds (2.34));
   clientApp.Stop (Seconds (14.87));
 
-   //jc776: Set up tracing on the up/down wire.
+   //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;
-   // both of these are recording ALL data, instead of just their specific ones
-   // srv/rtr: merge 0_0, 1_0
-   // rtr/cls: merge 1_1, 1_2, 2_1, 3_1
-   //p2p_server_router.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/single_server.tr"));
-   //p2p_server_router.EnablePcapAll ("logs/QoS/single_server_router");
-   
-   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/single_server_all.tr"));
-   //p2p.EnablePcapAll ("logs/QoS/single_server_all");
-
-   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/single_server_wire.tr"),wires_server_router);
-   p2p.EnablePcap ("logs/QoS/single_server_wire",wires_server_router);
+   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/TCP/single_server_wire.tr"),wires_server_router);
+   p2p.EnablePcap ("logs/QoS/TCP/single_server_wire",wires_server_router);
+   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/TCP/single_server_all.tr"));
+   //p2p.EnablePcapAll ("logs/QoS/TCP/single_server_all");
 
    Simulator::Run();
    Simulator::Destroy();
