@@ -7,10 +7,10 @@
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
 #include <ns3/point-to-point-module.h>
-#include <ns3/blackadder-module.h>
+//#include <ns3/blackadder-module.h>
 
-#include "../../lib/ns3_video_publisher_app.h"
-#include "../../lib/subscriber.h"
+#include <ns3/internet-module.h>
+#include <ns3/applications-module.h>
 
 // jc776
 #include <string>
@@ -130,8 +130,8 @@ int main(int argc, char *argv[]) {
    p2p.SetDeviceAttribute ("Mtu", UintegerValue (1500));
    
    NetDeviceContainer wires_server_router  = p2p.Install(n0n1);
-   NetDeviceContainer wires_server_client1 = p2p.Install(n1n2);
-   NetDeviceContainer wires_server_client2 = p2p.Install(n1n3);
+   NetDeviceContainer wires_router_client1 = p2p.Install(n1n2);
+   NetDeviceContainer wires_router_client2 = p2p.Install(n1n3);
    
    // Setting MAC addresses to match cfg/conf files.
    // I'm not sure if there's a better way to do this
@@ -176,7 +176,7 @@ int main(int argc, char *argv[]) {
   // Both clients have a 'packet sink'.
   uint16_t servPort = 8080;
   PacketSinkHelper sinkHelper ("ns3::TcpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), servPort));
-  ApplicationContainer sinkApp = sinkHelper.Install (node2);
+  ApplicationContainer sinkApp = sinkHelper.Install (clients); // difference, EACH client
   sinkApp.Start (Seconds (2.34));
   sinkApp.Stop (Seconds (14.87));
 
@@ -184,19 +184,26 @@ int main(int argc, char *argv[]) {
 
   // The server has an application sending at a constant rate for each client.
   // rcInterfaces.GetAddress(1) is 'the second half of the router-client interface' so the client...
-  Address remoteAddress (InetSocketAddress (rcInterfaces.GetAddress(1), servPort));
+  Address remoteAddress (InetSocketAddress (rcInterface1.GetAddress(1), servPort));
   OnOffHelper clientHelper ("ns3::TcpSocketFactory", remoteAddress);
   clientHelper.SetConstantRate(DataRate ("2.2MB/s"));
-  ApplicationContainer clientApp = clientHelper.Install (clients); // <-- difference, EACH
+  ApplicationContainer clientApp = clientHelper.Install (node0);
   clientApp.Start (Seconds (2.34));
   clientApp.Stop (Seconds (14.87));
 
+  Address remoteAddress2 (InetSocketAddress (rcInterface2.GetAddress(1), servPort));
+  OnOffHelper clientHelper2 ("ns3::TcpSocketFactory", remoteAddress2);
+  clientHelper2.SetConstantRate(DataRate ("2.2MB/s"));
+  ApplicationContainer clientApp2 = clientHelper2.Install (node0);
+  clientApp2.Start (Seconds (2.34));
+  clientApp2.Stop (Seconds (14.87));
+
    //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;
-   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/BA/double_wire.tr"),wires_server_router);
-   p2p.EnablePcap ("logs/QoS/BA/double_wire",wires_server_router);
-   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/BA/single_all.tr"));
-   //p2p.EnablePcapAll ("logs/QoS/BA/single_all",true);
+   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/TCP/double_wire.tr"),wires_server_router);
+   p2p.EnablePcap ("logs/QoS/TCP/double_wire",wires_server_router);
+   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/TCP/double_all.tr"));
+   //p2p.EnablePcapAll ("logs/QoS/TCP/single_all",true);
 
    Simulator::Run();
    Simulator::Destroy();
