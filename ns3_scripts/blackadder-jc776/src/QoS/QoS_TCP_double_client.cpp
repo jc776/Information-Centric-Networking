@@ -120,6 +120,8 @@ int main(int argc, char *argv[]) {
    NodeContainer n0n1(node0,node1);
    NodeContainer n1n2(node1,node2);
    NodeContainer n1n3(node1,node3);
+
+   NodeContainer clients(node2,node3);
    
    // Wire Attributes
    PointToPointHelper p2p;
@@ -127,9 +129,9 @@ int main(int argc, char *argv[]) {
    p2p.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (10)));
    p2p.SetDeviceAttribute ("Mtu", UintegerValue (1500));
    
-   NetDeviceContainer wires_server_router = p2p.Install(n0n1);
-   p2p.Install(n1n2);
-   p2p.Install(n1n3);
+   NetDeviceContainer wires_server_router  = p2p.Install(n0n1);
+   NetDeviceContainer wires_server_client1 = p2p.Install(n1n2);
+   NetDeviceContainer wires_server_client2 = p2p.Install(n1n3);
    
    // Setting MAC addresses to match cfg/conf files.
    // I'm not sure if there's a better way to do this
@@ -153,48 +155,41 @@ int main(int argc, char *argv[]) {
    dev1_2->SetAddress (Mac48Address("7f:f1:57:17:1b:1c"));
    dev3_0->SetAddress (Mac48Address("7f:f1:57:17:1b:1d"));
    
-   // "Background Software" setup
-   Ptr<ClickBridge> click0 = CreateObject<ClickBridge > ();
-   node0->AggregateObject(click0);
-   click0->SetClickFile(path + "00000001.conf");
-   Ptr<ServiceModel> servModel0 = CreateObject<ServiceModel > (); 
-   node0->AggregateObject(servModel0); 
-   Ptr<ClickBridge> click1 = CreateObject<ClickBridge > ();
-   node1->AggregateObject(click1);
-   click1->SetClickFile(path + "00000002.conf");
-   Ptr<ServiceModel> servModel1 = CreateObject<ServiceModel > (); 
-   node1->AggregateObject(servModel1); 
-   Ptr<ClickBridge> click2 = CreateObject<ClickBridge > ();
-   node2->AggregateObject(click2);
-   click2->SetClickFile(path + "00000003.conf");
-   Ptr<ServiceModel> servModel2 = CreateObject<ServiceModel > (); 
-   node2->AggregateObject(servModel2); 
-   Ptr<ClickBridge> click3 = CreateObject<ClickBridge > ();
-   node3->AggregateObject(click3);
-   click3->SetClickFile(path + "00000004.conf");
-   Ptr<ServiceModel> servModel3 = CreateObject<ServiceModel > (); 
-   node3->AggregateObject(servModel3); 
+  // Underlying software setup
+  InternetStackHelper internet;
+  internet.InstallAll ();
 
-   Ptr<TopologyManager> tm = CreateObject<TopologyManager > ();
-   tm->SetStartTime(Seconds(0.)); 
-   tm->SetAttribute("Topology", StringValue(path + "topology.graphml"));
-   node0->AddApplication(tm); 
+  // Assigned IP addresses
+  Ipv4AddressHelper ipv4;
+  ipv4.SetBase ("10.1.3.0", "255.255.255.0");
+  ipv4.Assign (wires_server_router);
+  ipv4.SetBase ("10.1.4.0", "255.255.255.0");
+  Ipv4InterfaceContainer rcInterface1 = ipv4.Assign (wires_router_client1);
+  ipv4.SetBase ("10.1.5.0", "255.255.255.0");
+  Ipv4InterfaceContainer rcInterface2 = ipv4.Assign (wires_router_client2);
 
+  // IP-level connectivity.
+  Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
+   
    // "User Application" setup
-   Ptr<VideoPublisher> app0_0 = CreateObject<VideoPublisher> ();
-   app0_0->SetStartTime(Seconds(2.34)); 
-   app0_0->SetStopTime(Seconds(14.87)); 
-   node0->AddApplication(app0_0);
 
-   Ptr<Subscriber> app2_0 = CreateObject<Subscriber> ();
-   app2_0->SetStartTime(Seconds(2.34)); 
-   app2_0->SetStopTime(Seconds(14.87)); 
-   node2->AddApplication(app2_0);
+  // Both clients have a 'packet sink'.
+  uint16_t servPort = 8080;
+  PacketSinkHelper sinkHelper ("ns3::TcpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), servPort));
+  ApplicationContainer sinkApp = sinkHelper.Install (node2);
+  sinkApp.Start (Seconds (2.34));
+  sinkApp.Stop (Seconds (14.87));
 
-   Ptr<Subscriber> app3_0 = CreateObject<Subscriber> ();
-   app3_0->SetStartTime(Seconds(2.34)); 
-   app3_0->SetStopTime(Seconds(14.87)); 
-   node3->AddApplication(app3_0);
+  // 1316B/600us = 1316MB/600s = 2.193MB/s
+
+  // The server has an application sending at a constant rate for each client.
+  // rcInterfaces.GetAddress(1) is 'the second half of the router-client interface' so the client...
+  Address remoteAddress (InetSocketAddress (rcInterfaces.GetAddress(1), servPort));
+  OnOffHelper clientHelper ("ns3::TcpSocketFactory", remoteAddress);
+  clientHelper.SetConstantRate(DataRate ("2.2MB/s"));
+  ApplicationContainer clientApp = clientHelper.Install (clients); // <-- difference, EACH
+  clientApp.Start (Seconds (2.34));
+  clientApp.Stop (Seconds (14.87));
 
    //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;

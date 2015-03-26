@@ -1,11 +1,13 @@
-// INCOMPLETE
-// Doesn't measure anything yet.
+// Changes from "original":
+// - Imported (new) publisher/subscriber
+// - Local file paths instead of "/tmp" or "/home/pursuit"
+// - Switching "PointToPointNetDevice"/"Channel" to "PointToPointHelper" so that I can use Tracing
+// - *Tracing traffic on wire*
 
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
 #include <ns3/point-to-point-module.h>
 #include <ns3/blackadder-module.h>
-
 
 #include "../../lib/ns3_video_publisher_app.h"
 #include "../../lib/subscriber.h"
@@ -107,7 +109,10 @@ int main(int argc, char *argv[]) {
    NetDeviceContainer wires_server_router = p2p.Install(n0n1);
    NetDeviceContainer wires_router_client = p2p.Install(n1n2);
    
-   // MAC Addresses (not used by TCP)
+   // Setting MAC addresses to match cfg/conf files.
+   // I'm not sure if there's a better way to do this
+   // I'd like to set them with Install, not relying on GetDevice()/deterministic order of Install()
+   // TCP doesn't use MAC addresses.
    // 0-1
    Ptr<NetDevice> dev0_0 = node0->GetDevice(0); // generated was "PointToPointNetDevice"
    Ptr<NetDevice> dev1_0 = node1->GetDevice(0);
@@ -155,10 +160,10 @@ int main(int argc, char *argv[]) {
 
    //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;
-   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/BA/single_server_wire.tr"),wires_server_router);
-   p2p.EnablePcap ("logs/QoS/BA/single_server_wire",wires_server_router);
-   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/TCP/single_server_all.tr"));
-   //p2p.EnablePcapAll ("logs/QoS/TCP/single_server_all");
+   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/BA/single_wire.tr"),wires_server_router);
+   p2p.EnablePcap ("logs/QoS/BA/single_wire",wires_server_router);
+   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/BA/single_all.tr"));
+   //p2p.EnablePcapAll ("logs/QoS/BA/single_all",true);
 
    Simulator::Run();
    Simulator::Destroy();

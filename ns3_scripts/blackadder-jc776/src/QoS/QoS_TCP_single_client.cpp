@@ -1,5 +1,8 @@
-// INCOMPLETE
-// Doesn't measure anything yet.
+// Changes from "original":
+// - It's using TCP instead of Blackadder.
+// - Local file paths instead of "/tmp" or "/home/pursuit"
+// - Switching "PointToPointNetDevice"/"Channel" to "PointToPointHelper" so that I can use Tracing
+// - *Tracing traffic on wire*
 
 #include <ns3/core-module.h>
 #include <ns3/network-module.h>
@@ -115,10 +118,10 @@ int main(int argc, char *argv[]) {
 
    //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;
-   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/TCP/single_server_wire.tr"),wires_server_router);
-   p2p.EnablePcap ("logs/QoS/TCP/single_server_wire",wires_server_router);
-   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/TCP/single_server_all.tr"));
-   //p2p.EnablePcapAll ("logs/QoS/TCP/single_server_all");
+   p2p.EnableAscii (ascii.CreateFileStream ("logs/QoS/TCP/single_wire.tr"),wires_server_router);
+   p2p.EnablePcap ("logs/QoS/TCP/single_wire",wires_server_router);
+   //p2p.EnableAsciiAll (ascii.CreateFileStream ("logs/QoS/TCP/single_all.tr"));
+   //p2p.EnablePcapAll ("logs/QoS/TCP/single_all");
 
    Simulator::Run();
    Simulator::Destroy();
