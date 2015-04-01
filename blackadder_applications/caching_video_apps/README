@@ -1,0 +1,58 @@
+"Mobility" (Background info)
+    A user is watching a video stream.
+    (from e.g. Wi-Fi range) They disconnect from their current router and connect to a different one. (Change of topology)
+    They want to keep watching the video, uninterrupted.
+    
+    Video streams are provided like the example applications: A single 'information item' that's constantly changing.
+    As a result, when disconnected the user would 'miss' some of the changes, which normally causes interruption.
+    (Existing applications: If everyone unsubscribes, the video also restarts. I might change this)
+    
+    Instead, assume the video is 'popular enough in the area' for a dedicated cache to be set up.
+    The cache provides the missed frames of video so that the client can assemble an uninterrupted stream.
+    (Future applications: "detect which videos are popular through this node", etc)
+    
+    Blackadder does not actually support mobility yet! You can't change the network topology.
+    The caching mechanism can still be implemented and demonstrated.
+    
+    (I'm using "video" and "frames", but it applies to any data stream)
+
+
+(Ignoring "Catalog" - fixed "./video.*", for now.)
+PROGRAMS
+    Publisher
+        Publishes video stream(s): a Scope with a single Information Item ("Video") that is constantly changing.
+        Runs VLC to provide the actual data
+        - 'when someone subscribes', or all the time
+    
+    Cache
+        Subscribes to a video.
+        Publishes a different Scope with an Information Item ("Cached Video") of 'the last few seconds of video'
+        - This Information Item changes less often.
+    
+    Subscriber
+        Initially, subscribes to "Video".
+        Stores and displays video on a 1-second delay.
+
+ 
+        A 'Disconnect' button simulates the "mobility" situation:
+        - Unsubscribes from "Video".
+        
+
+
+USAGE
+
+make
+   Download dependencies. (make deps)
+   Build programs. (make build)
+
+(Deploy a Blackadder network, real machines or VMs)
+make run_publisher   - 
+make run_cache       - 
+make run_subscriber  - 
+
+make clean
+   Remove compiled class files.
+
+make veryclean
+   (make clean)
+   Also delete dependencies.

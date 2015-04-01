@@ -160,6 +160,8 @@ BLACKADDER JAVA VIDEO EXAMPLE
     (Optionally modify video path)
     
     Modify line 4 of build.xml to "binding location"
+	
+	
 
 
 SETTING UP PUBLIC-KEY SSH
@@ -255,13 +257,18 @@ sudo ./blackadder/TopologyManager/tm /tmp/topology.graphml
 
 
 libvlc-dev
-vlc-nox
+vlc
 export VLC_PLUGIN_PATH=/usr/lib/vlc/plugins/
 
 various errors in build xml
 project properties
 
 
+NEW VLC (2.2) ON UBUNTU 12.04
+- Searching says "ppa:videolan/master-daily" or "ppa:videolan/stable-daily"
+- but these only provide VLC 2.0.8 for 12.04. (& 2.2 for newer Ubuntu)
+
+Search for '2.2.0~~git20140618+r57163+123+113+102~ubuntu12.04.1'
 
 
 

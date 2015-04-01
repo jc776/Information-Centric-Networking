@@ -1,0 +1,186 @@
+Making a Blackadder-on-Ubuntu Virtual Disk Image, and cloning it for experiments
+--------------------------------------------------------------------------------
+
+It's easier to create multiple identical disk images to quickly link them, than setting up multiple physical computers.
+
+Based off http://web.archive.org/web/20120830170018/http://icn-phd-course.euro-nf.net/index.php/presentations
+- The "vdi" file isn't available, so I'm making one myself.
+
+
+Overview
+--------
+	1. Get an Ubuntu ISO image.
+	2. Install VirtualBox
+	3. Create an Ubuntu VM.
+	4. VirtualBox-specific adjustments
+	5. Install Blackadder & examples
+	6. Clone this VM
+	7. Networking VMs together
+
+Instructions
+------------
+1.
+	Choosing a version: see install-blackadder-ubuntu14.txt
+	Get an Ubuntu ISO image.
+
+2.
+	http://www.howopensource.com/2013/04/install-virtualbox-ubuntu-ppa/
+		(commands in order)
+		sudo apt-get install dkms
+		wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+		Run the 'virtualbox.list' line for Ubuntu version
+		sudo apt-get install virtualbox-4.3
+	
+	
+3.
+	http://askubuntu.com/questions/142549/how-to-install-ubuntu-on-virtualbox
+	
+	Run virtualbox
+	In the GUI:
+		New
+		Name: "Ubuntu-Blackadder" or similar
+		Type: "Linux", Ubuntu (32 or 64 bit depending on version)
+		1GB RAM (as presentation)
+		Create a new VDI (I chose 10GB - VB 'recommends' 8GB, but 12.04 installer won't continue without 8.6GB)
+	
+	"Start", selected iso
+	This runs the Ubuntu installer with the ISO as a "install disk", putting the OS onto the VDI.
+	
+	Settings I chose:
+		(14.04)
+		Download updates while installing (It's connected through the "host" computer in "VirtualBox NAT mode")
+		Install third party software (For the video examples)
+	
+		Name: pursuit
+		Computer Name: VM-Blackadder-0
+		Username: pursuit    (For 'default' deployment tool to work)
+		Password: admin      (anything)
+		Log In Automatically (if you want)
+	
+	Install software updates, but not the Distribution Upgrade if an older Ubuntu is required.
+4.
+	"Open Terminal Here"
+	- Convenience.
+		sudo apt-get install nautilus-open-terminal
+		nautilus -q
+	
+	VirtualBox Guest Additions
+	- Misc. things like 'Change resolution', 'copy paste out of VirtualBox'
+		Device -> "Insert Guest Additions"
+		Install this.
+		("Unmount" in file browser, Devices -> CD -> Remove virtual disk if not already gone)
+		Restart (the VM)
+	
+	Passwordless sudo
+		This is necessary for the non-modified deploy tool to work.
+		
+		Obviously very dangerous for normal systems!
+		
+		It should be safe for the VMs - default "NAT" mode is "they can access outside, outside can't access them".
+		Dubious for real deployment, though.
+		
+		http://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux
+		I chose "Wheel Group" method. (Add 'pursuit' to that group)
+		
+		sudo addgroup --system wheel
+		                 ^
+		A "system group" vs "user group" isn't actually a thing, but the script sets some other IDs and defaults from this.
+		
+		sudo usermod -a -G wheel pursuit
+		
+		sudo visudo
+		Add the line:
+		%wheel         ALL = (ALL) NOPASSWD: ALL
+		
+		Log out, log in.
+		
+	Public-Key (Passwordless) SSH
+		Allow clone of this VM to SSH (control) any other.
+		Currently cloning this VM has the same PC and an unknown dynamic IP
+		A better real-world version: 'The deploy server' generates a public key, each network node authorizes that one only (one-way access)
+		
+		sudo apt-get install openssh-server
+		(allow passworded ssh to self)
+		
+		ssh-keygen -t rsa
+		(pursuit/.ssh/id_rsa, No passphrase)
+		
+		cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+5.
+	See install-blackadder-ubuntu14.txt
+
+6.
+	Cloning a VM
+		(VirtualBox main screen)
+		Right click on a VM, Clone
+		Clone the original one to quickly have multiple working copies with the OS/programs installed.
+		- I chose "reinitialize MAC addresses" and "Linked Clone"
+			- When linked, the original hard drive is a fixed snapshot and both VMs start recording 'changes made'
+			- Running 'the original' VM and modifying it DOES NOT affect the hard drive of the clone.
+			- So inside the VMs it's the same effect as two entire disks (full clone), but uses less space.
+	
+	Setting up Static IPs & Known MACs
+		Under this method:
+			Sets of VMs are 'wired to a switch' to allow communication via MAC addresses
+			They have static IPs for SSH deploy tool to work
+			But the 'virtual wires' and Blackadder connections have the same layout and use MAC addresses
+			
+			An alternative is "Host-Only Network" in which every node connects to the same 'virtual switch'
+			Both deploy and Blackadder happen over IP
+			
+		http://coding4streetcred.com/blog/post/VirtualBox-Configuring-Static-IPs-for-VMs
+		
+		Internal Network method
+			VM Settings/Network:
+				Enable Adapter 2 (or replace Adapter 1, disabling outside Internet)
+				Attached To: Internal Network
+				Name: (Use a unique name for each set of VMs that are wired together)
+				e.g.
+					   A
+					   |  <-- intnet_AB
+					   B
+					  / \ <-- intnet_BCD
+					 C   D
+				Record each VM's internal-adapter MAC address.
+			
+			Inside each VM:
+				Find which interface is the Host-Only Network (e.g. ifconfig, compare MAC addresses)
+				Set a static IP on the "Wired Network" corresponding to the Host-Only Network
+			
+			http://www.yourownlinux.com/2013/07/how-to-configure-ubuntu-as-router.html
+			If you did have a 'middle' node, you'd have to set it up as a real router.
+		
+		Host-Only Network method
+			VirtualBox: File/Preferences/Network
+				Create a "Host-Only Network"
+				- This connects all the VMs.
+				Adapter: 192.168.56.1 / 255.255.255.0
+				DHCP server: Enabled, 192.168.56.100
+			
+			VM settings:
+				Add (or replace NAT with) a "Host-Only Adapter", record its MAC
+			Inside each VM:
+				Find which interface is the Host-Only Network (e.g. ifconfig, compare MAC addresses)
+				Set a static IP on the "Wired Network" corresponding to the Host-Only Network
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

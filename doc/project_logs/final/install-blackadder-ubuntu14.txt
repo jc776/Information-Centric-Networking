@@ -1,0 +1,160 @@
+Installing Blackadder on Ubuntu 14.04
+-------------------------------------
+
+Ubuntu 14.04 vs 12.04
+	- HowTo.pdf was tested with 12.04
+	- Blackadder itself works on 14.04
+	- Blackadder w/NS3 and Cross-compiling run into errors on 14.04
+	- As of 2015, VLC 2.2 (HowTo.pdf: "Higher than 2.0.x") is not available for Ubuntu 12.04
+	- Being able to install things on the latest version is a little more future-proof.
+
+This does not cover:
+	Blackadder on NS3
+	Cross-compiling Blackadder
+
+Installing:
+	Click
+	Click 'Config Visualizer'
+	Blackadder
+	Blackadder's C library
+	Blackadder's Native Java library
+	Blackadder Samples
+	VLC with Blackadder Video Stream Examples
+	(My Stream Cache examples)
+
+
+Instructions
+------------
+	(all)        sudo apt-get install git
+	(blackadder) sudo apt-get install libtool autoconf automake libigraph0 libigraph0-dev libconfig++8 libconfig++8-dev libtclap-dev libboost-graph-dev
+	(all)        sudo apt-get install build-essential
+	(clicky)     sudo apt-get install libgtk2.0-dev
+	(JNI lib)    sudo apt-get install libcommons-codec-java openjdk-6-jdk ant
+	(TopologyManager) sudo apt-get install libssl-dev
+
+
+
+
+ffmpeg?
+pulse?
+vlc-plugins?
+???
+
+	(Desktop/Project/repos)
+	git clone https://github.com/kohler/click.git
+	git clone https://github.com/fp7-pursuit/blackadder.git
+        git clone https://github.com/jc776/Information-Centric-Networking.git
+
+	CLICK
+	    (Desktop/Project/repos/click)
+	    ./configure --disable-linuxmodule
+	    * Kernel module enabled gives "System.map unreadable" (fixed by sudo) into "... defined in dicarded section ..."
+	    make
+	    sudo make install
+
+	CLICK CONF VISUALIZER
+	    (Desktop/Project/repos/click/apps/clicky)
+	    autoreconf -i
+	    ./configure
+	    make
+	    sudo make install
+
+	BLACKADDER
+	    (Desktop/Project/repos/blackadder/src)
+	    autoconf
+	    ./configure --disable-linuxmodule
+	    make
+	    sudo make install
+
+	TEST BLACKADDER
+	    sudo click sample.conf
+	    * (then Ctrl+C to quit)
+	    * Works.
+
+	BLACKADDER C LIBRARY
+	    (Desktop/Project/repos/blackadder/lib)
+	    autoreconf -i
+	    ./configure --enable-c
+	    make
+	    sudo make install
+
+	BLACKADDER NATIVE JAVA LIBRARY
+	    
+	    (Desktop/Project/repos/blackadder/lib/bindings/java-binding/jni)
+	    sudo updatedb
+	    locate jni.h
+	    * This returns one or more path names. e.g. /usr/lib/jvm/java-6-openjdk-amd64/include/jni.h
+	    
+	    gedit Makefile
+	    Modify the JNI_LOC line to match the path's folder (up to "/include/") e.g. /usr/lib/jvm/java-6-openjdk-amd64/include/
+
+	    (Desktop/Project/repos/blackadder/lib/binding/java-binding/lib)
+	    Follow the "README":
+		wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.4-bin.zip
+		Extract "commons-codec-1.4.jar" from this.
+	    
+	    Extra steps used by Video App later:
+	        wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+	        Extract "commons-codec-1.5.jar" from this.
+	    
+	    make
+	    
+	    (Desktop/Project/repos/blackadder/lib/binding/java-binding)
+	    ant
+	    * Build successful.
+	    ant dist
+	    "Remember binding location": /home/pursuit/Desktop/Project/repos/blackadder/lib/bindings/java-binding
+	    "Remember so path": /home/pursuit/Desktop/Project/repos/blackadder/lib/binding/java-bindings/jni/eu_pursuit_client_BlackadderWrapper.so
+	    "Remember jar path": /home/pursuit/Desktop/Project/repos/blackadder/lib/binding/java-bindings/dist/blackadder-java-binding.jar
+
+	BLACKADDER TOPOLOGY MANAGER
+	    (Desktop/Project/repos/blackadder/TopologyManager)
+	    make
+
+	BLACKADDER DEPLOY TOOL
+	    Note that the Deploy Tool won't work without 'passwordless sudo'.
+	    The modified tool in Information-Centric-Networking/blackadder_applications/deploy_sudo might.
+	    
+	    (Desktop/Project/repos/blackadder/deployment)
+	    make
+
+	BLACKADDER EXAMPLES
+	    (Desktop/Project/repos/blackadder/examples/samples)
+	    make
+
+	BLACKADDER JAVA VIDEO EXAMPLE
+		HowTo.pdf recommends "VLC higher than 2.0.x"
+		Ubuntu 12.04 only has 2.0.8
+		Ubuntu 14.04 has 2.1 in default repository.
+		2.2 or 3.0 is available through:
+			sudo add-apt-repository ppa:videolan/stable-daily
+			OR
+			sudo add-apt-repository ppa:videolan/master-daily
+		List of VLC + Ubuntu versions currently available:
+			https://launchpad.net/~videolan/+archive/ubuntu/stable-daily
+			https://launchpad.net/~videolan/+archive/ubuntu/master-daily
+		As of 2015, these ppa versions are only available for 14.04.
+		I got '2.1.6'
+		sudo apt-get update && sudo apt-get install vlc
+
+		(Desktop/Project/repos/blackadder/examples/video_streaming/VideoDemoApp/lib)
+			Follow BuildLib.txt
+			... except the 'mirror penguin' link doesn't work.
+			wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+			Extract "commons-codec-1.5.jar" from this.
+			(I'm not sure why it's needed twice. There's two separate references in build.xml)
+		
+			Get the other three JAR files.
+			wget http://java.net/projects/jna/sources/svn/content/tags/3.3.0/jnalib/dist/jna.jar
+			wget http://java.net/projects/jna/sources/svn/content/tags/3.3.0/jnalib/dist/platform.jar
+			wget http://vlcj.googlecode.com/files/vlcj-1.1.5.1.jar
+	    
+		(Desktop/Project/repos/blackadder/examples/video_streaming/VideoDemoApp)
+			gedit project.properties
+			Modify the first path to "so path"
+			(Optionally modify video path)
+			
+			Modify line 4 of build.xml to "binding location"
+			
+			ant
+
