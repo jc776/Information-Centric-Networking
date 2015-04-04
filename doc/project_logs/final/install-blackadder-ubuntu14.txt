@@ -130,12 +130,19 @@ vlc-plugins?
 			sudo add-apt-repository ppa:videolan/stable-daily
 			OR
 			sudo add-apt-repository ppa:videolan/master-daily
+			OR
+			sudo add-apt-repository ppa:mc3man/trusty-media
 		List of VLC + Ubuntu versions currently available:
 			https://launchpad.net/~videolan/+archive/ubuntu/stable-daily
 			https://launchpad.net/~videolan/+archive/ubuntu/master-daily
 		As of 2015, these ppa versions are only available for 14.04.
-		I got '2.1.6'
-		sudo apt-get update && sudo apt-get install vlc
+		
+		
+		I got VLC 2.2.0 on Ubuntu 14.04 through trusty-media.
+		
+		sudo apt-get update
+		sudo apt-get install vlc
+		sudo apt-get install libvlc-dev vlc-plugin-*
 
 		(Desktop/Project/repos/blackadder/examples/video_streaming/VideoDemoApp/lib)
 			Follow BuildLib.txt
