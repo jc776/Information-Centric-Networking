@@ -96,7 +96,8 @@ vlc-plugins?
 	    Extra steps used by Video App later:
 	        wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
 	        Extract "commons-codec-1.5.jar" from this.
-	    
+	        
+	    (/jni)
 	    make
 	    
 	    (Desktop/Project/repos/blackadder/lib/binding/java-binding)
