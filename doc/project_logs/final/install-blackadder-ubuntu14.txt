@@ -5,8 +5,7 @@ Ubuntu 14.04 vs 12.04
 	- HowTo.pdf was tested with 12.04
 	- Blackadder itself works on 14.04
 	- Blackadder w/NS3 and Cross-compiling run into errors on 14.04
-	- As of 2015, VLC 2.2 (HowTo.pdf: "Higher than 2.0.x") is not available for Ubuntu 12.04
-	- Being able to install things on the latest version is a little more future-proof.
+	- As of 2015, the VLC version used by blackadder's VideoDemoApp is not available on 12.04 or 14.04.
 
 This does not cover:
 	Blackadder on NS3

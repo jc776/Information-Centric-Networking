@@ -1,0 +1,47 @@
+Installing VideoDemoApp on Ubuntu 14.04
+-------------------------------------
+
+As of 2015, the VLC version used by Blackadder's VideoDemoApp no longer exists officially or in VideoLAN PPAs for Ubuntu 14.04 or 12.04.
+
+I've updated it to work on Ubuntu 14.04.
+
+Prerequisites:
+	Blackadder
+	(C Library, Topology Manager)
+	Blackadder's Native Java Library
+	
+	VLC 2.1.6 from default Ubuntu package manager
+	VLC 2.2+ should work as well, unsure about 3.
+	Ubuntu Restricted Extras for e.g. H264 plugin.
+	libvlc-dev
+	
+	Any other prerequisites for VLCj I've missed:
+	http://capricasoftware.co.uk/#/projects/vlcj/tutorial/prerequisites	
+
+(Information-Centric-Networking/blackadder_applications/caching_video_apps/VideoDemoVLC2/lib)
+	wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+	Extract "commons-codec-1.5.jar" from this.
+	(I'm not sure why it's needed here as well as in Native Java Library. There's two separate references in build.xml)
+	
+	Any other prerequisites I've missed:
+		
+	
+	Download vlc-3.6.0-dist.zip:
+		(http://capricasoftware.co.uk/#/projects/vlcj/tutorial/installation)
+		http://capricasoftware.co.uk/downloads/vlcj/vlcj-3.6.0-dist.zip
+	
+	Extract four jar files:
+		vlcj-3.6.0.jar (This is different to -dist)
+		jna-3.5.2.jar
+		platform-3.5.2.jar
+		slf4j-api-1.7.10.jar
+   
+(Information-Centric-Networking/blackadder_applications/caching_video_apps/VideoDemoVLC2/)
+	gedit project.properties
+	Modify the first path to "so path" from Native Java Library.
+	(Optionally modify video path)
+	
+	Modify line 4 of build.xml to "binding location" from Native Java Library.
+	
+	ant
+

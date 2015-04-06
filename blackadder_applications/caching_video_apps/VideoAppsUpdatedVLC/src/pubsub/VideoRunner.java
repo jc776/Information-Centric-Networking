@@ -16,7 +16,7 @@ package pubsub;
 
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.headless.HeadlessMediaPlayer;
-import uk.co.caprica.vlcj.player.list.MediaList;
+import uk.co.caprica.vlcj.medialist.MediaList;
 import uk.co.caprica.vlcj.player.list.MediaListPlayer;
 import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
 
@@ -39,7 +39,7 @@ public class VideoRunner{
 		this.filePath = filePath;
 		this.port = port;
 		factory = new MediaPlayerFactory();
-		mediaPlayer = factory.newMediaPlayer();			
+		mediaPlayer = factory.newHeadlessMediaPlayer();			
 		mlp = factory.newMediaListPlayer();
 	}
 
@@ -63,7 +63,7 @@ public class VideoRunner{
 		switch(currentMedia){
 		case HTTP:
 			mediaPlayer.stop();
-			mediaPlayer = factory.newMediaPlayer();	
+			mediaPlayer = factory.newHeadlessMediaPlayer();	
 			break;
 		case FILE:
 			mlp.stop();

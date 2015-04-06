@@ -42,7 +42,7 @@ public class SubscriberEventHandler extends Thread{
 		this.gui = gui;
 		ds= new DatagramSocket();
 		MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-		mediaPlayer = mediaPlayerFactory.newMediaPlayer();	
+		mediaPlayer = mediaPlayerFactory.newEmbeddedMediaPlayer();	
 	}
 
 	public void run() {

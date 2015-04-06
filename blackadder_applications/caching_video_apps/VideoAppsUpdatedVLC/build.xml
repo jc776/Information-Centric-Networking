@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="VideoDemoApp">
+    <presetdef name="javac">
+        <javac includeantruntime="false" />
+    </presetdef>
     <property environment="env"/>
     <property name="BlackadderJava.location" value="/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -11,10 +14,11 @@
     </path>
     <path id="VideoDemoApp.classpath">
         <pathelement location="bin"/>
-        <pathelement location="lib/vlcj-1.1.5.1.jar"/>
-        <pathelement location="lib/jna.jar"/>
+        <pathelement location="lib/vlcj-3.6.0.jar"/>
+        <pathelement location="lib/jna-3.5.2.jar"/>
         <pathelement location="lib/commons-codec-1.5.jar"/>
-        <pathelement location="lib/platform.jar"/>
+        <pathelement location="lib/platform-3.5.2.jar"/>
+        <pathelement location="lib/slf4j-api-1.7.10.jar"/>
         <path refid="BlackadderJava.classpath"/>
     </path>
     <target name="init">
