@@ -1,0 +1,21 @@
+(Subscribes to/Publishes)
+	Scope
+		-> Items
+
+VideoPublisherGUI:
+	Publishes:
+		Video Catalog
+			-> The catalog
+		Video
+			-> {Timestamp, frame} at maximum rate.
+
+VideoCacheGUI:
+	Subscribes to:
+		Video Catalog
+			-> The catalog
+		Video
+			-> {Timestamp, frame} at maximum rate from Publisher.
+	Publishes:
+		Video Caches
+			-> {Timestamp, a few seconds of frames} every few seconds.
+	Select videos to create cache copies of.

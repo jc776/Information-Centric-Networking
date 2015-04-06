@@ -23,9 +23,6 @@ Prerequisites:
 	Extract "commons-codec-1.5.jar" from this.
 	(I'm not sure why it's needed here as well as in Native Java Library. There's two separate references in build.xml)
 	
-	Any other prerequisites I've missed:
-		
-	
 	Download vlc-3.6.0-dist.zip:
 		(http://capricasoftware.co.uk/#/projects/vlcj/tutorial/installation)
 		http://capricasoftware.co.uk/downloads/vlcj/vlcj-3.6.0-dist.zip
