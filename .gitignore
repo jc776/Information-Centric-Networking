@@ -27,6 +27,13 @@
 *.out
 *.app
 
+# Java
+*.class
+*.jar
+
+# Big files
+*.zip
+
 # GEdit - backup files
 *~
 
