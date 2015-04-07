@@ -29,6 +29,9 @@ import util.Util;
 import view.PublisherView;
 import view.VideoPublisherGUI;
 
+// jc776
+import java.nio.ByteBuffer;
+
 /**
  * A class to set up the video publication
  * @author Ben Tagger
@@ -69,14 +72,33 @@ public class VideoEventHandler extends Thread{
 		videoRunner.start();
 		ItemName newPubName = ItemName.parseSerializedName(rID, ScopeID.SEGMENT_SIZE);
 		try {
-			DatagramPacket p = null;
+				// jc776: Packet = [TIMESTAMP][VIDEO DATAGRAM]
+				int timestamp = 0;
+				int timestamp_size = 4;
+				int datagram_size = 1316;
+				DatagramPacket p = null;
+				ByteBuffer pub_buffer = ByteBuffer.allocate(timestamp_size + datagram_size);
+			
 			do{
-				int buffer_size = 1316;
-				byte[] buffer = new byte[buffer_size];
-				p = new DatagramPacket(buffer, buffer.length);
+				byte[] video_buffer = new byte[datagram_size];
+				p = new DatagramPacket(video_buffer, video_buffer.length);
 				ds.receive(p);
 				// publication					    	
-				Publication pub = new Publication(newPubName, p.getData());
+				
+				byte[] data = p.getData();
+				
+				pub_buffer.clear();
+				pub_buffer.putInt(timestamp);
+				pub_buffer.put(data);
+				++timestamp;
+				
+				// "After a sequence of channel-read or put operations" "prepare for a sequence of channel-write or relative get operations."
+				pub_buffer.flip();
+				
+				System.out.println("TIME: " + timestamp);
+				System.out.println("END: " + pub_buffer.getInt(0));
+				
+				Publication pub = new Publication(newPubName, pub_buffer.array());
 //				System.err.println(".");
 				publisher.getClient().publishData(pub, strategy);
 //				System.err.println("|");

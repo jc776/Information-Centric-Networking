@@ -27,6 +27,9 @@ import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import util.Util;
 import view.VideoSubscriberGUI;
 
+// jc776
+import java.nio.ByteBuffer;
+
 /**
  * A class to handle the subscription events
  * @author Ben Tagger
@@ -67,8 +70,17 @@ public class SubscriberEventHandler extends Thread{
 					// Is a video
 					// get the packet and UDP it.
 				    try {
+				        // jc776: Packet = [TIMESTAMP][VIDEO DATAGRAM]
+				        
+				        // Later: Determine source, split Cache publications into packets
+				        // Send both kinds of packets to a better handler...
 						byte [] buffer = event.getDataCopy();
-				    	DatagramPacket p = new DatagramPacket(buffer, buffer.length, InetAddress.getLocalHost(), 6666);
+						int datagram_size = 1316;
+						int timestamp_size = 4;
+						int timestamp = ByteBuffer.wrap(buffer).getInt();
+						System.out.println("TIME: " + timestamp);
+						
+				    	DatagramPacket p = new DatagramPacket(buffer, timestamp_size, datagram_size, InetAddress.getLocalHost(), 6666);
 				    	ds.send(p);
 					} catch (SocketException e) {
 						// TODO Auto-generated catch block
