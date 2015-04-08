@@ -16,42 +16,36 @@ package pubsub;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Arrays;
 
 import eu.pursuit.core.Event;
-import uk.co.caprica.vlcj.player.MediaPlayer;
-import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import util.Util;
 import view.VideoSubscriberGUI;
+import cache.ClientDatagramCache;
 
 // jc776
 import java.nio.ByteBuffer;
 
 /**
- * A class to handle the subscription events
- * @author Ben Tagger
- * @version 29/11/2011
+ * Handles Blackadder subscription events and sends packets to the local cache
+ * @author John Coady
+ * @version 07/04/2015
  */
 public class SubscriberEventHandler extends Thread{
 
 	private VideoSubscriberGUI gui;
-	private DatagramSocket ds;
-	private MediaPlayer mediaPlayer;
+	private ClientDatagramCache cache;
 	
-	public SubscriberEventHandler(VideoSubscriberGUI gui) throws SocketException{
+	public SubscriberEventHandler(VideoSubscriberGUI gui, ClientDatagramCache cache) throws SocketException{
 		this.gui = gui;
-		ds= new DatagramSocket();
-		MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-		mediaPlayer = mediaPlayerFactory.newEmbeddedMediaPlayer();	
+		this.cache = cache;
 	}
 
 	public void run() {
 		System.err.println("Processing the Events from the Thread");
 		// Process the events...
-		mediaPlayer.playMedia("udp://@:6666");
 		while(true){
 			Event event = gui.getClient().getNextEvent();
 //			System.err.println("Got " + event.getType());
@@ -69,7 +63,7 @@ public class SubscriberEventHandler extends Thread{
 				}else{
 					// Is a video
 					// get the packet and UDP it.
-				    try {
+				    //try {
 				        // jc776: Packet = [TIMESTAMP][VIDEO DATAGRAM]
 				        
 				        // Later: Determine source, split Cache publications into packets
@@ -80,15 +74,15 @@ public class SubscriberEventHandler extends Thread{
 						int timestamp = ByteBuffer.wrap(buffer).getInt();
 						System.out.println("TIME: " + timestamp);
 						
-				    	DatagramPacket p = new DatagramPacket(buffer, timestamp_size, datagram_size, InetAddress.getLocalHost(), 6666);
-				    	ds.send(p);
-					} catch (SocketException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				    	DatagramPacket packet = new DatagramPacket(buffer, timestamp_size, datagram_size);
+				    	cache.put(packet);
+					//} catch (SocketException e) {
+					//	// TODO Auto-generated catch block
+					//	e.printStackTrace();
+					//} catch (IOException e) {
+					//	// TODO Auto-generated catch block
+					//	e.printStackTrace();
+					//}
 					event.freeNativeBuffer();
 				}
 				break;
@@ -96,7 +90,7 @@ public class SubscriberEventHandler extends Thread{
 		}
 	}
 
-	public static void main(String args[]) throws SocketException {
-		(new SubscriberEventHandler(null)).start();
-	}
+	//public static void main(String args[]) throws SocketException {
+	//	(new SubscriberEventHandler(null)).start();
+	//}
 }

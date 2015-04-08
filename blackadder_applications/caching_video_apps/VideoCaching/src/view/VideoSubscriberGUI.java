@@ -31,6 +31,9 @@ import org.apache.commons.codec.binary.Hex;
 import pubsub.SubscriberEventHandler;
 import pubsub.VideoSubscriber;
 
+import cache.ClientVideoPlayer;
+import cache.ClientDatagramCache;
+
 import util.ProjectPropertiesSingleton;
 
 import eu.pursuit.client.BlackAdderClient;
@@ -64,6 +67,9 @@ public class VideoSubscriberGUI{
 	private List list;
 	private Map<String, String> ridMappings;
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
+	
+	private ClientVideoPlayer player;
+	private ClientDatagramCache cache;
 	
 
 	/**
@@ -107,9 +113,15 @@ public class VideoSubscriberGUI{
 		
 		// initialise ridMappings
 		ridMappings = new HashMap<String, String>();
+		        
+        // create the video player
+        player = new ClientVideoPlayer();
+        
+        // create the delay cache
+        cache = new ClientDatagramCache(player);
 		
 		// Start the event handler
-		SubscriberEventHandler handler = new SubscriberEventHandler(this);
+		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);
 		handler.start();
 		
 	}
