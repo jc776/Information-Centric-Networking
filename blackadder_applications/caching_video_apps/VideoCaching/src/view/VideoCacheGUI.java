@@ -31,8 +31,8 @@ import org.apache.commons.codec.binary.Hex;
 import pubsub.SubscriberEventHandler;
 import pubsub.VideoSubscriber;
 
+import cache.CacheDatagramCache;
 import cache.ClientVideoPlayer;
-import cache.ClientDatagramCache;
 
 import util.ProjectPropertiesSingleton;
 
@@ -51,11 +51,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * The main class for the subscriber interface
- * @author Ben Tagger
- * @version Started - 13/11/2011
+ * Cache program: both a publisher and a subscriber
+ * @author John Coady
  */
-public class VideoSubscriberGUI implements SubscriberView{
+public class VideoCacheGUI implements SubscriberView{
 
 	private JFrame frmBlackvidPubsubber;
 	
@@ -69,10 +68,7 @@ public class VideoSubscriberGUI implements SubscriberView{
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
 	
 	private ClientVideoPlayer player;
-	private ClientDatagramCache cache;
-	
-	//private Timer timer;
-	
+	private CacheDatagramCache cache;
 
 	/**
 	 * Launch the application.
@@ -81,7 +77,7 @@ public class VideoSubscriberGUI implements SubscriberView{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VideoSubscriberGUI window = new VideoSubscriberGUI();
+					VideoCacheGUI window = new VideoCacheGUI();
 					window.frmBlackvidPubsubber.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -95,7 +91,7 @@ public class VideoSubscriberGUI implements SubscriberView{
 	 * @throws DecoderException 
 	 * @throws SocketException 
 	 */
-	public VideoSubscriberGUI() throws DecoderException, SocketException {
+	public VideoCacheGUI() throws DecoderException, SocketException {
 		initialize();		
 		
 		// Setup the Blackadder environment.
@@ -134,7 +130,7 @@ public class VideoSubscriberGUI implements SubscriberView{
         player = new ClientVideoPlayer();
         
         // create the delay cache
-        cache = new ClientDatagramCache(player);
+        cache = new CacheDatagramCache(player);
 		
 		// Start the event handler
 		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);

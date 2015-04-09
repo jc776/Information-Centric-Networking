@@ -20,8 +20,8 @@ import java.util.Arrays;
 
 import eu.pursuit.core.Event;
 import util.Util;
-import view.VideoSubscriberGUI;
-import cache.ClientDatagramCache;
+import view.SubscriberView;
+import cache.IDatagramCache;
 
 // jc776
 import java.nio.ByteBuffer;
@@ -34,11 +34,11 @@ import java.nio.ByteBuffer;
  */
 public class SubscriberEventHandler extends Thread {
 
-	private VideoSubscriberGUI gui;
-	private ClientDatagramCache cache;
+	private SubscriberView gui;
+	private IDatagramCache cache;
 
-	public SubscriberEventHandler(VideoSubscriberGUI gui,
-			ClientDatagramCache cache) throws SocketException {
+	public SubscriberEventHandler(SubscriberView gui,
+			IDatagramCache cache) throws SocketException {
 		this.gui = gui;
 		this.cache = cache;
 	}
@@ -78,7 +78,7 @@ public class SubscriberEventHandler extends Thread {
 
 					DatagramPacket packet = new DatagramPacket(buffer,
 							timestamp_size, datagram_size);
-					cache.put(packet);
+					cache.put(timestamp, packet);
 					// } catch (SocketException e) {
 					// // TODO Auto-generated catch block
 					// e.printStackTrace();

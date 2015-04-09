@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="VideoDemoApp">
+<project basedir="." default="build" name="VideoCaching">
     <presetdef name="javac">
         <javac includeantruntime="false">
         </javac>
@@ -13,7 +13,7 @@
         <pathelement location="${BlackadderJava.location}/bin"/>
         <pathelement location="${BlackadderJava.location}/lib/commons-codec-1.5.jar"/>
     </path>
-    <path id="VideoDemoApp.classpath">
+    <path id="VideoCaching.classpath">
         <pathelement location="bin"/>
         <pathelement location="lib/vlcj-3.6.0.jar"/>
         <pathelement location="lib/jna-3.5.2.jar"/>
@@ -53,11 +53,11 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="VideoDemoApp.classpath"/>
+            <classpath refid="VideoCaching.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="test"/>
-            <classpath refid="VideoDemoApp.classpath"/>
+            <classpath refid="VideoCaching.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -79,17 +79,22 @@
     
     <target name="subscriber">
         <java classname="view.VideoSubscriberGUI" failonerror="true" fork="yes">
-            <classpath refid="VideoDemoApp.classpath"/>
+            <classpath refid="VideoCaching.classpath"/>
         </java>
     </target>
     <target name="g_publisher">
         <java classname="view.VideoPublisherGUI" failonerror="true" fork="yes">
-            <classpath refid="VideoDemoApp.classpath"/>
+            <classpath refid="VideoCaching.classpath"/>
+        </java>
+    </target>
+    <target name="cache">
+        <java classname="view.VideoCacheGUI" failonerror="true" fork="yes">
+            <classpath refid="VideoCaching.classpath"/>
         </java>
     </target>
     <target name="t_publisher">
         <java classname="view.CLVideoPublisher" failonerror="true" fork="yes">
-            <classpath refid="VideoDemoApp.classpath"/>
+            <classpath refid="VideoCaching.classpath"/>
         </java>
     </target>
 </project>
