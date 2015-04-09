@@ -35,11 +35,16 @@ public class PublisherEventHandler extends Thread {
 	private PublisherView publisher;
 	private Map<String, VideoEventHandler> runningThreads;
 	private Strategy strategy;
+	
+	// Auto refresh
+	private boolean publishingCatalog;
 
 	public PublisherEventHandler(PublisherView publisher, Strategy strategy) {
 		this.publisher = publisher;
 		runningThreads = new HashMap<String, VideoEventHandler>();
 		this.strategy = strategy;
+		
+		this.publishingCatalog = false;
 	}
 
 	public void run() {
@@ -56,14 +61,9 @@ public class PublisherEventHandler extends Thread {
 			case START_PUBLISH:
 				// Is the event the catalog? Problem here!...
 				if (Arrays.equals(id, cat)) {
-					// Get the catalog data
-					String catData = publisher.getVideoPublisher()
-							.getCatalogNames();
-					Publication pub = new Publication(publisher
-							.getVideoPublisher().getCatName(),
-							catData.getBytes());
-					// publish catalog data
-					publisher.getClient().publishData(pub, strategy);
+					System.out.println("SOMEONE SUBSCRIBED TO CATALOG");
+					publishingCatalog = true;
+					publishCatalogData();
 				} else {
 					// start the video event handler
 					// Check to see if the video is already started.
@@ -77,7 +77,8 @@ public class PublisherEventHandler extends Thread {
 			case STOP_PUBLISH:
 				// Stop publishing material
 				if (Arrays.equals(id, cat)) {
-					// ignore sending of catalog
+					System.out.println("EVERYONE UNSUBSCRIBED FROM CATALOG");
+					publishingCatalog = false;
 				} else {
 					// if the video is still publishing, then stop it.
 					String idStr = Util.byteArrayToHex(id);
@@ -100,5 +101,24 @@ public class PublisherEventHandler extends Thread {
 			}
 		}
 	}
-
+	
+	public void onCatalogUpdate()
+	{
+		System.out.println("THE CATALOG CHANGED");
+		if(publishingCatalog)
+			publishCatalogData();
+	}
+	
+	private void publishCatalogData()
+	{
+		System.out.println("GIVING THEM THE CURRENT CATALOG");
+		// Get the catalog data
+		String catData = publisher.getVideoPublisher()
+				.getCatalogNames();
+		Publication pub = new Publication(publisher
+				.getVideoPublisher().getCatName(),
+				catData.getBytes());
+		// publish catalog data
+		publisher.getClient().publishData(pub, strategy);
+	}
 }

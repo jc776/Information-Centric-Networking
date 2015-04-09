@@ -67,6 +67,8 @@ public class VideoPublisherGUI implements PublisherView{
 	private ScopeID rootScope;
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
 	private VideoPublisher videoPublisher;
+	
+	private PublisherEventHandler handler;
 
 	private List list;
 	
@@ -115,7 +117,7 @@ public class VideoPublisherGUI implements PublisherView{
 		ridMappings = new HashMap<String, String>();
 
 		// Start the event handler
-		PublisherEventHandler handler = new PublisherEventHandler(this, strategy);
+		handler = new PublisherEventHandler(this, strategy);
 		handler.start();
 	}
 
@@ -160,6 +162,7 @@ public class VideoPublisherGUI implements PublisherView{
 					// publish the event. Under root for now...
 				    String newPubIDString = rootGenerator.getNextID(chooser.getSelectedFile().getAbsolutePath(), IDStrategy.RANDOM);
 				    videoPublisher.publishVideo(newPubIDString, chooser.getSelectedFile().getAbsolutePath());
+				    handler.onCatalogUpdate();
 					populatePublishList();
 					
 				} catch (DecoderException e) {
@@ -209,6 +212,7 @@ public class VideoPublisherGUI implements PublisherView{
 					// publish the event. Under root for now...
 				    String newPubIDString = rootGenerator.getNextID(httpStr, IDStrategy.RANDOM);
 				    videoPublisher.publishVideo(newPubIDString, httpStr);
+				    
 					populatePublishList();
 					
 				} catch (DecoderException e2) {

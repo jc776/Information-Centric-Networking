@@ -47,6 +47,8 @@ import java.awt.event.ActionEvent;
 import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -70,6 +72,8 @@ public class VideoSubscriberGUI{
 	
 	private ClientVideoPlayer player;
 	private ClientDatagramCache cache;
+	
+	//private Timer timer;
 	
 
 	/**
@@ -110,6 +114,20 @@ public class VideoSubscriberGUI{
 		
 		// immediately subscribe to the catalog
 		videoSubscriber = new VideoSubscriber(client, rootScope, strategy);
+		
+		// subscribe to catalog - starting 'automatic refresh'
+		System.out.println("I'M SUBSCRIBING TO THE CATALOG");
+		videoSubscriber.subscribeCatalog();
+		
+		/*timer = new Timer();
+		timer.schedule(new TimerTask()
+		{
+			@Override
+			public void run()
+			{
+				
+			}
+		}, 5*1000);*/
 		
 		// initialise ridMappings
 		ridMappings = new HashMap<String, String>();
@@ -192,6 +210,8 @@ public class VideoSubscriberGUI{
 		frmBlackvidPubsubber.getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		// Instead, automatic refresh.
+/*
 		JButton refreshButton = new JButton("Refresh Catalogue");
 		refreshButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -201,6 +221,7 @@ public class VideoSubscriberGUI{
 			}
 		});
 		panel_1.add(refreshButton);
+*/
 	}
 	
 	//private String getChannelID(){

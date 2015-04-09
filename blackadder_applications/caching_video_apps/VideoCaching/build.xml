@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="VideoDemoApp">
     <presetdef name="javac">
-        <javac includeantruntime="false" />
+        <javac includeantruntime="false">
+        </javac>
     </presetdef>
     <property environment="env"/>
     <property name="BlackadderJava.location" value="/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
     <path id="BlackadderJava.classpath">
         <pathelement location="${BlackadderJava.location}/bin"/>
         <pathelement location="${BlackadderJava.location}/lib/commons-codec-1.5.jar"/>

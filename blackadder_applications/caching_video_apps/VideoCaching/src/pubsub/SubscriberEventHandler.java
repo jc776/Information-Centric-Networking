@@ -59,8 +59,8 @@ public class SubscriberEventHandler extends Thread {
 					// populate the catalog list.
 					gui.populateCatalogList(Util.getString(event.getDataCopy()));
 					event.freeNativeBuffer();
-					// finally unsubscribe to the catalog
-					gui.getVideoSubscriber().unsubscribeCatalog();
+					// don't unsubscribe, this should be able auto refresh.
+					//gui.getVideoSubscriber().unsubscribeCatalog();
 				} else {
 					// Is a video
 					// get the packet and UDP it.

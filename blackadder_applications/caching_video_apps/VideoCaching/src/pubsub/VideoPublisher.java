@@ -132,6 +132,7 @@ public class VideoPublisher{
 	}
 
 	public boolean publishCatalog() throws DecoderException{
+		System.out.println("PUBLISHING THE INITIAL CATALOG");
 		try {
 			String catString = "0000000000000000";
 			ByteIdentifier catID = new ByteIdentifier(Hex.decodeHex(catString.toCharArray()));
