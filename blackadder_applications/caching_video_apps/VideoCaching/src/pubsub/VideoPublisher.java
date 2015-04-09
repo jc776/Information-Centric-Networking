@@ -15,8 +15,8 @@
 
 package pubsub;
 
-import java.util.Arrays;
-import java.util.Vector;
+//import java.util.Arrays;
+//import java.util.Vector;
 
 import model.VideoStream;
 
@@ -31,33 +31,42 @@ import eu.pursuit.core.Strategy;
 
 
 /**
- * A class that publishes a set of videos through the blackadder network.
- * Handles publications.
- * @author Ben Tagger
- * @version - started 13/10/2011
+ * Minimal publisher that only publishes a single video.
+ * @author John Coady
  */
 public class VideoPublisher{
 
 
 	private BlackAdderClient client;
-	private Vector <VideoStream> videos;
+	//private Vector <VideoStream> videos;
 	private ScopeID superScope;
 	private ItemName catName;
 	private Strategy strategy;
-	private Vector <ItemName> published;
+	//private Vector <ItemName> published;
 	private long channelID;
+	
+	private VideoStream theVideo;
+	private ItemName theItem;
 	
 
 	public VideoPublisher(BlackAdderClient client, ScopeID superScope, Strategy strategy){
 		this.client = client;
 		this.superScope = superScope;
-		videos = new Vector<VideoStream>(0,1);
+		//videos = new Vector<VideoStream>(0,1);
 		this.strategy = strategy;
-		published = new Vector<ItemName>(0,1);
+		//published = new Vector<ItemName>(0,1);
 		channelID = 1;
 	}
 	
 	public void cleanup(){
+		try {
+			unpublishTheVideo();
+		} catch (DecoderException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		/*
 		// unpublish the catalog
 		try {
 			unpublishCatalog();
@@ -69,8 +78,47 @@ public class VideoPublisher{
 		for (ItemName in: published){
 			client.unpublishItem(in, strategy);
 		}
+		*/
 	}
 	
+	public boolean publishTheVideo(String path) throws DecoderException{
+		try {
+			String catString = "0000000000000000";
+			ByteIdentifier catID = new ByteIdentifier(Hex.decodeHex(catString.toCharArray()));
+			catName = new ItemName(superScope, catID);
+			client.publishItem(catName, strategy);
+
+			theItem = catName;
+			theVideo = new VideoStream(path, getChannelID(), catString);
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean unpublishTheVideo() throws DecoderException{
+		//String rid = "0000000000000000";
+		
+		if(theVideo == null)
+			return true;
+		
+		try{
+		    //ByteIdentifier newPubID = new ByteIdentifier(Hex.decodeHex(rid.toCharArray()));
+			//ItemName newPubName = new ItemName(superScope, newPubID);
+			client.unpublishItem(theItem, strategy);
+			
+			theVideo = null;
+			//removeVideoByRid(rid);
+			return true;
+		}catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+/*
 	public boolean publishVideo(String rid, String path) throws DecoderException{
 		try{
 		    ByteIdentifier newPubID = new ByteIdentifier(Hex.decodeHex(rid.toCharArray()));
@@ -130,7 +178,9 @@ public class VideoPublisher{
 			return false;
 		}
 	}
+*/
 
+/*
 	public boolean publishCatalog() throws DecoderException{
 		System.out.println("PUBLISHING THE INITIAL CATALOG");
 		try {
@@ -159,11 +209,12 @@ public class VideoPublisher{
 	public byte[] getCatalog(){
 		return catName.toByteArray();
 	}
-
+*/
 	/**
 	 * Retrieve the payload of the catalog
 	 * @return the catalog.
 	 */
+/*
 	public String getCatalogNames(){
 		String catNames = "";
 		// For each video (media) in the catalog
@@ -188,7 +239,13 @@ public class VideoPublisher{
 		}
 		return catNames;
 	}
+	*/
 	
+	public VideoStream getTheVideo()
+	{
+		return theVideo;
+	}
+/*
 	public VideoStream getVideoStreamByRID(String rid){
 		for (VideoStream vs: videos){
 			if (vs.getrID().equalsIgnoreCase(rid))
@@ -200,7 +257,7 @@ public class VideoPublisher{
 	public ItemName getCatName() {
 		return catName;
 	}
-
+*/
 	private String getChannelID(){
 		return "" + channelID++;
 	}

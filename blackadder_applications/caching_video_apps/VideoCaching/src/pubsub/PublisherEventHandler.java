@@ -14,12 +14,10 @@
 
 package pubsub;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import eu.pursuit.core.Event;
-import eu.pursuit.core.Publication;
 import eu.pursuit.core.Strategy;
 import util.Util;
 import view.PublisherView;
@@ -37,14 +35,14 @@ public class PublisherEventHandler extends Thread {
 	private Strategy strategy;
 	
 	// Auto refresh
-	private boolean publishingCatalog;
+	//private boolean publishingCatalog;
 
 	public PublisherEventHandler(PublisherView publisher, Strategy strategy) {
 		this.publisher = publisher;
 		runningThreads = new HashMap<String, VideoEventHandler>();
 		this.strategy = strategy;
 		
-		this.publishingCatalog = false;
+		//this.publishingCatalog = false;
 	}
 
 	public void run() {
@@ -56,10 +54,18 @@ public class PublisherEventHandler extends Thread {
 			System.err.println("Publisher: Got event...");
 			System.err.println(event.getType());
 			byte[] id = event.getId();
-			byte[] cat = publisher.getVideoPublisher().getCatalog();
+			String idStr = Util.byteArrayToHex(id);// this.getStringFromBytes(id);
+			
+			//byte[] cat = publisher.getVideoPublisher().getCatalog();
 			switch (event.getType()) {
 			case START_PUBLISH:
-				// Is the event the catalog? Problem here!...
+				// Only possible thing is "the video"
+				VideoEventHandler veh = new VideoEventHandler(publisher,
+						id, strategy);
+				veh.start();
+				runningThreads.put(idStr, veh);
+				
+				/*
 				if (Arrays.equals(id, cat)) {
 					System.out.println("SOMEONE SUBSCRIBED TO CATALOG");
 					publishingCatalog = true;
@@ -73,9 +79,22 @@ public class PublisherEventHandler extends Thread {
 					String idStr = Util.byteArrayToHex(id);// this.getStringFromBytes(id);
 					runningThreads.put(idStr, veh);
 				}
+				*/
 				break;
 			case STOP_PUBLISH:
 				// Stop publishing material
+				
+				// if the video is still publishing, then stop it.
+				if (runningThreads.containsKey(idStr)) {
+					runningThreads.get(idStr).removeSubscriber();
+					if (runningThreads.get(idStr).getSubscribers() == 0)
+						runningThreads.remove(idStr);
+				} else {
+					// The video is not running
+				}
+				
+				// Only possible item is "the video"
+				/*
 				if (Arrays.equals(id, cat)) {
 					System.out.println("EVERYONE UNSUBSCRIBED FROM CATALOG");
 					publishingCatalog = false;
@@ -90,6 +109,7 @@ public class PublisherEventHandler extends Thread {
 						// The video is not running
 					}
 				}
+				*/
 				break;
 			case PUBLISHED_DATA:
 			case SCOPE_PUBLISHED:
@@ -101,7 +121,7 @@ public class PublisherEventHandler extends Thread {
 			}
 		}
 	}
-	
+/*
 	public void onCatalogUpdate()
 	{
 		System.out.println("THE CATALOG CHANGED");
@@ -121,4 +141,5 @@ public class PublisherEventHandler extends Thread {
 		// publish catalog data
 		publisher.getClient().publishData(pub, strategy);
 	}
+*/
 }

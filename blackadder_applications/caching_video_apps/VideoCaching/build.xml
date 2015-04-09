@@ -92,9 +92,4 @@
             <classpath refid="VideoCaching.classpath"/>
         </java>
     </target>
-    <target name="t_publisher">
-        <java classname="view.CLVideoPublisher" failonerror="true" fork="yes">
-            <classpath refid="VideoCaching.classpath"/>
-        </java>
-    </target>
 </project>

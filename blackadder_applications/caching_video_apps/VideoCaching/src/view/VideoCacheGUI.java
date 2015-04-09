@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.List;
 
 import javax.swing.JButton;
 
@@ -45,8 +44,6 @@ import eu.pursuit.core.Strategy;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.net.SocketException;
-import java.util.HashMap;
-import java.util.Map;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -63,8 +60,6 @@ public class VideoCacheGUI implements SubscriberView{
 	private ScopeID rootScope;
 	private VideoSubscriber videoSubscriber;
 	//private long channelID;
-	private List list;
-	private Map<String, String> ridMappings;
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
 	
 	private ClientVideoPlayer player;
@@ -110,8 +105,8 @@ public class VideoCacheGUI implements SubscriberView{
 		videoSubscriber = new VideoSubscriber(client, rootScope, strategy);
 		
 		// subscribe to catalog - starting 'automatic refresh'
-		System.out.println("I'M SUBSCRIBING TO THE CATALOG");
-		videoSubscriber.subscribeCatalog();
+		//System.out.println("I'M SUBSCRIBING TO THE CATALOG");
+		//videoSubscriber.subscribeCatalog();
 		
 		/*timer = new Timer();
 		timer.schedule(new TimerTask()
@@ -122,9 +117,6 @@ public class VideoCacheGUI implements SubscriberView{
 				
 			}
 		}, 5*1000);*/
-		
-		// initialise ridMappings
-		ridMappings = new HashMap<String, String>();
 		        
         // create the video player
         player = new ClientVideoPlayer();
@@ -163,18 +155,9 @@ public class VideoCacheGUI implements SubscriberView{
 		
 		JButton subscribeButton = new JButton("subscribe");
 		subscribeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {				
-				// check something was selected.
-				String selected = list.getSelectedItem();
-				if (selected != null){
-					// get the rid of the video clicked.
-					String rid = ridMappings.get(selected);
-					if(!videoSubscriber.subscribeVideo(rid))
-						JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.");
-				}else{
-					// error
-					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "You must select a video from the list.");
-				}
+			public void actionPerformed(ActionEvent arg0) {	
+				if(!videoSubscriber.subscribeTheVideo())
+					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.");
 			}
 		});
 		panel.add(subscribeButton);
@@ -182,24 +165,15 @@ public class VideoCacheGUI implements SubscriberView{
 		JButton unsubscribeButton = new JButton("unsubscribe");
 		unsubscribeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// check something was selected.
-				String selected = list.getSelectedItem();
-				if (selected != null){
-					// get the rid of the video clicked.
-					String rid = ridMappings.get(selected);
-					if(!videoSubscriber.unsubscribeVideo(rid))
-						JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.\nPerhaps you had not subscribed to that video?");
-				}else{
-					// error
-					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "You must select a video from the list.");
-				}
+				if(!videoSubscriber.unsubscribeTheVideo())
+					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.\nPerhaps you had not subscribed to that video?");
 			}
 		});
 		panel.add(unsubscribeButton);
-		
+/*
 		list = new List();
 		frmBlackvidPubsubber.getContentPane().add(list, BorderLayout.CENTER);
-		
+*/
 		JPanel panel_1 = new JPanel();
 		frmBlackvidPubsubber.getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -256,25 +230,5 @@ public class VideoCacheGUI implements SubscriberView{
 
 	public void setVideoSubscriber(VideoSubscriber videoSubscriber) {
 		this.videoSubscriber = videoSubscriber;
-	}
-	
-	public void populateCatalogList(String content){
-		// Get data in rows
-		String [] rows = content.split("--");
-		getList().removeAll();
-		for (String item: rows){
-			if (!item.equals("")) {
-				// Get the RID
-				String[] pre = item.split("@");
-				//String rid = pre[1];
-				getList().add(pre[2]);
-				// retain the rid mapping.
-				ridMappings.put(pre[2], pre[1]);
-			}
-		}
-	}
-	
-	public List getList() {
-		return list;
 	}
 }

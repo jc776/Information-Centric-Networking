@@ -25,7 +25,6 @@ import eu.pursuit.core.ItemName;
 import eu.pursuit.core.Publication;
 import eu.pursuit.core.ScopeID;
 import eu.pursuit.core.Strategy;
-import util.Util;
 import view.PublisherView;
 
 // jc776
@@ -60,10 +59,10 @@ public class VideoEventHandler extends Thread{
 	public void run() {
 		// start sending the video.
 		// get the video that's been requested
-		String r = Util.byteArrayToHex(rID);
-		int len = r.length();
-		String request = r.substring(len-16, len);
-		VideoStream vs = publisher.getVideoPublisher().getVideoStreamByRID(request);
+		//String r = Util.byteArrayToHex(rID);
+		//int len = r.length();
+		//String request = r.substring(len-16, len);
+		VideoStream vs = publisher.getVideoPublisher().getTheVideo(); //publisher.getVideoPublisher().getVideoStreamByRID(request);
 		// Get a handle on the video
 		System.err.println("Requested " + vs.getAbsolutePath());
 		// Implement the video strategy.
