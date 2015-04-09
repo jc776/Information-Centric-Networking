@@ -63,7 +63,7 @@ public class VideoSubscriberGUI{
 	private BlackAdderClient client;
 	private ScopeID rootScope;
 	private VideoSubscriber videoSubscriber;
-	private long channelID;
+	//private long channelID;
 	private List list;
 	private Map<String, String> ridMappings;
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
@@ -100,7 +100,7 @@ public class VideoSubscriberGUI{
 		String sharedObjPath = ProjectPropertiesSingleton.getInstance().getProperty("BAWrapperPath");		
 		BlackadderWrapper.configureObjectFile(sharedObjPath);		
 		client = BlackAdderClient.getInstance();
-		channelID = 1;
+		//channelID = 1;
 		
 		// Initialise the rootscope
 		// publish the root scope where all videos will be published
@@ -203,9 +203,9 @@ public class VideoSubscriberGUI{
 		panel_1.add(refreshButton);
 	}
 	
-	private String getChannelID(){
-		return "" + channelID++;
-	}
+	//private String getChannelID(){
+	//	return "" + channelID++;
+	//}
 
 	public ByteIdentifier getRootScopeId() {
 		return rootScopeId;
@@ -231,9 +231,9 @@ public class VideoSubscriberGUI{
 		this.rootScope = rootScope;
 	}
 
-	public void setChannelID(long channelID) {
-		this.channelID = channelID;
-	}
+	//public void setChannelID(long channelID) {
+	//	this.channelID = channelID;
+	//}
 	
 	public VideoSubscriber getVideoSubscriber() {
 		return videoSubscriber;
@@ -251,7 +251,7 @@ public class VideoSubscriberGUI{
 			if (!item.equals("")) {
 				// Get the RID
 				String[] pre = item.split("@");
-				String rid = pre[1];
+				//String rid = pre[1];
 				getList().add(pre[2]);
 				// retain the rid mapping.
 				ridMappings.put(pre[2], pre[1]);

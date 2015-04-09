@@ -187,7 +187,7 @@ public class VideoPublisherGUI implements PublisherView{
 					// get the rid
 					String rid = ridMappings.get(selected);
 					//unpublish by rid
-					ByteIdentifier vidID;
+					//ByteIdentifier vidID;
 					try {
 						videoPublisher.unpublishVideo(rid);
 					} catch (DecoderException e1) {
@@ -288,7 +288,7 @@ public class VideoPublisherGUI implements PublisherView{
 			if (!item.equals("")) {
 				// Get the RID
 				String[] pre = item.split("@");
-				String rid = pre[1];
+				//String rid = pre[1];
 				getList().add(pre[2]);
 				// retain the rid mapping.
 				ridMappings.put(pre[2], pre[1]);

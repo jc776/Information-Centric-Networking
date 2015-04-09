@@ -24,7 +24,7 @@ class VideoSender {
 	public static byte buffer[] = new byte[buffer_size];
 	
 	public static void TheServer() throws Exception {
-		int pos=0;
+		//int pos=0;
 		// send video to the udp port
 	}
 	public static void TheClient() throws Exception {

@@ -27,7 +27,6 @@ import eu.pursuit.core.ScopeID;
 import eu.pursuit.core.Strategy;
 import util.Util;
 import view.PublisherView;
-import view.VideoPublisherGUI;
 
 // jc776
 import java.nio.ByteBuffer;

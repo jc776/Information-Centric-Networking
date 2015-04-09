@@ -22,10 +22,6 @@ import java.net.SocketException;
 
 import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
-import uk.co.caprica.vlcj.player.list.MediaListPlayer;
-import uk.co.caprica.vlcj.medialist.MediaList;
-import view.VideoSubscriberGUI;
 
 /**
  * Contains a VLCj MediaPlayer to pass bytes to.

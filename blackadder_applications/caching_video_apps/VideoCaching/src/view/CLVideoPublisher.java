@@ -73,7 +73,7 @@ public class CLVideoPublisher implements PublisherView{
 			// print out commands
 			System.err.println(pub.commandList());
 			// wait for input
-			Scanner sc = new Scanner(System.in);
+			try(Scanner sc = new Scanner(System.in)){
 			int i = sc.nextInt();
 			// deal with input
 			switch (i){
@@ -135,6 +135,7 @@ public class CLVideoPublisher implements PublisherView{
 				pub.getClient().disconnect();
 				System.exit(0);
 				break;
+			}
 			}
 		}
 	}
