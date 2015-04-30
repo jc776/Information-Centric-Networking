@@ -30,7 +30,7 @@ import org.apache.commons.codec.binary.Hex;
 import pubsub.SubscriberEventHandler;
 import pubsub.VideoSubscriber;
 
-import cache.CacheDatagramCache;
+import cache.CacheDatagramHandler;
 import cache.ClientVideoPlayer;
 
 import util.ProjectPropertiesSingleton;
@@ -63,7 +63,7 @@ public class VideoCacheGUI implements SubscriberView{
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
 	
 	private ClientVideoPlayer player;
-	private CacheDatagramCache cache;
+	private CacheDatagramHandler cache;
 
 	/**
 	 * Launch the application.
@@ -122,7 +122,7 @@ public class VideoCacheGUI implements SubscriberView{
         player = new ClientVideoPlayer();
         
         // create the delay cache
-        cache = new CacheDatagramCache(player);
+        cache = new CacheDatagramHandler(player);
 		
 		// Start the event handler
 		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);

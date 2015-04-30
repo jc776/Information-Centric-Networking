@@ -19,7 +19,7 @@ import java.net.SocketException;
 
 import eu.pursuit.core.Event;
 import view.SubscriberView;
-import cache.IDatagramCache;
+import cache.IDatagramHandler;
 
 // jc776
 import java.nio.ByteBuffer;
@@ -33,9 +33,9 @@ import java.nio.ByteBuffer;
 public class SubscriberEventHandler extends Thread {
 
 	private SubscriberView gui;
-	private IDatagramCache cache;
+	private IDatagramHandler cache;
 
-	public SubscriberEventHandler(SubscriberView gui, IDatagramCache cache)
+	public SubscriberEventHandler(SubscriberView gui, IDatagramHandler cache)
 			throws SocketException {
 		this.gui = gui;
 		this.cache = cache;
@@ -60,10 +60,11 @@ public class SubscriberEventHandler extends Thread {
 				// packets
 				// Send both kinds of packets to a better handler...
 				byte[] buffer = event.getDataCopy();
+				
 				int datagram_size = 1316;
 				int timestamp_size = 4;
 				int timestamp = ByteBuffer.wrap(buffer).getInt();
-				System.out.println("TIME: " + timestamp);
+				//System.out.println("TIME: " + timestamp);
 
 				DatagramPacket packet = new DatagramPacket(buffer,
 						timestamp_size, datagram_size);

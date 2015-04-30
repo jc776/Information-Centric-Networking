@@ -31,7 +31,7 @@ import pubsub.SubscriberEventHandler;
 import pubsub.VideoSubscriber;
 
 import cache.ClientVideoPlayer;
-import cache.ClientDatagramCache;
+import cache.ClientDatagramHandler;
 
 import util.ProjectPropertiesSingleton;
 
@@ -64,7 +64,7 @@ public class VideoSubscriberGUI implements SubscriberView{
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
 	
 	private ClientVideoPlayer player;
-	private ClientDatagramCache cache;
+	private ClientDatagramHandler cache;
 	
 	//private Timer timer;
 	
@@ -126,7 +126,7 @@ public class VideoSubscriberGUI implements SubscriberView{
         player = new ClientVideoPlayer();
         
         // create the delay cache
-        cache = new ClientDatagramCache(player);
+        cache = new ClientDatagramHandler(player);
 		
 		// Start the event handler
 		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);

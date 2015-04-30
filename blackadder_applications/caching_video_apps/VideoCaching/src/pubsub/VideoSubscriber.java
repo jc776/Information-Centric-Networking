@@ -14,6 +14,7 @@
 
 package pubsub;
 
+import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 
 import eu.pursuit.client.BlackAdderClient;
@@ -36,7 +37,8 @@ public class VideoSubscriber{
 	private Strategy strategy;
 	
 	//private Vector<ItemName> subscribed;
-	private ItemName theItem;
+	private ItemName videoItem;
+	private ItemName cacheItem;
 	
 	public VideoSubscriber(BlackAdderClient client, ScopeID superScope, Strategy strategy){
 		this.client = client;
@@ -45,54 +47,107 @@ public class VideoSubscriber{
 		//subscribed = new Vector<ItemName>(0,1);
 	}
 	
-	public boolean subscribeTheVideo(){	
+	private ByteIdentifier stringToID(String itemString) throws DecoderException {
+		return new ByteIdentifier(Hex.decodeHex(itemString.toCharArray()));
+	}
+	
+	private class Result
+	{
+		public Result(boolean successful, ItemName item)
+		{
+			this.successful = successful;
+			this.item = item;
+		}
+		
+		public boolean successful;
+		public ItemName item;
+
+	}
+	
+	private Result subscribe(String itemString)
+	{
 		try {
 			// Subscribe to the video
-			String catString = "0000000000000000";
-			ByteIdentifier catID = new ByteIdentifier(Hex.decodeHex(catString.toCharArray()));
-			theItem = new ItemName(superScope, catID);
-			client.subscribeItem(theItem, strategy);
+			ByteIdentifier catID = stringToID(itemString);
+			ItemName item = new ItemName(superScope, catID);
+			client.subscribeItem(item, strategy);
+			
+			return new Result(true,item);
+		} catch (DecoderException e) {
+			e.printStackTrace();
+			return new Result(false,null);
+		}
+	}
+	
+	private boolean unsubscribe(String itemString)
+	{
+		try {
+			// Subscribe from the video
+			ByteIdentifier catID = stringToID(itemString);
+			ItemName item = new ItemName(superScope, catID);
+			client.unsubscribeItem(item, strategy);
 			
 			return true;
-		} catch (Exception e) {
+		} catch (DecoderException e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 	
+	public boolean subscribeTheVideo(){
+		Result res = subscribe(NamedItems.getVideoString());
+		
+		if(res.successful)
+			videoItem = res.item;
+		
+		return res.successful;
+	}
+	
+	public boolean subscribeTheCache(){
+		Result res = subscribe(NamedItems.getCacheString());
+		
+		if(res.successful)
+			cacheItem = res.item;
+		
+		return res.successful;
+	}
+	
+	
 	public boolean unsubscribeTheVideo(){
-		if(theItem == null)
+		if(videoItem == null)
 			return true;
 		
-		try {
-			// Subscribe to the catalog
-			String catString = "0000000000000000";
-			ByteIdentifier catID = new ByteIdentifier(Hex.decodeHex(catString.toCharArray()));
-			theItem = new ItemName(superScope, catID);
-			client.unsubscribeItem(theItem, strategy);
-			
-			theItem = null;
+		if(unsubscribe(NamedItems.getVideoString()))
+		{
+			videoItem = null;
 			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
 		}
+		
+		return false;
+	}
+	
+	public boolean unsubscribeTheCache(){
+		if(cacheItem == null)
+			return true;
+		
+		if(unsubscribe(NamedItems.getCacheString()))
+		{
+			cacheItem = null;
+			return true;
+		}
+		
+		return false;
 	}
 	
 	/**
 	 * Removes all subscriptions
 	 * @return a boolean indicating success
 	 */
-	public boolean cleanup(){	
-		try {
-			this.unsubscribeTheVideo();
-			
-			return true;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
+	public boolean cleanup()
+	{	
+		boolean video = this.unsubscribeTheVideo();
+		boolean cache = this.unsubscribeTheCache();
+		return video && cache;
 	}
 	
 }

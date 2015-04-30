@@ -15,7 +15,7 @@ import java.net.DatagramPacket;
 import java.io.IOException;
 import java.net.SocketException;
  
-public class CacheDatagramCache extends Thread implements IDatagramCache
+public class CacheDatagramHandler extends Thread implements IDatagramHandler
 {
 	private ClientVideoPlayer player;
 	private BlockingQueue<DatagramPacket> queue;
@@ -23,7 +23,7 @@ public class CacheDatagramCache extends Thread implements IDatagramCache
 	private boolean started;
 	private Timer timer;
 	
-	public CacheDatagramCache(ClientVideoPlayer player)
+	public CacheDatagramHandler(ClientVideoPlayer player)
 	{
 		this.player = player;
 		
@@ -43,7 +43,7 @@ public class CacheDatagramCache extends Thread implements IDatagramCache
 				@Override
 		  		public void run()
 		  		{
-		  			CacheDatagramCache.this.start();
+		  			CacheDatagramHandler.this.start();
 				}
 			}, 3*1000);
 			
