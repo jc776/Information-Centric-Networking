@@ -14,7 +14,7 @@ public class Main {
             
             @Override
             public void run() {
-                GUI gui = new GUI();
+                ClientWindow gui = new ClientWindow();
                 gui.setVisible(true);
             }
         });
