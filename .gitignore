@@ -27,8 +27,18 @@
 *.out
 *.app
 
+# Java
+*.class
+*.jar
+
+# Big files
+*.zip
+
 # GEdit - backup files
 *~
+
+# Video
+*.mp4
 
 # Copy of Blackadder repository.
 openwrt/packages/click_blackadder/src/blackadder/

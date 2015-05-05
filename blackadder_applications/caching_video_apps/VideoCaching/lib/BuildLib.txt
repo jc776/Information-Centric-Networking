@@ -1,0 +1,27 @@
+In order to run this application, you must include the following jar files into the lib folder:
+
+Any other prerequisites for VLCj I've missed:
+	http://capricasoftware.co.uk/#/projects/vlcj/tutorial/prerequisites	
+
+The Apache Commons Codex.
+	wget http://archive.apache.org/dist/commons/codec/binaries/commons-codec-1.5-bin.zip
+	Extract "commons-codec-1.5.jar" from this.
+	(I'm not sure why it's needed here as well as in Native Java Library. There's two separate references in build.xml)
+	
+VLCj distribution
+	wget http://capricasoftware.co.uk/downloads/vlcj/vlcj-3.6.0-dist.zip
+	
+Extract libraries from VLCj
+	vlcj-3.6.0.jar (This is different to -dist)
+	jna-3.5.2.jar
+	platform-3.5.2.jar
+	slf4j-api-1.7.10.jar
+	
+	
+Any other prerequisites I've missed:
+	http://capricasoftware.co.uk/#/projects/vlcj/tutorial/installation
+	http://capricasoftware.co.uk/#/projects/vlcj/tutorial/prerequisites	
+	
+
+zip and jar files are currently in .gitignore - don't commit binaries to the repository.
+jc776@cam.ac.uk

@@ -1,0 +1,18 @@
+Run VideoDemoApp on Ubuntu 14.04
+--------------------------------
+
+
+VideoDemoApp on local PC:
+	(Console 1: blackadder/src)
+		sudo click sample.conf
+	(Console 2: blackadder/TopologyManager)
+		sudo ./tm topology.graphml
+	(Console 3: Information-Centric-Networking/caching_video_apps/VideoDemoVLC2)
+		sudo ant g_publisher
+	(Console 4: Information-Centric-Networking/caching_video_apps/VideoDemoVLC2)
+		sudo ant subscriber
+		
+	Publish a video with the publisher.
+	Subscribe to it with subscriber.
+	
+	For better quality/real-time streaming on an older PC, use VLC to transcode the stream to a 'ts' file first.
