@@ -15,7 +15,7 @@
     </path>
     <path id="VideoCaching.classpath">
         <pathelement location="bin"/>
-        <pathelement location="lib/vlcj-3.6.0.jar"/>
+        <pathelement location="lib/vlcj-3.7.0.jar"/>
         <pathelement location="lib/jna-3.5.2.jar"/>
         <pathelement location="lib/commons-codec-1.5.jar"/>
         <pathelement location="lib/platform-3.5.2.jar"/>
