@@ -1,6 +1,6 @@
-# NOW ON GIT LFS
-#*.zip
-#*.jar
+# GIT LFS IS AWFUL
+*.zip
+*.jar
 
 # Compiled Object files
 *.slo

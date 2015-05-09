@@ -23,5 +23,5 @@ Any other prerequisites I've missed:
 	http://capricasoftware.co.uk/#/projects/vlcj/tutorial/prerequisites	
 	
 
-ZIP files OK - using Git LFS. Only for I-C-N, not Blackadder repository.
+Don't commit zip/jar files. Git LFS is awful right now.
 jc776@cam.ac.uk
