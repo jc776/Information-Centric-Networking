@@ -1,0 +1,5 @@
+I'm storing zip & jar files in the repository, this is needed to use those copies.
+
+This executable is stored directly.
+
+Run sudo ./install.sh and re-clone or delete the "text file pointer" unusable jars you get and follow the other download instructions. (e.g. "here's where you get those jars")
