@@ -65,9 +65,9 @@ CONFIGURE_ARGS += \
 	--enable-tools=host \
 	--enable-userlevel \
 	--disable-linuxmodule \
-	--disable-dynamic-linking \
-	--enable-blackadder \
-	--enable-ipsec \
+	--enable-blackadder
+#	--disable-dynamic-linking \
+#	--enable-ipsec \
 
 # The last one is a test.
 
@@ -97,35 +97,73 @@ define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/$(MAKE_PATH) \
 		$(MAKE_FLAGS) \
 		elemlist;
-
-	# "click-by-itself" doesn't do this one.
-	# This attempts to put cross-compiled click into REAL /usr/local
-	# make Click
-	#$(call Build/Compile/Default, install)
 	
-	# make (+ make install?) Click
+	# Click: make install (which also does make build)
 	$(call Build/Install/Default, install)
 	
-	# Then, configure, make (+ make install?) Blackadder
+	# Blackadder: ./configure
 	# (Blackadder's configure needs to happen after building click to work)
-	#(	cd $(BUILD_DIR)/blackadder/src; \
-	#	./configure \
-	#		--disable-linuxmodule \
-	#		--with-click=$(PKG_INSTALL_DIR)/usr \
-	#		--prefix=$(PKG_INSTALL_DIR)/usr; \
-	#	echo "Configure worked." \
-	#)
+	# This adds blackadder as a click "package" (otherwise: 'requirement blackadder not available')
+	(	cd $(BUILD_DIR)/blackadder/src; \
+		./configure \
+			--disable-linuxmodule \
+			--with-click=$(PKG_INSTALL_DIR)/usr \
+			--prefix=$(PKG_INSTALL_DIR)/usr; \
+		echo "Configure worked." \
+	)
 	
-	# $(MAKE) -C $(BUILD_DIR)/blackadder/src
-	# make install?
+	# Blackadder: make
+	$(MAKE) -C $(BUILD_DIR)/blackadder/src
+	
+	# Blackadder: make install
+	# $(MAKE) ... install breaks at 'mkinstalldirs'
+	# Could patch the file
+	# Instead, just make our own directories
+	#$(INSTALL_BIN) ./src/blankinstalldirs $(PKG_INSTALL_DIR)/usr/share/click/mkinstalldirs
+	
+	# for blackadder.uo
+	# can't figure out how to run this without "/home/jack/.../sdk/.../ipkg-install/home/jack/..." or "mkinstalldirs permission denied" for "/usr/share/click"
+	# modified from Build/Install/Default (SDK's include/package-defaults.mk)
+	#$(MAKE_VARS) \
+	#$(MAKE) -C $(BUILD_DIR)/blackadder/src \
+	#	$(MAKE_FLAGS) \
+	#	DESTDIR="" \
+	#	install
+	
+	$(MAKE_VARS) \
+	$(MAKE) -C $(BUILD_DIR)/blackadder/src \
+		$(MAKE_FLAGS) \
+		DESTDIR="" \
+		elementmap-blackadder.xml
+	
+	# $(PKG_INSTALL_DIR)
 endef
 
 define Package/click/install
+	# From click by itself
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/share/click
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/click $(1)/usr/bin/click
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/click-align $(1)/usr/bin/click-align
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/click/elementmap.xml $(1)/usr/share/click/elementmap.xml
+	
+	# Blackadder: Copy blackadder.uo
+	# just get the file myself instead of blackadder's make install
+	# put the file in ipkg-install
+	$(CP) $(BUILD_DIR)/blackadder/src/blackadder.uo $(PKG_INSTALL_DIR)/usr/lib/blackadder.uo
+	$(CP) $(BUILD_DIR)/blackadder/src/elementmap-blackadder.xml $(PKG_INSTALL_DIR)/usr/share/click/elementmap-blackadder.xml
+	# make a lib dir in the package
+	$(INSTALL_DIR) $(1)/usr/lib
+	# copy the things over manually instead of make install
+	# put the file in the actual ipkg
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/blackadder.uo $(1)/usr/lib/blackadder.uo
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/share/click/elementmap-blackadder.xml $(1)/usr/share/click/elementmap-blackadder.xml
+	
+	# blackadder elementmap
+	
+	# Unused directories generated
+	#$(INSTALL_DIR) $(1)/usr/include - shouldn't be compiling things on the router
+	#$(INSTALL_DIR) $(1)/usr/man - don't fill the router with the manual
 endef
 
 $(eval $(call BuildPackage,click))

@@ -1,0 +1,16 @@
+connecting 3 nodes
+Server[FN,TM,RV,Pub]
+|
+Router[FN,Sub]
+|
+Client[FN,Sub]
+
+Server publishes.
+Router subscribes.
+Client subscribes.
+Client unsubscribes.
+(Wait...)
+Client subscribes.
+
+
+Does the video CONTINUE (might work if caching is native!), SKIP (likely if no caching) or RESTART (unlikely)?
