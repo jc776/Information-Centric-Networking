@@ -5,7 +5,7 @@
         </javac>
     </presetdef>
     <property environment="env"/>
-    <property name="BlackadderJava.location" value="/home/pursuit/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
+    <property name="BlackadderJava.location" value="/home/jack/Desktop/Project/repos/blackadder/lib/bindings/java-binding"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
