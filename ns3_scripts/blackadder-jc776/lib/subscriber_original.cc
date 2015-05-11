@@ -86,8 +86,7 @@ namespace ns3 {
                 NS_LOG_INFO("Node " << GetNode()->GetId() << ": STOP_PUBLISH: " << chararray_to_hex(ev->id));
                 break;
             case PUBLISHED_DATA:
-                //NS_LOG_INFO("Node " << GetNode()->GetId() << ": PUBLISHED_DATA: " << chararray_to_hex(ev->id));
-		NS_LOG_INFO("Node " << GetNode()->GetId() << ": Received " << ev->data_len << " chars: " << std::string((char *)ev->data, 10) << "...");
+                NS_LOG_INFO("Node " << GetNode()->GetId() << ": PUBLISHED_DATA: " << chararray_to_hex(ev->id));
                 //NS_LOG_INFO("data size: " << ev->data_len);
                 //NS_LOG_INFO(std::string((char *)ev->data, ev->data_len));
                 break;

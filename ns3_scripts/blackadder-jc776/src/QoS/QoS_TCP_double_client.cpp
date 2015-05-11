@@ -18,6 +18,9 @@
 using namespace ns3;
 NS_LOG_COMPONENT_DEFINE("topology");
 int main(int argc, char *argv[]) {
+   // Use a payload size that works with 1500 MTU, instead of the default
+   Config::SetDefault ("ns3::TcpSocket::SegmentSize", UintegerValue (1448));
+   
    // LogComponentEnable ("Ns2MobilityHelper",LOG_LEVEL_DEBUG);
    
    // jc776 - Find source file's path.
@@ -186,17 +189,21 @@ int main(int argc, char *argv[]) {
   // rcInterfaces.GetAddress(1) is 'the second half of the router-client interface' so the client...
   Address remoteAddress (InetSocketAddress (rcInterface1.GetAddress(1), servPort));
   OnOffHelper clientHelper ("ns3::TcpSocketFactory", remoteAddress);
-  clientHelper.SetConstantRate(DataRate ("2.2MB/s"));
+  clientHelper.SetConstantRate(DataRate ("5Mb/s"));
+  clientHelper.SetAttribute ("StartTime", TimeValue (Seconds (2.34)));
+  clientHelper.SetAttribute ("StopTime", TimeValue (Seconds (14.87)));
   ApplicationContainer clientApp = clientHelper.Install (node0);
-  clientApp.Start (Seconds (2.34));
-  clientApp.Stop (Seconds (14.87));
+  //clientApp.Start (Seconds (2.34));
+  //clientApp.Stop (Seconds (14.87));
 
   Address remoteAddress2 (InetSocketAddress (rcInterface2.GetAddress(1), servPort));
   OnOffHelper clientHelper2 ("ns3::TcpSocketFactory", remoteAddress2);
-  clientHelper2.SetConstantRate(DataRate ("2.2MB/s"));
+  clientHelper2.SetConstantRate(DataRate ("5Mb/s"),1316); //1316 payload
+  clientHelper2.SetAttribute ("StartTime", TimeValue (Seconds (2.34)));
+  clientHelper2.SetAttribute ("StopTime", TimeValue (Seconds (14.87)));
   ApplicationContainer clientApp2 = clientHelper2.Install (node0);
-  clientApp2.Start (Seconds (2.34));
-  clientApp2.Stop (Seconds (14.87));
+  //clientApp2.Start (Seconds (2.34));
+  //clientApp2.Stop (Seconds (14.87));
 
    //Set up tracing on the up/down wire.
    AsciiTraceHelper ascii;

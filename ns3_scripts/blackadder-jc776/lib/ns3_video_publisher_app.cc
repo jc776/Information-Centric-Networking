@@ -99,19 +99,19 @@ namespace ns3 {
         {
                 //jc776: The packet is 1316 of the same letter, changing when the event is called (loops 'A' to 'Z')
                 // This is slightly less than 'Youtube 720p' data rate.
+		// https://support.google.com/youtube/answer/1722171?hl=en-GB
 
 	        m_video_data = (m_video_data + 1) % 26;
                 char *payload = (char *) malloc(1316);
                 memset(payload, 'A'+m_video_data, 1316);
                 publish_data(m_video_channelID, DOMAIN_LOCAL, NULL, 0, payload, 1000);
                 free(payload);
-	
+		
 	        NS_LOG_INFO("Payload letter " << string(1,'A'+m_video_data));
         }
 	
-	//jc776: 500ms changed to 3/5000s = 3/5ms = 600us
-
-        m_Event = Simulator::Schedule(MicroSeconds(600), &VideoPublisher::change_data, this);
+	//jc776: 500ms changed to 5Mbps / (8b/B) / 1316B = 2.1ms
+        m_Event = Simulator::Schedule(MicroSeconds(2106), &VideoPublisher::change_data, this);
     }
 
     void VideoPublisher::EventHandler(Ptr<Event> ev) {

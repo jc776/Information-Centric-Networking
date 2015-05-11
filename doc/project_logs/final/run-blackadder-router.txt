@@ -1,0 +1,58 @@
+Set up OpenWRT.
+Install Blackadder on the router via openwrt_packages/click_blackadder/README
+
+Using deploy_scripts/2nodes_PCtoRouter
+- My PC doesn't have passwordless sudo and the router doesn't have a jack account, so we have to manually deploy the files.
+- Copies of files in deploy_scripts
+
+I am 192.168.1.2
+The router is the gateway, 192.168.1.1
+
+Blackaddder nodes:
+00000001: Router. (FN)
+00000002: PC (FN, RV, TM)
+
+I haven't ran any Pub/Sub applications (apart from TM) through it, as I'd need to deploy to a third PC.
+
+
+
+./blackadder/deployment/deploy -c ./Information-Centric-Networking/deploy_scripts/2nodes_PCtoRouter.cfg --nostart --nocopy
+scp /tmp/00000001.conf root@192.168.1.1:  
+scp /tmp/00000001_TMFID.txt  root@192.168.1.1:
+
+ssh root@192.168.1.1:
+click-align 00000001.conf > 00000001_aligned.conf
+
+click 00000001_aligned.conf 
+*******************************************************GLOBAL CONFIGURATION*******************************************************
+GlobalConf: NodeID: 00000001
+GlobalConf: FID to the TM: 0000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+GlobalConf: RV Scope: \<FFFFFFFFFFFFFFFF>
+GlobalConf: TM scope: \<FFFFFFFFFFFFFFFE>
+GlobalConf: Information ID to publish RV requests: \<FFFFFFFFFFFFFFFF3030303030303031>
+GlobalConf: Information ID to publish TM requests: \<FFFFFFFFFFFFFFFE3030303030303031>
+GlobalConf: Information ID to subscribe for receiving all notifications: \<FFFFFFFFFFFFFFFD3030303030303031>
+GlobalConf: default FID for RendezVous node 0000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+*****************************************************FORWARDER CONFIGURATION*****************************************************
+Forwarder: internal LID: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Forwarder: Number of Links: 1
+Forwarder: Added forwarding entry: port 1 - source IP: 192.168.1.1 - destination IP: 192.168.1.2 - LID: 0000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+*********************************************************************************************************************************
+
+(... Ctrl C to quit:)
+
+ToNetlink: Cleaned Up!
+FromNetlink: Cleaned Up!
+Netlink: Cleaned up!
+LocalRV: Cleaned Up!
+Forwarder: Cleaned Up!
+LocalProxy: Cleaned Up!
+GlobalConf: Cleaned Up!
+ToNetlink: destroyed!
+FromNetlink: destroyed!
+Netlink: destroyed!
+LocalRV: destroyed!
+Forwarder: destroyed!
+LocalProxy: destroyed!
+GlobalConf: destroyed!
+
