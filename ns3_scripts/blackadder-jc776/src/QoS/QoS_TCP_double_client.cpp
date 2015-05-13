@@ -189,7 +189,7 @@ int main(int argc, char *argv[]) {
   // rcInterfaces.GetAddress(1) is 'the second half of the router-client interface' so the client...
   Address remoteAddress (InetSocketAddress (rcInterface1.GetAddress(1), servPort));
   OnOffHelper clientHelper ("ns3::TcpSocketFactory", remoteAddress);
-  clientHelper.SetConstantRate(DataRate ("5Mb/s"));
+  clientHelper.SetConstantRate(DataRate ("5Mb/s"),1316);
   clientHelper.SetAttribute ("StartTime", TimeValue (Seconds (2.34)));
   clientHelper.SetAttribute ("StopTime", TimeValue (Seconds (14.87)));
   ApplicationContainer clientApp = clientHelper.Install (node0);

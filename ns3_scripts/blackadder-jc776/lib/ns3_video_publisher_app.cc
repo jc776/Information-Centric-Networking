@@ -101,16 +101,17 @@ namespace ns3 {
                 // This is slightly less than 'Youtube 720p' data rate.
 		// https://support.google.com/youtube/answer/1722171?hl=en-GB
 
+		const int payload_size = 1316;
 	        m_video_data = (m_video_data + 1) % 26;
-                char *payload = (char *) malloc(1316);
-                memset(payload, 'A'+m_video_data, 1316);
-                publish_data(m_video_channelID, DOMAIN_LOCAL, NULL, 0, payload, 1000);
+                char *payload = (char *) malloc(payload_size);
+                memset(payload, 'A'+m_video_data, payload_size);
+                publish_data(m_video_channelID, DOMAIN_LOCAL, NULL, 0, payload, payload_size);
                 free(payload);
 		
 	        NS_LOG_INFO("Payload letter " << string(1,'A'+m_video_data));
         }
 	
-	//jc776: 500ms changed to 5Mbps / (8b/B) / 1316B = 2.1ms
+	//jc776: 500ms changed to 5Mbps / (8b/B) / 1316B = 474.9hz = 1/2.1056ms
         m_Event = Simulator::Schedule(MicroSeconds(2106), &VideoPublisher::change_data, this);
     }
 
