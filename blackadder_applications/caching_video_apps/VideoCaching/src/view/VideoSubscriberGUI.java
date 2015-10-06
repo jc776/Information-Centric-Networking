@@ -32,6 +32,7 @@ import pubsub.VideoSubscriber;
 
 import cache.ClientVideoPlayer;
 import cache.ClientDatagramHandler;
+import cache.PacketUIPanel;
 
 import util.ProjectPropertiesSingleton;
 
@@ -65,6 +66,8 @@ public class VideoSubscriberGUI implements SubscriberView{
 	
 	private ClientVideoPlayer player;
 	private ClientDatagramHandler cache;
+	
+	private PacketUIPanel packetPanel;
 	
 	//private Timer timer;
 	
@@ -129,7 +132,7 @@ public class VideoSubscriberGUI implements SubscriberView{
         cache = new ClientDatagramHandler(player);
 		
 		// Start the event handler
-		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);
+		SubscriberEventHandler handler = new SubscriberEventHandler(packetPanel,this,cache);
 		handler.start();
 		
 	}
@@ -148,10 +151,13 @@ public class VideoSubscriberGUI implements SubscriberView{
 				client.disconnect();
 			}
 		});
-		frmBlackvidPubsubber.setTitle("BlackVid Subscriber");
+		frmBlackvidPubsubber.setTitle("Client");
 		frmBlackvidPubsubber.setBounds(100, 100, 450, 300);
 		frmBlackvidPubsubber.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBlackvidPubsubber.getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		packetPanel = new PacketUIPanel();
+		frmBlackvidPubsubber.getContentPane().add(packetPanel, BorderLayout.CENTER);
 		
 		final JPanel panel = new JPanel();
 		frmBlackvidPubsubber.getContentPane().add(panel, BorderLayout.SOUTH);
@@ -160,7 +166,9 @@ public class VideoSubscriberGUI implements SubscriberView{
 		JButton subscribeButton = new JButton("subscribe");
 		subscribeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				if(!videoSubscriber.subscribeTheVideo())
+				boolean success = videoSubscriber.subscribeTheVideo() && videoSubscriber.subscribeTheCache();
+				
+				if(!success)
 					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.");
 			}
 		});
@@ -179,18 +187,19 @@ public class VideoSubscriberGUI implements SubscriberView{
 		frmBlackvidPubsubber.getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		// Instead, automatic refresh.
-/*
-		JButton refreshButton = new JButton("Refresh Catalogue");
+		// Very manual
+		JButton refreshButton = new JButton("Unsub Cache");
 		refreshButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// unsubscribe and then subscribe again.
-//				videoSubscriber.unsubscribeCatalog();
-				videoSubscriber.subscribeCatalog();
+				//videoSubscriber.unsubscribeCatalog();
+				//videoSubscriber.subscribeCatalog();
+				
+				videoSubscriber.unsubscribeTheCache();
 			}
 		});
 		panel_1.add(refreshButton);
-*/
+
 	}
 	
 	//private String getChannelID(){

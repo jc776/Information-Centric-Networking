@@ -83,7 +83,7 @@ public class VideoPublisher{
 	
 	public boolean publishTheVideo(String path) throws DecoderException{
 		try {
-			String catString = "0000000000000000";
+			String catString = NamedItems.getVideoString();
 			ByteIdentifier catID = new ByteIdentifier(Hex.decodeHex(catString.toCharArray()));
 			catName = new ItemName(superScope, catID);
 			client.publishItem(catName, strategy);

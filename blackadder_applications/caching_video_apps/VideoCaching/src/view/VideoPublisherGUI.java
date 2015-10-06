@@ -134,7 +134,7 @@ public class VideoPublisherGUI implements PublisherView{
 				client.disconnect();
 			}
 		});
-		frmBlackvidPubsubber.setTitle("BlackVid Publisher");
+		frmBlackvidPubsubber.setTitle("Server");
 		frmBlackvidPubsubber.setBounds(100, 100, 450, 300);
 		frmBlackvidPubsubber.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBlackvidPubsubber.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -147,7 +147,7 @@ public class VideoPublisherGUI implements PublisherView{
 		publishButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String path = "./video/video.mp4"; // chooser.getSelectedFile().getAbsolutePath()
+				String path = "./video/video.mkv"; // chooser.getSelectedFile().getAbsolutePath()
 				
 				try {
 					// publish the single video

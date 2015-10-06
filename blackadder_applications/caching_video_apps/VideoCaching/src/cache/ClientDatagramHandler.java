@@ -33,7 +33,7 @@ public class ClientDatagramHandler extends Thread implements
 		this.player = player;
 
 		playerQueue = new LinkedBlockingQueue<DatagramPacket>();
-		frameWindow = new SlidingWindowQueue1<>(this, 1000, 0);
+		frameWindow = new SlidingWindowQueue1<DatagramPacket>(this, 3000, 0);
 		timer = new Timer();
 	}
 

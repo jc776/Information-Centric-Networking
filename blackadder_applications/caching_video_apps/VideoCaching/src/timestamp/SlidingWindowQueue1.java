@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class SlidingWindowQueue1<T> {
-	// does not account for timestamp going past INT_MAX
-	
 	// set(): Puts a new value in, and MIGHT cause one or more outputs (if it's the next expected one, or receiving far-future items)
 	
 	private ISlidingWindowReceiver<T> receiver;
@@ -33,8 +31,6 @@ public class SlidingWindowQueue1<T> {
 	// receive nextTimestamp: Output it immediately, increment timestamp, check and output next slots if stored.
 	// receive nextTimestamp+1 up to nextTimestamp+capacity: Store it, wait.
 	// receive x = nextTimestamp+capacity+1 onwards: Skip up until (x - 300), outputting any intermediate values. 
-	
-	// rushTo x: Skip any ones we don't have up to x, using callback for any stored values.
 	
 	public SetStatus set(int timestamp, T value)
 	{
@@ -115,24 +111,27 @@ public class SlidingWindowQueue1<T> {
 		}
 	}
 	
-	// Output anything we have to get to at least this slot, skipping empty slots
-	private void rushTo(int timestamp)
+	// rushTo x: Skip any ones we don't have up to x, outputting any values we do have.
+	private boolean rushTo(int timestamp)
 	{
+		boolean hadToSkip = false;
 		while(nextTimestamp < timestamp)
 		{
 			T value = buffer.set(head,null);
 			
-			if(value != null)
+			if(value == null)
+				hadToSkip = true;
+			else
 				onValue(value,nextTimestamp);
 			
 			incHead();
 		}
+		return hadToSkip;
 	}
 	
 	private void onValue(T value,int timestamp)
 	{
 		receiver.onValue(value, timestamp);
-		//System.out.println("Output #" + timestamp + ":" + value.toString());
 	}
 	
 }

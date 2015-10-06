@@ -1,98 +1,39 @@
 package cache;
 
 /**
- * Buffers datagrams & cache's multiple-datagram packets, outputting to video player
+ * Stores ~1 sec of packets at a time
  * @author John Coady
  * @version 07/04/2015
  */
- 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.net.DatagramPacket;
 
-import java.io.IOException;
-import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
+import java.net.DatagramPacket;
  
-public class CacheDatagramHandler extends Thread implements IDatagramHandler
+public class CacheDatagramHandler implements IDatagramHandler
 {
-	private ClientVideoPlayer player;
-	private BlockingQueue<DatagramPacket> queue;
+	private ArrayList<DatagramPair> cache = new ArrayList<DatagramPair>(2000);
 	
-	private boolean started;
-	private Timer timer;
-	
-	public CacheDatagramHandler(ClientVideoPlayer player)
+	public CacheDatagramHandler()
 	{
-		this.player = player;
-		
-		queue = new LinkedBlockingQueue<DatagramPacket>();
-		timer = new Timer();
 	}
 	
-	// When I first recieve a packet, wait three seconds, then start the thread.
+	// When I receive a packet, put it in the list
+	// Remove the oldest elements when it gets full
 	public synchronized void put(int timestamp, DatagramPacket packet)
 	{
-		// synchronized for 'first packet starts the timer'
-		// not needed for 'queue'.
-		if(!started)
-		{
-			timer.schedule(new TimerTask()
-			{
-				@Override
-		  		public void run()
-		  		{
-		  			CacheDatagramHandler.this.start();
-				}
-			}, 3*1000);
-			
-			started = true;
-		}
+		cache.add(new DatagramPair(timestamp,packet));
 		
-		try
+		if(cache.size() == 2000)
 		{
-			queue.put(packet);
-		}
-		catch(InterruptedException ex)
-		{
-			// Not sure if expecting this whenever, or on end, or on error...
-			System.out.println("ClientDatagramCache: Queue interrupted.");
-			Thread.currentThread().interrupt();
+			// remove the oldest elements
+			cache.subList(0, 750).clear();
 		}
 	}
 	
-	// Thread: consume items from the queue as fast as possible
-	public void run()
+	@SuppressWarnings("unchecked") // cache is always a List<DP> so clone result should be.
+	public synchronized List<DatagramPair> getContents()
 	{
-		try
-		{
-			while (true)
-			{
-				consume(queue.take());
-			}
-		}
-		catch(InterruptedException ex)
-		{
-			// Not sure if expecting this whenever, or on end, or on error...
-			System.out.println("ClientDatagramCache: Queue interrupted.");
-			Thread.currentThread().interrupt();
-		}
-	}
-	
-	// Send a packet to the video player
-	void consume(DatagramPacket packet)
-	{
-		// I'd prefer the program to end on exceptions here?
-		try
-		{
-			player.send(packet);
-		} catch (SocketException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return (List<DatagramPair>) cache.clone();
 	}
 }

@@ -27,11 +27,9 @@ import javax.swing.JButton;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 
-import pubsub.SubscriberEventHandler;
+import pubsub.CacheEventHandler;
+import pubsub.VideoCachePublisher;
 import pubsub.VideoSubscriber;
-
-import cache.CacheDatagramHandler;
-import cache.ClientVideoPlayer;
 
 import util.ProjectPropertiesSingleton;
 
@@ -51,19 +49,18 @@ import java.awt.event.WindowEvent;
  * Cache program: both a publisher and a subscriber
  * @author John Coady
  */
-public class VideoCacheGUI implements SubscriberView{
+public class VideoCacheGUI implements CacheView, SubscriberView{
 
 	private JFrame frmBlackvidPubsubber;
 	
 	private ByteIdentifier rootScopeId;
 	private BlackAdderClient client;
 	private ScopeID rootScope;
+	
+	private VideoCachePublisher videoCachePublisher;
 	private VideoSubscriber videoSubscriber;
 	//private long channelID;
 	private Strategy strategy = Strategy.DOMAIN_LOCAL;
-	
-	private ClientVideoPlayer player;
-	private CacheDatagramHandler cache;
 
 	/**
 	 * Launch the application.
@@ -96,36 +93,18 @@ public class VideoCacheGUI implements SubscriberView{
 		//channelID = 1;
 		
 		// Initialise the rootscope
-		// publish the root scope where all videos will be published
+		// use the root scope started by the publisher
 		String rootScopeStr = "1111111111111111";
         ByteIdentifier rootId = new ByteIdentifier(Hex.decodeHex(rootScopeStr.toCharArray()));
         rootScope = new ScopeID(rootId);
+        
 		
-		// immediately subscribe to the catalog
+        // The cache subscribes to the video AND publishes an item
+        videoCachePublisher = new VideoCachePublisher(client, rootScope, strategy);
 		videoSubscriber = new VideoSubscriber(client, rootScope, strategy);
 		
-		// subscribe to catalog - starting 'automatic refresh'
-		//System.out.println("I'M SUBSCRIBING TO THE CATALOG");
-		//videoSubscriber.subscribeCatalog();
-		
-		/*timer = new Timer();
-		timer.schedule(new TimerTask()
-		{
-			@Override
-			public void run()
-			{
-				
-			}
-		}, 5*1000);*/
-		        
-        // create the video player
-        player = new ClientVideoPlayer();
-        
-        // create the delay cache
-        cache = new CacheDatagramHandler(player);
-		
 		// Start the event handler
-		SubscriberEventHandler handler = new SubscriberEventHandler(this,cache);
+		CacheEventHandler handler = new CacheEventHandler(this,strategy);
 		handler.start();
 		
 	}
@@ -144,7 +123,7 @@ public class VideoCacheGUI implements SubscriberView{
 				client.disconnect();
 			}
 		});
-		frmBlackvidPubsubber.setTitle("BlackVid Subscriber");
+		frmBlackvidPubsubber.setTitle("Cache");
 		frmBlackvidPubsubber.setBounds(100, 100, 450, 300);
 		frmBlackvidPubsubber.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBlackvidPubsubber.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -153,20 +132,32 @@ public class VideoCacheGUI implements SubscriberView{
 		frmBlackvidPubsubber.getContentPane().add(panel, BorderLayout.SOUTH);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JButton subscribeButton = new JButton("subscribe");
+		JButton subscribeButton = new JButton("start cache");
 		subscribeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				if(!videoSubscriber.subscribeTheVideo())
-					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.");
+				// Subscribe to the video and publish the cache
+				boolean ok = false;
+				try
+				{
+					ok = videoSubscriber.subscribeTheVideo() && videoCachePublisher.publishTheCache();
+				} catch (DecoderException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					ok = false;
+				}
+				if(!ok)
+					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong starting the cache.");
+
 			}
 		});
 		panel.add(subscribeButton);
 		
-		JButton unsubscribeButton = new JButton("unsubscribe");
+		JButton unsubscribeButton = new JButton("stop cache");
 		unsubscribeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Unsubscribe from the video and unpublish the cache
 				if(!videoSubscriber.unsubscribeTheVideo())
-					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong with the subscription.\nPerhaps you had not subscribed to that video?");
+					JOptionPane.showMessageDialog(frmBlackvidPubsubber, "Something went wrong stopping the cache - did you start it first?");
 			}
 		});
 		panel.add(unsubscribeButton);
@@ -224,11 +215,17 @@ public class VideoCacheGUI implements SubscriberView{
 	//	this.channelID = channelID;
 	//}
 	
+	public void setVideoSubscriber(VideoSubscriber videoSubscriber) {
+		this.videoSubscriber = videoSubscriber;
+	}
+	
+	@Override
 	public VideoSubscriber getVideoSubscriber() {
 		return videoSubscriber;
 	}
 
-	public void setVideoSubscriber(VideoSubscriber videoSubscriber) {
-		this.videoSubscriber = videoSubscriber;
+	@Override
+	public VideoCachePublisher getCachePublisher() {
+		return videoCachePublisher;
 	}
 }

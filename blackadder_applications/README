@@ -1,0 +1,11 @@
+VideoDemoVLC2 is the same VideoDemo as Blackadder, but updated for VLC 2 and a
+more recent VLCj version.
+
+VideoCaching sets up a cache node (as well as server, client) and does transfer 
+data, but did not work in practice.
+
+deploy_sudo is the Deployment tool modified to use a different Bash command, 
+which has you enter the password for each command over SSH. 
+Blackadder's instructions instead add users to an 'no-password sudo' group.
+Without either of these, it stalls at a password prompt that isn't shown over 
+SSH.

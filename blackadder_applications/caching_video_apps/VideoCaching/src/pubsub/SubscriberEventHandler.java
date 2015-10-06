@@ -20,6 +20,7 @@ import java.net.SocketException;
 import eu.pursuit.core.Event;
 import view.SubscriberView;
 import cache.IDatagramHandler;
+import cache.PacketUIPanel;
 
 // jc776
 import java.nio.ByteBuffer;
@@ -32,11 +33,13 @@ import java.nio.ByteBuffer;
  */
 public class SubscriberEventHandler extends Thread {
 
+	private PacketUIPanel panel;
 	private SubscriberView gui;
 	private IDatagramHandler cache;
 
-	public SubscriberEventHandler(SubscriberView gui, IDatagramHandler cache)
+	public SubscriberEventHandler(PacketUIPanel panel, SubscriberView gui, IDatagramHandler cache)
 			throws SocketException {
+		this.panel = panel;
 		this.gui = gui;
 		this.cache = cache;
 	}
@@ -50,8 +53,7 @@ public class SubscriberEventHandler extends Thread {
 			switch (event.getType()) {
 			case PUBLISHED_DATA:
 				// Subscriber receives event.
-				// Minimal version: it can only be 'the' video
-				// Is a video
+				// Minimal version: it is a single timestamped packet, whether it's from the cache or the server
 				// get the packet and UDP it.
 				// try {
 				// jc776: Packet = [TIMESTAMP][VIDEO DATAGRAM]
@@ -68,6 +70,14 @@ public class SubscriberEventHandler extends Thread {
 
 				DatagramPacket packet = new DatagramPacket(buffer,
 						timestamp_size, datagram_size);
+				
+				// uses "< 0" timestamps to display source: red vs black
+				panel.put(timestamp);
+				
+				boolean fromCache = timestamp < 0;
+				if(fromCache)
+					timestamp = -timestamp;
+				
 				cache.put(timestamp, packet);
 				// } catch (SocketException e) {
 				// // TODO Auto-generated catch block

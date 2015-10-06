@@ -5,12 +5,7 @@ IF DEPLOYING BLACKADDER ON A ROUTER, CROSS-COMPILE/INSTALL THIS PACKAGE (NOT "cl
 This is a new package for 'click and blackadder'.
 A copy of the original is in 'click', used only as a reference of a working cross-compile. (not a dependency)
 
-When used with the SDK, it downloads a specific revision of Click, adds a local copy of Blackadder and cross-compiles the result as an ipk file.
-
-See openwrt-on-router (SSH into router setup)
-See blackadder-on-pc (Dependencies for Blackadder & Click)
-See packages-on-openwrt (SDK setup)
-See blackadder-on-router (Documents creating this)
+When used with the SDK, it downloads a specific revision of Click, adds the latest revision of Blackadder and cross-compiles the result as an ipk file.
 
 Install instructions
 --------------------
