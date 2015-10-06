@@ -45,8 +45,6 @@ Send files to router:
 	Install the dependencies, then click.
 	opkg install [...].ipk
 
-Clone click (to a different folder) - https://github.com/kohler/click
-Link (or copy) click clone in src/ folder.
 Link this folder (openwrt_packages/click) in SDK's packages/ folder
 Run 'make' in SDK folder
 
