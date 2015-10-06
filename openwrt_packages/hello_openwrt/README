@@ -1,0 +1,36 @@
+jc776: THIS IS NOT AN OFFICIAL OPENWRT OR CLICK PACKAGE
+
+See install-router-openwrt (SSH into router setup)
+See install-router-packages (SDK setup)
+
+Install instructions
+--------------------
+Get OpenWRT SDK
+Link this folder in the SDK's packages folder.
+	ln -s $HOME/.../hello_openwrt $HOME/.../OpenWRT-SDK-.../package
+
+(OpenWRT-SDK-...)
+	make
+
+Find ipk file in OpenWRT-SDK-.../bin
+Mine was bin/ar71xx/packages/base/hello_openwrt[...].ipk
+	
+Send files to router:
+    scp hello_openwrt_1_ar71xx.ipk root@192.168.1.1:
+	[enter password]
+
+Install and run:
+  (SSH into router, router's home folder)
+  root@OpenWrt:~# ls
+  hello_openwrt_1_ar71xx.ipk
+  root@OpenWrt:~# opkg install hello_openwrt_1_ar71xx.ipk 
+  Installing hello_openwrt (1) to root...
+  Configuring hello_openwrt.
+  root@OpenWrt:~# hello_openwrt
+  Hello, OpenWRT package manager!
+
+To remove a package:
+  root@OpenWrt:~# opkg remove hello_openwrt
+  Removing package hello_openwrt from root...
+  root@OpenWrt:~# hello_openwrt
+  -ash: hello_openwrt: not found
